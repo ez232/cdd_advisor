@@ -1,0 +1,16 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+iPhone:
+  name: Apple iPhone
+  target_market:
+  timescale: 1 year
+  volume_of_sale: 1000000
+  final_price: 1.99
+
+GalaxySIII:
+  name: Samsung Galasy SIII
+  target_market: half world
+  timescale: 5 years
+  volume_of_sale: 1000000
+  final_price: 0.99

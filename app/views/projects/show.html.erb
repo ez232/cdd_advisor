@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @project.name %>
+</p>
+
+<p>
+  <b>Target market:</b>
+  <%= @project.target_market %>
+</p>
+
+<p>
+  <b>Timescale:</b>
+  <%= @project.timescale %>
+</p>
+
+<p>
+  <b>Volume of sale:</b>
+  <%= @project.volume_of_sale %>
+</p>
+
+<p>
+  <b>Final price:</b>
+  <%= @project.final_price %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
