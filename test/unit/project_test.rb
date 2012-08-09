@@ -81,12 +81,20 @@ class ProjectTest < ActiveSupport::TestCase
     assert project.valid?
 
     project.target_market = nil
-    assert project.maximum_target?
+    assert project.maximum_target
 
     project.target_market = ""
-    assert project.maximum_target?
+    assert project.maximum_target
 
     project.target_market = "zzz"
-    assert !project.maximum_target?
+    assert !project.maximum_target
+
+    project.target_market = "zzz"
+    project.maximum_target = true
+    assert project.target_market.nil?
+
+    project.target_market = "zzz"
+    project.maximum_target = false
+    assert !project.target_market.nil?
   end
 end
