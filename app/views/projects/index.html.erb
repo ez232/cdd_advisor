@@ -1,23 +1,26 @@
 <h1>Projects</h1>
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-  </tr>
-  <% @projects.each do |project| %>
-    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-      <td class="list_description"><%= project.name %></td>
-      <td class="list_actions">
-          <%= link_to 'View', project %>
-          <%= link_to 'Edit', edit_project_path(project) %>
-          <%= link_to 'Remove', project, method: :delete, 
-                      data: { confirm: 'Are you sure?' } %>
-      </td>
+
+<% unless @projects.empty? %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th></th>
     </tr>
-  <% end %>
-  <tr>
-    <td colspan="2"><%= will_paginate @projects %></td>
-  </tr>
-</table>
+    <% @projects.each do |project| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td class="list_description"><%= project.name %></td>
+        <td class="list_actions">
+            <%= link_to 'View', project %>
+            <%= link_to 'Edit', edit_project_path(project) %>
+            <%= link_to 'Remove', project, method: :delete, 
+                        data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+    <tr>
+      <td colspan="2"><%= will_paginate @projects %></td>
+    </tr>
+  </table>
+<% end %>
 <br />
 <%= link_to 'New Project', new_project_path, class: 'button' %>

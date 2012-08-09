@@ -17,7 +17,7 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.check_box :maximum_target, checked: false %>
+    <%= f.check_box :maximum_target %>
     Target as many people as possible?
   </div>
   <div class="field">
@@ -37,6 +37,6 @@
     <%= f.text_field :final_price %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Next >>" %>
   </div>
 <% end %>

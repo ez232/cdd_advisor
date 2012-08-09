@@ -1,0 +1,34 @@
+<div id="menu">
+  <span>Project Specifications</span>
+  &nbsp;&nbsp;&gt;&gt;&nbsp;&nbsp;
+  <span id="current">Design Proposals</span>
+  &nbsp;&nbsp;&gt;&gt;&nbsp;&nbsp;
+  <span>Design Proposals Presentation</span>
+</div>
+
+<h1>Proposals</h1>
+
+<% unless @proposals.empty? %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+    <% @proposals.each do |proposal| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td class="list_description"><%= proposal.name %></td>
+        <td class="list_actions">
+          <%= link_to 'Edit', edit_proposal_path(proposal) %>
+          <%= link_to 'Remove', proposal, method: :delete, 
+                      data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+<br />
+<%= link_to 'New Proposal', new_proposal_path, class: 'button'  %>
+<%= link_to 'Next >>', "/", class: 'button'  %>
+<br /><br />
+<%= link_to 'Home', projects_url %> |
+<%= link_to 'Back', edit_project_path(@project) %>

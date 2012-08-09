@@ -23,7 +23,7 @@ class ProjectsControllerTest < ActionController::TestCase
         timescale: @project.timescale, volume_of_sale: @project.volume_of_sale }
     end
 
-    assert_redirected_to project_path(assigns(:project))
+    assert_redirected_to proposals_url
   end
 
   test "should show project" do
@@ -40,7 +40,7 @@ class ProjectsControllerTest < ActionController::TestCase
     put :update, id: @project, project: { final_price: @project.final_price, 
       name: @project.name, target_market: @project.target_market, 
       timescale: @project.timescale, volume_of_sale: @project.volume_of_sale }
-    assert_redirected_to project_path(assigns(:project))
+    assert_redirected_to proposals_url
   end
 
   test "should destroy project" do

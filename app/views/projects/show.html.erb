@@ -19,5 +19,15 @@
   <%= number_to_currency @project.final_price %>
 </p>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
+<% unless @project.proposals.empty? %>
+  <% @project.proposals.each do |proposal| %>
+    <h1><%= proposal.name %></h1>
+    <p>Attribute 1</p>
+    <p>Attribute 2</p>
+    <p>...</p>
+  <% end %>
+<% end %>
+
+<br />
+
 <%= link_to 'Back', projects_path %>

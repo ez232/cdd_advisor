@@ -7,3 +7,8 @@ $ ->
       text = $(this).parent().parent().find('#project_target_market')
       text.attr('disabled', $(this).is(':checked'))
       text.val(null) if $(this).is(':checked')
+
+$ ->
+  cb = $(this).find('#project_maximum_target')
+  text = $(this).find('#project_target_market')
+  text.attr('disabled', cb.is(':checked'))

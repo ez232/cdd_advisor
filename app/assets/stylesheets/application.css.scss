@@ -22,12 +22,12 @@ $light-blue: #DAEDE2;
 $red: #EA2E49;
 $eee-grey: #EEE;
 $ddd-grey: #DDD;
-$black: #333;
+$dark-grey: #333;
 
 /* global padding */
 $small-padding: 10px;
 $padding: 25px;
-$shadow: 1px 1px 2px $black;
+$shadow: 1px 1px 2px $dark-grey;
 
 // font-family: 'Ropa Sans', sans-serif;
 // font-family: 'Gentium Basic', serif;
@@ -40,7 +40,7 @@ body {
   background-image: url("stripe.png");
   background-repeat: repeat;
   text-align: center;
-  color: $black;
+  color: $dark-grey;
 }
 
 #container {
@@ -69,10 +69,16 @@ body {
 
   #menu {
     background-color: $yellow;
-    box-shadow: $shadow;
     padding: $small-padding;
     padding-left: $padding;
-  }
+    margin: -25px;
+    margin-bottom: 25px;
+
+     #current {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  } 
 
   #main {
     padding: $padding;
@@ -87,6 +93,10 @@ body {
     box-shadow: $shadow;
     padding: $small-padding;
     padding-left: $padding;
+
+    a {
+      color: $ddd-grey;
+    }
   }
 }
 
@@ -138,13 +148,13 @@ pre {
   font-size: 11px; }
 
 a {
-  color: $black;
+  color: $dark-grey;
   &:visited {
-    color: $black; 
+    color: $dark-grey; 
   }
   &:hover {
     color: $eee-grey;
-    background-color: $black; 
+    background-color: $dark-grey; 
   } 
 }
 
@@ -157,7 +167,7 @@ div {
 input {
   border: 1px $blue solid;
   font-family: 'Ropa Sans', sans-serif;
-  color: $black;
+  color: $dark-grey;
   padding: 5px;
 }
 
@@ -166,7 +176,7 @@ input[type=submit] {
   padding: $small-padding;
   &:hover {
     color: $eee-grey;
-    background-color: $black;
+    background-color: $dark-grey;
     cursor: pointer;
   } 
 }
@@ -174,7 +184,7 @@ input[type=submit] {
 .button {
   border: 1px $blue solid;
   font-family: 'Ropa Sans', sans-serif;
-  color: $black;
+  color: $dark-grey;
   background-color: $blue;
   padding: $small-padding;
   text-decoration: none;

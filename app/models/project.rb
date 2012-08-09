@@ -8,6 +8,8 @@ class Project < ActiveRecord::Base
   validates :final_price, numericality: { greater_than_or_equal_to: 0.01 },
     allow_blank: true
 
+  has_many :proposals, dependent: :destroy
+
   def maximum_target=(value)
     self.target_market = nil if value
   end
