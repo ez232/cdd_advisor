@@ -1,30 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @project.name %>
-</p>
+ <h1><%= @project.name %></h1>
 
 <p>
-  <b>Target market:</b>
+  <span class="label">Target market:</span>
   <%= @project.target_market %>
 </p>
-
 <p>
-  <b>Timescale:</b>
+  <span class="label">Timescale:</span>
   <%= @project.timescale %>
 </p>
-
 <p>
-  <b>Volume of sale:</b>
-  <%= @project.volume_of_sale %>
+  <span class="label">Volume of sale:</span>
+  <%= number_with_delimiter @project.volume_of_sale %>
 </p>
-
 <p>
-  <b>Final price:</b>
-  <%= @project.final_price %>
+  <span class="label">Final price:</span>
+  <%= number_to_currency @project.final_price %>
 </p>
-
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

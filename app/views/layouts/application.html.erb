@@ -2,16 +2,22 @@
 <html>
 <head>
   <title>CddAdvisor</title>
-  <link 
-    href='http://fonts.googleapis.com/css?family=Ropa+Sans|Gentium+Basic|Advent+Pro:600'
-    rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Ropa+Sans|Gentium+Basic|Advent+Pro' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-1Rafael asdfadf
-<%= yield %>
+<body class="<%= controller.controller_name %>">
 
+  <div id="container">
+    <div id="banner">
+      <%= image_tag("cambridge.png") %> 
+      <p>Client-Designer Design Advisor</p>
+    </div>
+    <div id="main">
+      <%= yield %>
+    </div>
+    <div id="footer">Bla bla bla</div>
+  </div>
 </body>
 </html>

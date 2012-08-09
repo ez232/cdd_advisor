@@ -1,0 +1,221 @@
+//
+// This is a manifest file that'll be compiled into application.css, which will 
+// include all the files listed below.
+//
+// Any CSS and SCSS file within this directory, lib/assets/stylesheets, 
+// vendor/assets/stylesheets, or vendor/assets/stylesheets of plugins, if any, 
+// can be referenced here using a relative path.
+//
+// You're free to add application-wide styles to this file and they'll appear at 
+// the top of the compiled file, but it's generally better to create a new file 
+// per style scope.
+//
+//= require_self
+//= require_tree .
+//
+
+/* colors */
+$yellow: #F6F792;
+$grey: #333745;
+$blue: #77C4D3;
+$light-blue: #DAEDE2;
+$red: #EA2E49;
+$eee-grey: #EEE;
+$ddd-grey: #DDD;
+$black: #333;
+
+/* global padding */
+$small-padding: 10px;
+$padding: 25px;
+$shadow: 1px 1px 2px $black;
+
+// font-family: 'Ropa Sans', sans-serif;
+// font-family: 'Gentium Basic', serif;
+// font-family: 'Advent Pro', sans-serif;
+
+body {
+  font-family: 'Ropa Sans', sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  background-image: url("stripe.png");
+  background-repeat: repeat;
+  text-align: center;
+  color: $black;
+}
+
+#container {
+  margin: 0 auto;
+  width: 800px;
+  text-align: left;
+
+  #banner {
+    background: $grey;
+    box-shadow: $shadow;
+    padding: $padding;
+
+    p {
+      font-family: 'Advent Pro', sans-serif;
+      font-size: 36px;
+      text-shadow: $shadow;
+      color: $eee-grey;
+      margin-bottom: 5px;
+      margin-top: $padding;
+    }
+    
+    img {
+      width: 15%;
+    }
+  }
+
+  #menu {
+    background-color: $yellow;
+    box-shadow: $shadow;
+    padding: $small-padding;
+    padding-left: $padding;
+  }
+
+  #main {
+    padding: $padding;
+    background: $eee-grey;
+    box-shadow: $shadow;
+    min-height: 440px;
+  }
+
+  #footer {
+    color: $eee-grey;
+    background-color: $grey;
+    box-shadow: $shadow;
+    padding: $small-padding;
+    padding-left: $padding;
+  }
+}
+
+h1 {
+  color: $grey;
+  border-bottom: 1px dotted;
+}
+
+p, ol, ul, td {
+  font-size: 13px;
+  line-height: 18px; 
+}
+
+table {
+  border-collapse: collapse;
+  border-bottom: 1px solid $blue;
+
+  .list_description {
+    width: 80%;
+  }
+
+  .list_line_even {
+    background: $ddd-grey;
+  }
+
+  .list_line_odd {
+    background: $eee-grey;
+  }
+
+  .list_actions {
+    font-size: small;
+    text-align: right;
+    padding-left: $small-padding;
+  }
+
+  tr td {
+    padding: 5px;
+    vertical-align: middle;
+  }
+
+  th {
+    border-bottom: 1px solid $blue;
+  }
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px; }
+
+a {
+  color: $black;
+  &:visited {
+    color: $black; 
+  }
+  &:hover {
+    color: $eee-grey;
+    background-color: $black; 
+  } 
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px; 
+  } 
+}
+
+input {
+  border: 1px $blue solid;
+  font-family: 'Ropa Sans', sans-serif;
+  color: $black;
+  padding: 5px;
+}
+
+input[type=submit] {
+  background-color: $blue;
+  padding: $small-padding;
+  &:hover {
+    color: $eee-grey;
+    background-color: $black;
+    cursor: pointer;
+  } 
+}
+
+.button {
+  border: 1px $blue solid;
+  font-family: 'Ropa Sans', sans-serif;
+  color: $black;
+  background-color: $blue;
+  padding: $small-padding;
+  text-decoration: none;
+} 
+ 
+#notice {
+  color: green; 
+}
+
+.field_with_errors {
+  display: table;
+  padding: 0px;
+  margin-top: -6px;
+  margin-bottom: -6px;
+  border-bottom: 1px dashed $red;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 1px solid $red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 10px;
+  background-color: white;
+  
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: $red;
+    color: $eee-grey; 
+  }
+  
+  ul li {
+    font-size: 12px;
+  } 
+}
+
+.label {
+  font-weight: bold;
+}
