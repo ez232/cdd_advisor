@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120809123032) do
+ActiveRecord::Schema.define(:version => 20120810135120) do
 
   create_table "projects", :force => true do |t|
     t.string   "name"
@@ -28,10 +28,21 @@ ActiveRecord::Schema.define(:version => 20120809123032) do
   create_table "proposals", :force => true do |t|
     t.string   "name"
     t.integer  "project_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.integer  "handle_shape_id"
+    t.integer  "switch_shape_id"
+    t.integer  "knob_shape_id"
+    t.integer  "button_shape_id"
+    t.integer  "scrollbar_shape_id"
   end
 
   add_index "proposals", ["name"], :name => "index_proposals_on_name", :unique => true
+
+  create_table "shapes", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

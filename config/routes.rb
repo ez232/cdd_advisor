@@ -1,4 +1,6 @@
 CddAdvisor::Application.routes.draw do
+  resources :shapes
+
   resources :proposals
 
   resources :projects

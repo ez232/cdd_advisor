@@ -22,9 +22,37 @@
 <% unless @project.proposals.empty? %>
   <% @project.proposals.each do |proposal| %>
     <h1><%= proposal.name %></h1>
-    <p>Attribute 1</p>
-    <p>Attribute 2</p>
-    <p>...</p>
+    <h2>Shape attributes</h2>
+    <% if proposal.handle_shape %>
+      <p>
+        <span class="label">Handle shape:</span>
+        <%= proposal.handle_shape.name %>
+      </p>
+    <% end %>
+    <% if proposal.switch_shape %>
+      <p>
+        <span class="label">Switch shape:</span>
+        <%= proposal.switch_shape.name %>
+      </p>
+    <% end %>
+    <% if proposal.knob_shape %>
+      <p>
+        <span class="label">Knob shape:</span>
+        <%= proposal.knob_shape.name %>
+      </p>
+    <% end %>
+    <% if proposal.button_shape %>
+      <p>
+        <span class="label">Button shape:</span>
+        <%= proposal.button_shape.name %>
+      </p>
+    <% end %>
+    <% if proposal.scrollbar_shape %>
+      <p>
+        <span class="label">Scrollbar shape:</span>
+        <%= proposal.scrollbar_shape.name %>
+      </p>
+    <% end %>
   <% end %>
 <% end %>
 

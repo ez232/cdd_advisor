@@ -101,6 +101,11 @@ h1 {
   border-bottom: 1px dotted;
 }
 
+h2 {
+  color: $blue;
+  border-bottom: 1px dotted;
+}
+
 p, ol, ul, td {
   font-size: 13px;
   line-height: 18px; 
@@ -175,6 +180,24 @@ input[type=submit] {
     background-color: $dark-grey;
     cursor: pointer;
   } 
+}
+
+select {
+  border: 1px $blue solid;
+  font-family: 'Ropa Sans', sans-serif;
+  color: $dark-grey;
+  padding: 5px;
+}
+
+fieldset {
+  border: 1px $grey dotted;
+  width: 60%;
+}
+
+legend {
+  font-weight: bold;
+  color: $grey;
+  font-size: 15px;
 }
 
 .button {
