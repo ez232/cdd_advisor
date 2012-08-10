@@ -13,7 +13,7 @@
             <%= link_to 'View', project %>
             <%= link_to 'Edit', edit_project_path(project) %>
             <%= link_to 'Remove', project, method: :delete, 
-                        data: { confirm: 'Are you sure?' } %>
+              data: { confirm: 'All project data, including proposals, will be deleted. This action cannot be undone. Press OK to continue.' } %>
         </td>
       </tr>
     <% end %>

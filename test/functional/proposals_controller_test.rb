@@ -25,13 +25,6 @@ class ProposalsControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to projects_url
-
-    assert_no_difference('Proposal.count') do
-      session[:project_id] = @project.id
-      post :create, proposal: { name: @proposal.name }
-    end
-
-    assert_response :success
   end
 
   test "should create proposal" do

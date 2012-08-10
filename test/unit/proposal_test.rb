@@ -12,6 +12,27 @@ class ProposalTest < ActiveSupport::TestCase
     assert proposal.errors[:name].any?
   end
 
+  test "proposal is not valid without a unique name inside project" do
+    proposal = Proposal.new(name: proposals(:one).name)
+    proposal.project_id = projects(:iPhone).id
+
+    assert proposal.save
+
+    proposal = Proposal.new(name: proposals(:one).name)
+    proposal.project_id = projects(:iPhone).id
+
+    assert !proposal.save
+    assert_equal I18n.translate('activerecord.errors.messages.taken'), 
+                 proposal.errors[:name].join('; ')
+
+    proposal = Proposal.new(name: proposals(:one).name)
+    proposal.project_id = projects(:GalaxySIII).id
+
+    assert proposal.valid?
+    assert !proposal.errors[:name].any?
+    assert !proposal.errors[:project_id].any?
+  end
+
   test "proposal must have a project associated" do
     proposal = proposals(:one)
 

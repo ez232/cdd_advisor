@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120810135120) do
+ActiveRecord::Schema.define(:version => 20120810154705) do
 
   create_table "projects", :force => true do |t|
     t.string   "name"
@@ -36,8 +36,6 @@ ActiveRecord::Schema.define(:version => 20120810135120) do
     t.integer  "button_shape_id"
     t.integer  "scrollbar_shape_id"
   end
-
-  add_index "proposals", ["name"], :name => "index_proposals_on_name", :unique => true
 
   create_table "shapes", :force => true do |t|
     t.string   "name"
