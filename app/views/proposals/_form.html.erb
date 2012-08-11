@@ -18,31 +18,16 @@
   </div>
 
   <h2>Shape attributes</h2>
-  <div class="field">
-    <%= f.label :handle_shape %>:
-    <%= collection_select(:proposal, :handle_shape_id, Shape.all, :id, :name, 
-      prompt: true) %>
-  </div>
-  <div class="field">
-    <%= f.label :switch_shape %>:
-    <%= collection_select(:proposal, :switch_shape_id, Shape.all, :id, :name, 
-      prompt: true) %>
-  </div>
-  <div class="field">
-    <%= f.label :knob_shape %>:
-    <%= collection_select(:proposal, :knob_shape_id, Shape.all, :id, :name, 
-      prompt: true) %>
-  </div>
-  <div class="field">
-    <%= f.label :button_shape %>:
-    <%= collection_select(:proposal, :button_shape_id, Shape.all, :id, :name, 
-      prompt: true) %>
-  </div>
-  <div class="field">
-    <%= f.label :scrollbar_shape %>:
-    <%= collection_select(:proposal, :scrollbar_shape_id, Shape.all, :id, :name, 
-      prompt: true) %>
-  </div>
+  <%= render partial: 'form_shape', locals: { form: f, label: :handle_shape, 
+    item_id: :handle_shape_id, collection: Shape.all } %>
+  <%= render partial: 'form_shape', locals: { form: f, label: :switch_shape, 
+    item_id: :switch_shape_id, collection: Shape.all } %>
+  <%= render partial: 'form_shape', locals: { form: f, label: :knob_shape, 
+    item_id: :knob_shape_id, collection: Shape.all } %>
+  <%= render partial: 'form_shape', locals: { form: f, label: :button_shape, 
+    item_id: :button_shape_id, collection: Shape.all } %>
+  <%= render partial: 'form_shape', locals: { form: f, label: :scrollbar_shape, 
+    item_id: :scrollbar_shape_id, collection: Shape.all } %>
 
   <div class="actions">
     <%= f.submit %>
