@@ -23,7 +23,7 @@
     <h1><%= proposal.name %></h1>
 
     <h2>Handle</h2>
-    <!-- FIXME remove this style from here -->
+    <!-- FIXME: remove this style from here -->
     <table style="border: none; width: 50%">
       <tr>
         <td>
@@ -44,7 +44,7 @@
       </tr>
       <tr>
         <td colspan="3">
-          <span class="label">Shape:</span>
+          <span class="label">Shape:</span><br />
           <%= proposal.handle.shape %>
         </td>
       </tr>
@@ -52,17 +52,17 @@
         <td>
           <span class="label">Length or radius:</span><br />
           <%= number_with_precision proposal.handle.length_or_radius, 
-            precision: 2 %>mm
+            precision: 2 %> mm
         </td>
         <td>
           <span class="label">Width:</span><br />
           <%= number_with_precision proposal.handle.width, 
-            precision: 2 %>mm
+            precision: 2 %> mm
         </td>
         <td>
           <span class="label">Height:</span><br />
           <%= number_with_precision proposal.handle.height, 
-            precision: 2 %>mm
+            precision: 2 %> mm
         </td>
       </tr>
       <tr>
@@ -99,6 +99,119 @@
           <%= check_box_tag "flat_hand_push", "1", 
             proposal.handle.flat_hand_push, disabled: true %>
           <span class="label">Flat hand push</span>
+        </td>
+        <td></td>
+      </tr>
+    </table>
+
+    <h2>Switch</h2>
+    <!-- FIXME: remove this style from here -->
+    <table style="border: none; width: 50%">
+      <tr>
+        <td>
+          <%= check_box_tag "pressing", "1", proposal.switch.pressing,
+            disabled: true %>
+          <span class="label">Pressing</span>
+        </td>
+        <td>
+          <%= check_box_tag "pushing", "1", proposal.switch.pushing,
+            disabled: true %>
+          <span class="label">Pushing</span>
+        </td>
+        <td>
+          <%= check_box_tag "pulling", "1", proposal.switch.pulling,
+            disabled: true %>
+          <span class="label">Pulling</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= check_box_tag "turning", "1", proposal.switch.turning,
+            disabled: true %>
+          <span class="label">Turning</span>
+        </td>
+        <td>
+          <%= check_box_tag "sliding", "1", proposal.switch.sliding,
+            disabled: true %>
+          <span class="label">Sliding</span>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <span class="label">Shape:</span><br />
+          <%= proposal.switch.shape %>
+        </td>
+      </tr>
+       <tr>
+        <td>
+          <span class="label">Length or radius:</span><br />
+          <%= number_with_precision proposal.switch.length_or_radius, 
+            precision: 2 %> mm
+        </td>
+        <td>
+          <span class="label">Width:</span><br />
+          <%= number_with_precision proposal.switch.width, 
+            precision: 2 %> mm
+        </td>
+        <td>
+          <span class="label">Height:</span><br />
+          <%= number_with_precision proposal.switch.height, 
+            precision: 2 %> mm
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <span class="label">Force required:</span><br />
+          <%= number_with_precision proposal.switch.force_required, 
+            precision: 2 %> N
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span class="label">Colour:</span><br />
+            <%= proposal.switch.colour %>
+        </td>
+        <td>
+          <span class="label">Background colour:</span><br />
+            <%= proposal.switch.background_colour %>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <%= check_box_tag "pinch_grip", "1", proposal.switch.pinch_grip,
+            disabled: true %>
+          <span class="label">Pinch grip</span><br />
+
+          <%= check_box_tag "span_grip", "1", proposal.switch.span_grip,
+            disabled: true %>
+          <span class="label">Span grip</span><br />
+
+          <%= check_box_tag "spherical_grip", "1", 
+            proposal.switch.spherical_grip, disabled: true %>
+          <span class="label">Spherical grip</span><br />
+
+          <%= check_box_tag "disc_grip", "1", proposal.switch.disc_grip, 
+            disabled: true %>
+          <span class="label">Disc grip</span>
+        </td>
+        <td>
+          <%= check_box_tag "flat_hand_push", "1", 
+            proposal.switch.flat_hand_push, disabled: true %>
+          <span class="label">Flat hand push</span><br />
+
+          <%= check_box_tag "one_finger_press", "1", 
+            proposal.switch.one_finger_press, disabled: true %>
+          <span class="label">One finger press</span><br />
+
+          <%= check_box_tag "two_fingers_press", "1", 
+            proposal.switch.two_fingers_press, disabled: true %>
+          <span class="label">Two fingers press</span><br />
+
+          <%= check_box_tag "thumb_press", "1", proposal.switch.thumb_press, 
+            disabled: true %>
+          <span class="label">Thumb press</span>
         </td>
         <td></td>
       </tr>

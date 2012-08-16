@@ -3,36 +3,46 @@
 
 one:
   proposal_id: 1
-  holding: false
-  moving: false
-  carrying: false
+  pressing: false
+  pushing: false
+  pulling: false
+  turning: false
+  sliding: false
   shape: MyString
   length_or_radius: 1.5
   width: 1.5
   height: 1.5
+  force_required: 1.5
+  colour: MyString
+  background_colour: MyString
   pinch_grip: false
-  power_grip: false
   span_grip: false
   spherical_grip: false
-  cylindrical_grip: false
   disc_grip: false
-  hook_grip: false
   flat_hand_push: false
+  one_finger_press: false
+  two_fingers_press: false
+  thumb_press: false
 
 two:
   proposal_id: 1
-  holding: false
-  moving: false
-  carrying: false
+  pressing: false
+  pushing: false
+  pulling: false
+  turning: false
+  sliding: false
   shape: MyString
   length_or_radius: 1.5
   width: 1.5
   height: 1.5
+  force_required: 1.5
+  colour: MyString
+  background_colour: MyString
   pinch_grip: false
-  power_grip: false
   span_grip: false
   spherical_grip: false
-  cylindrical_grip: false
   disc_grip: false
-  hook_grip: false
   flat_hand_push: false
+  one_finger_press: false
+  two_fingers_press: false
+  thumb_press: false

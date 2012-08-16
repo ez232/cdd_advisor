@@ -1,4 +1,6 @@
 CddAdvisor::Application.routes.draw do
+  resources :switches
+
   resources :handles
 
   resources :proposals

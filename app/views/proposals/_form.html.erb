@@ -17,9 +17,10 @@
     <%= f.text_field :name %>
   </div>
 
+  <!-- TODO: partials??? -->
   <%= f.fields_for :handle do |handle_form| %>
     <h2>Handle</h2>
-    <!-- FIXME remove this style from here -->
+    <!-- FIXME: remove this style from here -->
     <table style="border: none">
       <tr>
         <td>
@@ -104,6 +105,138 @@
           <div class="field">
             <%= handle_form.check_box :flat_hand_push %>
             <%= handle_form.label :flat_hand_push %>
+          </div>
+        </td>
+        <td></td>
+      </tr>
+    </table>
+  <% end %>
+
+  <%= f.fields_for :switch do |switch_form| %>
+    <h2>Switch</h2>
+    <!-- FIXME: remove this style from here -->
+    <table style="border: none">
+      <tr>
+        <td>
+          <div class="field">
+            <%= switch_form.check_box :pressing %>
+            <%= switch_form.label :pressing %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= switch_form.check_box :pushing %>
+            <%= switch_form.label :pushing %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= switch_form.check_box :pulling %>
+            <%= switch_form.label :pulling %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="field">
+            <%= switch_form.check_box :turning %>
+            <%= switch_form.label :turning %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= switch_form.check_box :sliding %>
+            <%= switch_form.label :sliding %>
+          </div>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <div class="field">
+            <%= switch_form.label :shape %>
+            <%= switch_form.select :shape, Switch::SHAPE_VALUES, prompt: true %>
+          </div>        
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="field">
+            <%= switch_form.label :length_or_radius %><br />
+            <%= switch_form.text_field :length_or_radius, size: 10 %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= switch_form.label :width %><br />
+            <%= switch_form.text_field :width, size: 10 %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= switch_form.label :height %><br />
+            <%= switch_form.text_field :height, size: 10 %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <div class="field">
+            <%= switch_form.label :force_required %><br />
+            <%= switch_form.text_field :force_required, size: 10 %>
+          </div>        
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="field">
+            <%= switch_form.label :colour %><br />
+            <%= switch_form.text_field :colour, size: 10 %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= switch_form.label :background_colour %><br />
+            <%= switch_form.text_field :background_colour, size: 10 %>
+          </div>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="field">
+            <%= switch_form.check_box :pinch_grip %>
+            <%= switch_form.label :pinch_grip %>
+          </div>
+          <div class="field">
+            <%= switch_form.check_box :span_grip %>
+            <%= switch_form.label :span_grip %>
+          </div>
+          <div class="field">
+            <%= switch_form.check_box :spherical_grip %>
+            <%= switch_form.label :spherical_grip %>
+          </div>
+          <div class="field">
+            <%= switch_form.check_box :disc_grip %>
+            <%= switch_form.label :disc_grip %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= switch_form.check_box :flat_hand_push %>
+            <%= switch_form.label :flat_hand_push %>
+          </div>
+          <div class="field">
+            <%= switch_form.check_box :one_finger_press %>
+            <%= switch_form.label :one_finger_press %>
+          </div>
+          <div class="field">
+            <%= switch_form.check_box :two_fingers_press %>
+            <%= switch_form.label :two_fingers_press %>
+          </div>
+          <div class="field">
+            <%= switch_form.check_box :thumb_press %>
+            <%= switch_form.label :thumb_press %>
           </div>
         </td>
         <td></td>
