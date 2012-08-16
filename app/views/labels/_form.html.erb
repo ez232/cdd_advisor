@@ -1,0 +1,45 @@
+<%= form_for(@label) do |f| %>
+  <% if @label.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@label.errors.count, "error") %> prohibited this label from being saved:</h2>
+
+      <ul>
+      <% @label.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :proposal_id %><br />
+    <%= f.number_field :proposal_id %>
+  </div>
+  <div class="field">
+    <%= f.label :printed %><br />
+    <%= f.check_box :printed %>
+  </div>
+  <div class="field">
+    <%= f.label :digital %><br />
+    <%= f.check_box :digital %>
+  </div>
+  <div class="field">
+    <%= f.label :font_type %><br />
+    <%= f.text_field :font_type %>
+  </div>
+  <div class="field">
+    <%= f.label :text_size %><br />
+    <%= f.text_field :text_size %>
+  </div>
+  <div class="field">
+    <%= f.label :text_colour %><br />
+    <%= f.text_field :text_colour %>
+  </div>
+  <div class="field">
+    <%= f.label :labels_reading_distance %><br />
+    <%= f.text_field :labels_reading_distance %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

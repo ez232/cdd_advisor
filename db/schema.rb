@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120816163857) do
+ActiveRecord::Schema.define(:version => 20120816174036) do
 
   create_table "buttons", :force => true do |t|
     t.integer  "proposal_id"
@@ -79,6 +79,18 @@ ActiveRecord::Schema.define(:version => 20120816163857) do
     t.boolean  "thumb_press"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+  end
+
+  create_table "labels", :force => true do |t|
+    t.integer  "proposal_id"
+    t.boolean  "printed"
+    t.boolean  "digital"
+    t.string   "font_type"
+    t.float    "text_size"
+    t.string   "text_colour"
+    t.float    "labels_reading_distance"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
   end
 
   create_table "projects", :force => true do |t|

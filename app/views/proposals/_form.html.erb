@@ -567,7 +567,60 @@
       </tr>
     </table>
   <% end %>
-  
+
+  <%= f.fields_for :label do |label_form| %>
+    <h2>Label</h2>
+    <!-- FIXME: remove this style from here -->
+    <table style="border: none">
+      <tr>
+        <td>
+          <div class="field">
+            <%= label_form.check_box :printed %>
+            <%= label_form.label :printed %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= label_form.check_box :digital %>
+            <%= label_form.label :digital %>
+          </div>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <div class="field">
+            <%= label_form.label :font_type %>
+            <%= label_form.text_field :font_type %>
+          </div>        
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="field">
+            <%= label_form.label :text_size %><br />
+            <%= label_form.text_field :text_size, size: 10 %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= label_form.label :text_colour %><br />
+            <%= label_form.text_field :text_colour, size: 10 %>
+          </div>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <div class="field">
+            <%= label_form.label :labels_reading_distance %><br />
+            <%= label_form.text_field :labels_reading_distance, size: 10 %>
+          </div>        
+        </td>
+      </tr>
+    </table>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

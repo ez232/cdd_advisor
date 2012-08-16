@@ -484,6 +484,49 @@
         </td>
       </tr>
     </table>
+
+    <h2>Label</h2>
+    <!-- FIXME: remove this style from here -->
+    <table style="border: none; width: 50%">
+      <tr>
+        <td>
+          <%= check_box_tag "printed", "1", proposal.label.printed,
+            disabled: true %>
+          <span class="label">Printed</span>
+        </td>
+        <td>
+          <%= check_box_tag "digital", "1", proposal.label.digital,
+            disabled: true %>
+          <span class="label">Digital</span>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <span class="label">Font type:</span><br />
+          <%= proposal.label.font_type %>
+        </td>
+      </tr>
+       <tr>
+        <td>
+          <span class="label">Text size:</span><br />
+          <%= number_to_human proposal.label.text_size, 
+            units: { unit: "pt" }, precision: 2 %>
+        </td>
+        <td>
+          <span class="label">Text colour:</span><br />
+          <%= proposal.label.text_colour %>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <span class="label">Labels reading distance:</span><br />
+          <%= number_to_human proposal.label.labels_reading_distance, 
+            units: { unit: "mm" }, precision: 2 %>
+        </td>
+      </tr>
+    </table>
   <% end %>
 <% end %>
 

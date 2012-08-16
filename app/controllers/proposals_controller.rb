@@ -33,6 +33,7 @@ class ProposalsController < ApplicationController
     @proposal.build_button
     @proposal.build_screen
     @proposal.build_touch_screen
+    @proposal.build_label
 
     respond_to do |format|
       format.html # new.html.erb

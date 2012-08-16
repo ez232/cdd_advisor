@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  proposal_id: 1
+  printed: false
+  digital: false
+  font_type: MyString
+  text_size: 1.5
+  text_colour: MyString
+  labels_reading_distance: 1.5
+
+two:
+  proposal_id: 1
+  printed: false
+  digital: false
+  font_type: MyString
+  text_size: 1.5
+  text_colour: MyString
+  labels_reading_distance: 1.5
