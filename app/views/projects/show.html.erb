@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
  <h1><%= @project.name %></h1>
 
 <p>
@@ -22,6 +21,88 @@
 <% unless @project.proposals.empty? %>
   <% @project.proposals.each do |proposal| %>
     <h1><%= proposal.name %></h1>
+
+    <h2>Handle</h2>
+    <!-- FIXME remove this style from here -->
+    <table style="border: none; width: 50%">
+      <tr>
+        <td>
+          <%= check_box_tag "holding", "1", proposal.handle.holding,
+            disabled: true %>
+          <span class="label">Holding</span>
+        </td>
+        <td>
+          <%= check_box_tag "moving", "1", proposal.handle.moving,
+            disabled: true %>
+          <span class="label">Moving</span>
+        </td>
+        <td>
+          <%= check_box_tag "carrying", "1", proposal.handle.carrying,
+            disabled: true %>
+          <span class="label">Carrying</span>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <span class="label">Shape:</span>
+          <%= proposal.handle.shape %>
+        </td>
+      </tr>
+       <tr>
+        <td>
+          <span class="label">Length or radius:</span><br />
+          <%= number_with_precision proposal.handle.length_or_radius, 
+            precision: 2 %>mm
+        </td>
+        <td>
+          <span class="label">Width:</span><br />
+          <%= number_with_precision proposal.handle.width, 
+            precision: 2 %>mm
+        </td>
+        <td>
+          <span class="label">Height:</span><br />
+          <%= number_with_precision proposal.handle.height, 
+            precision: 2 %>mm
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= check_box_tag "pinch_grip", "1", proposal.handle.pinch_grip,
+            disabled: true %>
+          <span class="label">Pinch grip</span><br />
+
+          <%= check_box_tag "power_grip", "1", proposal.handle.power_grip,
+            disabled: true %>
+          <span class="label">Power grip</span><br />
+
+          <%= check_box_tag "span_grip", "1", proposal.handle.span_grip,
+            disabled: true %>
+          <span class="label">Span grip</span><br />
+
+          <%= check_box_tag "spherical_grip", "1", 
+            proposal.handle.spherical_grip, disabled: true %>
+          <span class="label">Spherical grip</span>
+        </td>
+        <td>
+          <%= check_box_tag "cylindrical_grip", "1", 
+            proposal.handle.cylindrical_grip, disabled: true %>
+          <span class="label">Cylindrical grip</span><br />
+
+          <%= check_box_tag "disc_grip", "1", proposal.handle.disc_grip,
+            disabled: true %>
+          <span class="label">Disc grip</span><br />
+
+          <%= check_box_tag "hook_grip", "1", proposal.handle.hook_grip,
+            disabled: true %>
+          <span class="label">Hook grip</span><br />
+
+          <%= check_box_tag "flat_hand_push", "1", 
+            proposal.handle.flat_hand_push, disabled: true %>
+          <span class="label">Flat hand push</span>
+        </td>
+        <td></td>
+      </tr>
+    </table>
   <% end %>
 <% end %>
 
