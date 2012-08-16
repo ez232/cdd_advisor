@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  proposal_id: 1
+  button_shape: MyString
+  button_length_or_radius: 1.5
+  button_width: 1.5
+  button_height: 1.5
+  scroll_bar_shape: MyString
+  scroll_bar_length_or_radius: 1.5
+  scroll_bar_width: 1.5
+  scroll_bar_height: 1.5
+
+two:
+  proposal_id: 1
+  button_shape: MyString
+  button_length_or_radius: 1.5
+  button_width: 1.5
+  button_height: 1.5
+  scroll_bar_shape: MyString
+  scroll_bar_length_or_radius: 1.5
+  scroll_bar_width: 1.5
+  scroll_bar_height: 1.5

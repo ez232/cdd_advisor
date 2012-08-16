@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120816160549) do
+ActiveRecord::Schema.define(:version => 20120816163857) do
 
   create_table "buttons", :force => true do |t|
     t.integer  "proposal_id"
@@ -131,6 +131,20 @@ ActiveRecord::Schema.define(:version => 20120816160549) do
     t.boolean  "thumb_press"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+  end
+
+  create_table "touch_screens", :force => true do |t|
+    t.integer  "proposal_id"
+    t.string   "button_shape"
+    t.float    "button_length_or_radius"
+    t.float    "button_width"
+    t.float    "button_height"
+    t.string   "scroll_bar_shape"
+    t.float    "scroll_bar_length_or_radius"
+    t.float    "scroll_bar_width"
+    t.float    "scroll_bar_height"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
 end

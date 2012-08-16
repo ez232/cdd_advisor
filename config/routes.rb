@@ -1,4 +1,6 @@
 CddAdvisor::Application.routes.draw do
+  resources :touch_screens
+
   resources :screens
 
   resources :buttons

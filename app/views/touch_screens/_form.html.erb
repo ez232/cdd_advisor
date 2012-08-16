@@ -1,0 +1,53 @@
+<%= form_for(@touch_screen) do |f| %>
+  <% if @touch_screen.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@touch_screen.errors.count, "error") %> prohibited this touch_screen from being saved:</h2>
+
+      <ul>
+      <% @touch_screen.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :proposal_id %><br />
+    <%= f.number_field :proposal_id %>
+  </div>
+  <div class="field">
+    <%= f.label :button_shape %><br />
+    <%= f.text_field :button_shape %>
+  </div>
+  <div class="field">
+    <%= f.label :button_length_or_radius %><br />
+    <%= f.text_field :button_length_or_radius %>
+  </div>
+  <div class="field">
+    <%= f.label :button_width %><br />
+    <%= f.text_field :button_width %>
+  </div>
+  <div class="field">
+    <%= f.label :button_height %><br />
+    <%= f.text_field :button_height %>
+  </div>
+  <div class="field">
+    <%= f.label :scroll_bar_shape %><br />
+    <%= f.text_field :scroll_bar_shape %>
+  </div>
+  <div class="field">
+    <%= f.label :scroll_bar_length_or_radius %><br />
+    <%= f.text_field :scroll_bar_length_or_radius %>
+  </div>
+  <div class="field">
+    <%= f.label :scroll_bar_width %><br />
+    <%= f.text_field :scroll_bar_width %>
+  </div>
+  <div class="field">
+    <%= f.label :scroll_bar_height %><br />
+    <%= f.text_field :scroll_bar_height %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

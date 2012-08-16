@@ -433,6 +433,57 @@
         </td>
       </tr>
     </table>
+
+    <h2>Touch screen</h2>
+    <!-- FIXME: remove this style from here -->
+    <table style="border: none; width: 50%">
+      <tr>
+        <td colspan="3">
+          <span class="label">Button shape:</span><br />
+          <%= proposal.touch_screen.button_shape %>
+        </td>
+      </tr>
+       <tr>
+        <td>
+          <span class="label">Button length or radius:</span><br />
+          <%= number_to_human proposal.touch_screen.button_length_or_radius, 
+            units: { unit: "mm" }, precision: 2 %>
+        </td>
+        <td>
+          <span class="label">Button width:</span><br />
+          <%= number_to_human proposal.touch_screen.button_width, 
+            units: { unit: "mm" }, precision: 2 %>
+        </td>
+        <td>
+          <span class="label">Button height:</span><br />
+          <%= number_to_human proposal.touch_screen.button_height, 
+            units: { unit: "mm" }, precision: 2 %>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <span class="label">Scroll bar shape:</span><br />
+          <%= proposal.touch_screen.scroll_bar_shape %>
+        </td>
+      </tr>
+       <tr>
+        <td>
+          <span class="label">Scroll bar length or radius:</span><br />
+          <%= number_to_human proposal.touch_screen.scroll_bar_length_or_radius, 
+            units: { unit: "mm" }, precision: 2 %>
+        </td>
+        <td>
+          <span class="label">Scroll bar width:</span><br />
+          <%= number_to_human proposal.touch_screen.scroll_bar_width, 
+            units: { unit: "mm" }, precision: 2 %>
+        </td>
+        <td>
+          <span class="label">Scroll bar height:</span><br />
+          <%= number_to_human proposal.touch_screen.scroll_bar_height, 
+            units: { unit: "mm" }, precision: 2 %>
+        </td>
+      </tr>
+    </table>
   <% end %>
 <% end %>
 

@@ -501,6 +501,73 @@
     </table>
   <% end %>
 
+  <%= f.fields_for :touch_screen do |touch_screen_form| %>
+    <h2>Touch screen</h2>
+    <!-- FIXME: remove this style from here -->
+    <table style="border: none">
+      <tr>
+        <td colspan="3">
+          <div class="field">
+            <%= touch_screen_form.label :button_shape %>
+            <%= touch_screen_form.select :button_shape, 
+              TouchScreen::SHAPE_VALUES, prompt: true %>
+          </div>        
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="field">
+            <%= touch_screen_form.label :button_length_or_radius %><br />
+            <%= touch_screen_form.text_field :button_length_or_radius, 
+              size: 10 %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= touch_screen_form.label :button_width %><br />
+            <%= touch_screen_form.text_field :button_width, size: 10 %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= touch_screen_form.label :button_height %><br />
+            <%= touch_screen_form.text_field :button_height, size: 10 %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <div class="field">
+            <%= touch_screen_form.label :scroll_bar_shape %>
+            <%= touch_screen_form.select :scroll_bar_shape, 
+              TouchScreen::SHAPE_VALUES, prompt: true %>
+          </div>        
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="field">
+            <%= touch_screen_form.label :scroll_bar_length_or_radius %><br />
+            <%= touch_screen_form.text_field :scroll_bar_length_or_radius, 
+              size: 10 %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= touch_screen_form.label :scroll_bar_width %><br />
+            <%= touch_screen_form.text_field :scroll_bar_width, size: 10 %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= touch_screen_form.label :scroll_bar_height %><br />
+            <%= touch_screen_form.text_field :scroll_bar_height, size: 10 %>
+          </div>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
