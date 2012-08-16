@@ -244,6 +244,138 @@
     </table>
   <% end %>
 
+  <%= f.fields_for :knob do |knob_form| %>
+    <h2>Knob</h2>
+    <!-- FIXME: remove this style from here -->
+    <table style="border: none">
+      <tr>
+        <td>
+          <div class="field">
+            <%= knob_form.check_box :pressing %>
+            <%= knob_form.label :pressing %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= knob_form.check_box :pushing %>
+            <%= knob_form.label :pushing %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= knob_form.check_box :pulling %>
+            <%= knob_form.label :pulling %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="field">
+            <%= knob_form.check_box :turning %>
+            <%= knob_form.label :turning %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= knob_form.check_box :sliding %>
+            <%= knob_form.label :sliding %>
+          </div>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <div class="field">
+            <%= knob_form.label :shape %>
+            <%= knob_form.select :shape, Switch::SHAPE_VALUES, prompt: true %>
+          </div>        
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="field">
+            <%= knob_form.label :length_or_radius %><br />
+            <%= knob_form.text_field :length_or_radius, size: 10 %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= knob_form.label :width %><br />
+            <%= knob_form.text_field :width, size: 10 %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= knob_form.label :height %><br />
+            <%= knob_form.text_field :height, size: 10 %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <div class="field">
+            <%= knob_form.label :force_required %><br />
+            <%= knob_form.text_field :force_required, size: 10 %>
+          </div>        
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="field">
+            <%= knob_form.label :colour %><br />
+            <%= knob_form.text_field :colour, size: 10 %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= knob_form.label :background_colour %><br />
+            <%= knob_form.text_field :background_colour, size: 10 %>
+          </div>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="field">
+            <%= knob_form.check_box :pinch_grip %>
+            <%= knob_form.label :pinch_grip %>
+          </div>
+          <div class="field">
+            <%= knob_form.check_box :span_grip %>
+            <%= knob_form.label :span_grip %>
+          </div>
+          <div class="field">
+            <%= knob_form.check_box :spherical_grip %>
+            <%= knob_form.label :spherical_grip %>
+          </div>
+          <div class="field">
+            <%= knob_form.check_box :cylindrical_grip %>
+            <%= knob_form.label :cylindrical_grip %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= knob_form.check_box :disc_grip %>
+            <%= knob_form.label :disc_grip %>
+          </div>
+          <div class="field">
+            <%= knob_form.check_box :one_finger_press %>
+            <%= knob_form.label :one_finger_press %>
+          </div>
+          <div class="field">
+            <%= knob_form.check_box :two_fingers_press %>
+            <%= knob_form.label :two_fingers_press %>
+          </div>
+          <div class="field">
+            <%= knob_form.check_box :thumb_press %>
+            <%= knob_form.label :thumb_press %>
+          </div>
+        </td>
+        <td></td>
+      </tr>
+    </table>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

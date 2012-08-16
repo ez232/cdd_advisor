@@ -216,6 +216,119 @@
         <td></td>
       </tr>
     </table>
+
+    <h2>Knob</h2>
+    <!-- FIXME: remove this style from here -->
+    <table style="border: none; width: 50%">
+      <tr>
+        <td>
+          <%= check_box_tag "pressing", "1", proposal.knob.pressing,
+            disabled: true %>
+          <span class="label">Pressing</span>
+        </td>
+        <td>
+          <%= check_box_tag "pushing", "1", proposal.knob.pushing,
+            disabled: true %>
+          <span class="label">Pushing</span>
+        </td>
+        <td>
+          <%= check_box_tag "pulling", "1", proposal.knob.pulling,
+            disabled: true %>
+          <span class="label">Pulling</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= check_box_tag "turning", "1", proposal.knob.turning,
+            disabled: true %>
+          <span class="label">Turning</span>
+        </td>
+        <td>
+          <%= check_box_tag "sliding", "1", proposal.knob.sliding,
+            disabled: true %>
+          <span class="label">Sliding</span>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <span class="label">Shape:</span><br />
+          <%= proposal.knob.shape %>
+        </td>
+      </tr>
+       <tr>
+        <td>
+          <span class="label">Length or radius:</span><br />
+          <%= number_with_precision proposal.knob.length_or_radius, 
+            precision: 2 %> mm
+        </td>
+        <td>
+          <span class="label">Width:</span><br />
+          <%= number_with_precision proposal.knob.width, 
+            precision: 2 %> mm
+        </td>
+        <td>
+          <span class="label">Height:</span><br />
+          <%= number_with_precision proposal.knob.height, 
+            precision: 2 %> mm
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <span class="label">Force required:</span><br />
+          <%= number_with_precision proposal.knob.force_required, 
+            precision: 2 %> N
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span class="label">Colour:</span><br />
+            <%= proposal.knob.colour %>
+        </td>
+        <td>
+          <span class="label">Background colour:</span><br />
+            <%= proposal.knob.background_colour %>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <%= check_box_tag "pinch_grip", "1", proposal.knob.pinch_grip,
+            disabled: true %>
+          <span class="label">Pinch grip</span><br />
+
+          <%= check_box_tag "span_grip", "1", proposal.knob.span_grip,
+            disabled: true %>
+          <span class="label">Span grip</span><br />
+
+          <%= check_box_tag "spherical_grip", "1", proposal.knob.spherical_grip, 
+            disabled: true %>
+          <span class="label">Spherical grip</span><br />
+
+          <%= check_box_tag "cylindrical_grip", "1", 
+            proposal.knob.cylindrical_grip, disabled: true %>
+          <span class="label">Cylindrical grip</span>
+        </td>
+        <td>
+          <%= check_box_tag "disc_grip", "1", proposal.knob.disc_grip, 
+            disabled: true %>
+          <span class="label">Disc grip</span><br />
+
+          <%= check_box_tag "one_finger_press", "1", 
+            proposal.knob.one_finger_press, disabled: true %>
+          <span class="label">One finger press</span><br />
+
+          <%= check_box_tag "two_fingers_press", "1", 
+            proposal.knob.two_fingers_press, disabled: true %>
+          <span class="label">Two fingers press</span><br />
+
+          <%= check_box_tag "thumb_press", "1", proposal.knob.thumb_press, 
+            disabled: true %>
+          <span class="label">Thumb press</span>
+        </td>
+        <td></td>
+      </tr>
+    </table>
   <% end %>
 <% end %>
 

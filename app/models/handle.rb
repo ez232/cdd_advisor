@@ -8,5 +8,5 @@ class Handle < ActiveRecord::Base
   validates :proposal, presence: { message: "is not a valid proposal" }
 
   SHAPE_VALUES = [ "Organic", "Rectangle", "Square", "Trapezium", "Trapezoid",
-    "Cylindrical", "Oval", "Spherical", "Conical", "Triangle" ] 
+    "Cylindrical", "Oval", "Spherical", "Conical", "Triangle" ]
 end
