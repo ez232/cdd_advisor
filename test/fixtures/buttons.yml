@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  proposal_id: 1
+  pressing: false
+  pushing: false
+  pulling: false
+  turning: false
+  sliding: false
+  shape: MyString
+  length_or_radius: 1.5
+  width: 1.5
+  height: 1.5
+  force_required: 1.5
+  colour: MyString
+  background_colour: MyString
+  one_finger_press: false
+  two_fingers_press: false
+  thumb_press: false
+
+two:
+  proposal_id: 1
+  pressing: false
+  pushing: false
+  pulling: false
+  turning: false
+  sliding: false
+  shape: MyString
+  length_or_radius: 1.5
+  width: 1.5
+  height: 1.5
+  force_required: 1.5
+  colour: MyString
+  background_colour: MyString
+  one_finger_press: false
+  two_fingers_press: false
+  thumb_press: false

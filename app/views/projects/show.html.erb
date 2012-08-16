@@ -329,6 +329,98 @@
         <td></td>
       </tr>
     </table>
+
+    <h2>Button</h2>
+    <!-- FIXME: remove this style from here -->
+    <table style="border: none; width: 50%">
+      <tr>
+        <td>
+          <%= check_box_tag "pressing", "1", proposal.button.pressing,
+            disabled: true %>
+          <span class="label">Pressing</span>
+        </td>
+        <td>
+          <%= check_box_tag "pushing", "1", proposal.button.pushing,
+            disabled: true %>
+          <span class="label">Pushing</span>
+        </td>
+        <td>
+          <%= check_box_tag "pulling", "1", proposal.button.pulling,
+            disabled: true %>
+          <span class="label">Pulling</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= check_box_tag "turning", "1", proposal.button.turning,
+            disabled: true %>
+          <span class="label">Turning</span>
+        </td>
+        <td>
+          <%= check_box_tag "sliding", "1", proposal.button.sliding,
+            disabled: true %>
+          <span class="label">Sliding</span>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <span class="label">Shape:</span><br />
+          <%= proposal.button.shape %>
+        </td>
+      </tr>
+       <tr>
+        <td>
+          <span class="label">Length or radius:</span><br />
+          <%= number_with_precision proposal.button.length_or_radius, 
+            precision: 2 %> mm
+        </td>
+        <td>
+          <span class="label">Width:</span><br />
+          <%= number_with_precision proposal.button.width, 
+            precision: 2 %> mm
+        </td>
+        <td>
+          <span class="label">Height:</span><br />
+          <%= number_with_precision proposal.button.height, 
+            precision: 2 %> mm
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <span class="label">Force required:</span><br />
+          <%= number_with_precision proposal.button.force_required, 
+            precision: 2 %> N
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span class="label">Colour:</span><br />
+            <%= proposal.button.colour %>
+        </td>
+        <td>
+          <span class="label">Background colour:</span><br />
+            <%= proposal.button.background_colour %>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <%= check_box_tag "one_finger_press", "1", 
+            proposal.button.one_finger_press, disabled: true %>
+          <span class="label">One finger press</span><br />
+
+          <%= check_box_tag "two_fingers_press", "1", 
+            proposal.button.two_fingers_press, disabled: true %>
+          <span class="label">Two fingers press</span><br />
+
+          <%= check_box_tag "thumb_press", "1", proposal.button.thumb_press, 
+            disabled: true %>
+          <span class="label">Thumb press</span>
+        </td>
+        <td></td>
+      </tr>
+    </table>
   <% end %>
 <% end %>
 

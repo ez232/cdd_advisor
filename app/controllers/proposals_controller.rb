@@ -30,6 +30,7 @@ class ProposalsController < ApplicationController
     @proposal.build_handle
     @proposal.build_switch
     @proposal.build_knob
+    @proposal.build_button
 
     respond_to do |format|
       format.html # new.html.erb

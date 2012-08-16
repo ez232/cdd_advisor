@@ -1,4 +1,6 @@
 CddAdvisor::Application.routes.draw do
+  resources :buttons
+
   resources :knobs
 
   resources :switches

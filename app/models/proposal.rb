@@ -1,14 +1,15 @@
 class Proposal < ActiveRecord::Base
   attr_accessible :name, :handle_attributes, :switch_attributes, 
-    :knob_attributes
+    :knob_attributes, :button_attributes
 
   has_one :handle, dependent: :destroy, inverse_of: :proposal
   has_one :switch, dependent: :destroy, inverse_of: :proposal
   has_one :knob, dependent: :destroy, inverse_of: :proposal
+  has_one :button, dependent: :destroy, inverse_of: :proposal
 
   belongs_to :project
 
-  accepts_nested_attributes_for :handle, :switch, :knob
+  accepts_nested_attributes_for :handle, :switch, :knob, :button
 
   validates :name, presence: true, uniqueness: { scope: :project_id }
   validates :project_id, presence: { message: "is not a valid project" }

@@ -11,7 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120816144022) do
+ActiveRecord::Schema.define(:version => 20120816145954) do
+
+  create_table "buttons", :force => true do |t|
+    t.integer  "proposal_id"
+    t.boolean  "pressing"
+    t.boolean  "pushing"
+    t.boolean  "pulling"
+    t.boolean  "turning"
+    t.boolean  "sliding"
+    t.string   "shape"
+    t.float    "length_or_radius"
+    t.float    "width"
+    t.float    "height"
+    t.float    "force_required"
+    t.string   "colour"
+    t.string   "background_colour"
+    t.boolean  "one_finger_press"
+    t.boolean  "two_fingers_press"
+    t.boolean  "thumb_press"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
 
   create_table "handles", :force => true do |t|
     t.integer  "proposal_id"
