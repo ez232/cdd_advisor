@@ -1,0 +1,81 @@
+<%= form_for(@handle) do |f| %>
+  <% if @handle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@handle.errors.count, "error") %> prohibited this handle from being saved:</h2>
+
+      <ul>
+      <% @handle.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :proposal_id %><br />
+    <%= f.number_field :proposal_id %>
+  </div>
+  <div class="field">
+    <%= f.label :holding %><br />
+    <%= f.check_box :holding %>
+  </div>
+  <div class="field">
+    <%= f.label :moving %><br />
+    <%= f.check_box :moving %>
+  </div>
+  <div class="field">
+    <%= f.label :carrying %><br />
+    <%= f.check_box :carrying %>
+  </div>
+  <div class="field">
+    <%= f.label :shape %><br />
+    <%= f.text_field :shape %>
+  </div>
+  <div class="field">
+    <%= f.label :length_or_radius %><br />
+    <%= f.text_field :length_or_radius %>
+  </div>
+  <div class="field">
+    <%= f.label :width %><br />
+    <%= f.text_field :width %>
+  </div>
+  <div class="field">
+    <%= f.label :height %><br />
+    <%= f.text_field :height %>
+  </div>
+  <div class="field">
+    <%= f.label :pinch_grip %><br />
+    <%= f.check_box :pinch_grip %>
+  </div>
+  <div class="field">
+    <%= f.label :power_grip %><br />
+    <%= f.check_box :power_grip %>
+  </div>
+  <div class="field">
+    <%= f.label :span_grip %><br />
+    <%= f.check_box :span_grip %>
+  </div>
+  <div class="field">
+    <%= f.label :spherical_grip %><br />
+    <%= f.check_box :spherical_grip %>
+  </div>
+  <div class="field">
+    <%= f.label :cylindrical_grip %><br />
+    <%= f.check_box :cylindrical_grip %>
+  </div>
+  <div class="field">
+    <%= f.label :disc_grip %><br />
+    <%= f.check_box :disc_grip %>
+  </div>
+  <div class="field">
+    <%= f.label :hook_grip %><br />
+    <%= f.check_box :hook_grip %>
+  </div>
+  <div class="field">
+    <%= f.label :flat_hand_push %><br />
+    <%= f.check_box :flat_hand_push %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

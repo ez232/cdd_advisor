@@ -17,17 +17,98 @@
     <%= f.text_field :name %>
   </div>
 
-  <h2>Shape attributes</h2>
-  <%= render partial: 'form_shape', locals: { form: f, label: :handle_shape, 
-    item_id: :handle_shape_id, collection: Shape.all } %>
-  <%= render partial: 'form_shape', locals: { form: f, label: :switch_shape, 
-    item_id: :switch_shape_id, collection: Shape.all } %>
-  <%= render partial: 'form_shape', locals: { form: f, label: :knob_shape, 
-    item_id: :knob_shape_id, collection: Shape.all } %>
-  <%= render partial: 'form_shape', locals: { form: f, label: :button_shape, 
-    item_id: :button_shape_id, collection: Shape.all } %>
-  <%= render partial: 'form_shape', locals: { form: f, label: :scrollbar_shape, 
-    item_id: :scrollbar_shape_id, collection: Shape.all } %>
+  <%= f.fields_for :handle do |handle_form| %>
+    <h2>Handle</h2>
+    <table style="border: none">
+      <tr>
+        <td>
+          <div class="field">
+            <%= handle_form.check_box :holding %>
+            <%= handle_form.label :holding %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= handle_form.check_box :moving %>
+            <%= handle_form.label :moving %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= handle_form.check_box :carrying %>
+            <%= handle_form.label :carrying %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <div class="field">
+            <%= handle_form.label :shape %>
+            <%= handle_form.select :shape, Handle::SHAPE_VALUES, prompt: true %>
+          </div>        
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="field">
+            <%= handle_form.label :length_or_radius %><br />
+            <%= handle_form.text_field :length_or_radius, size: 10 %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= handle_form.label :width %><br />
+            <%= handle_form.text_field :width, size: 10 %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= handle_form.label :height %><br />
+            <%= handle_form.text_field :height, size: 10 %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="field">
+            <%= handle_form.check_box :pinch_grip %>
+            <%= handle_form.label :pinch_grip %>
+          </div>
+          <div class="field">
+            <%= handle_form.check_box :power_grip %>
+            <%= handle_form.label :power_grip %>
+          </div>
+          <div class="field">
+            <%= handle_form.check_box :span_grip %>
+            <%= handle_form.label :span_grip %>
+          </div>
+          <div class="field">
+            <%= handle_form.check_box :spherical_grip %>
+            <%= handle_form.label :spherical_grip %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= handle_form.check_box :cylindrical_grip %>
+            <%= handle_form.label :cylindrical_grip %>
+          </div>
+          <div class="field">
+            <%= handle_form.check_box :disc_grip %>
+            <%= handle_form.label :disc_grip %>
+          </div>
+          <div class="field">
+            <%= handle_form.check_box :hook_grip %>
+            <%= handle_form.label :hook_grip %>
+          </div>
+          <div class="field">
+            <%= handle_form.check_box :flat_hand_push %>
+            <%= handle_form.label :flat_hand_push %>
+          </div>
+        </td>
+        <td></td>
+      </tr>
+    </table>
+  <% end %>
 
   <div class="actions">
     <%= f.submit %>

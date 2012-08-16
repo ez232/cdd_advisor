@@ -22,7 +22,7 @@ class ProposalTest < ActiveSupport::TestCase
     proposal.project_id = projects(:iPhone).id
 
     assert !proposal.save
-    assert_equal I18n.translate('activerecord.errors.messages.taken'), 
+    assert_equal I18n.translate('activerecord.errors.messages.taken'),
                  proposal.errors[:name].join('; ')
 
     proposal = Proposal.new(name: proposals(:one).name)

@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  proposal_id: 1
+  holding: false
+  moving: false
+  carrying: false
+  shape: MyString
+  length_or_radius: 1.5
+  width: 1.5
+  height: 1.5
+  pinch_grip: false
+  power_grip: false
+  span_grip: false
+  spherical_grip: false
+  cylindrical_grip: false
+  disc_grip: false
+  hook_grip: false
+  flat_hand_push: false
+
+two:
+  proposal_id: 1
+  holding: false
+  moving: false
+  carrying: false
+  shape: MyString
+  length_or_radius: 1.5
+  width: 1.5
+  height: 1.5
+  pinch_grip: false
+  power_grip: false
+  span_grip: false
+  spherical_grip: false
+  cylindrical_grip: false
+  disc_grip: false
+  hook_grip: false
+  flat_hand_push: false

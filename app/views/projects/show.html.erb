@@ -22,19 +22,6 @@
 <% unless @project.proposals.empty? %>
   <% @project.proposals.each do |proposal| %>
     <h1><%= proposal.name %></h1>
-    
-    <h2>Shape attributes</h2>
-    
-    <%= render partial: 'show_shape', locals: {shape: proposal.handle_shape,
-      label: "Handle shape:" } %>
-    <%= render partial: 'show_shape', locals: {shape: proposal.switch_shape,
-      label: "Switch shape:" } %>
-    <%= render partial: 'show_shape', locals: {shape: proposal.knob_shape,
-      label: "Knob shape:" } %>
-    <%= render partial: 'show_shape', locals: {shape: proposal.button_shape,
-      label: "Button shape:" } %>
-    <%= render partial: 'show_shape', locals: {shape: proposal.scrollbar_shape,
-      label: "Scrollbar shape:" } %>
   <% end %>
 <% end %>
 

@@ -1,14 +1,14 @@
 class Proposal < ActiveRecord::Base
-  attr_accessible :name, :handle_shape_id, :switch_shape_id, :knob_shape_id,
-    :button_shape_id, :scrollbar_shape_id
+  attr_accessible :name, :handle_attributes
+
+  has_one :handle, dependent: :destroy, inverse_of: :proposal
+
+  belongs_to :project
+
+  accepts_nested_attributes_for :handle
 
   validates :name, presence: true, uniqueness: { scope: :project_id }
   validates :project_id, presence: { message: "is not a valid project" }
-
-  belongs_to :project
-  belongs_to :handle_shape, class_name: "Shape"
-  belongs_to :switch_shape, class_name: "Shape"
-  belongs_to :knob_shape, class_name: "Shape"
-  belongs_to :button_shape, class_name: "Shape"
-  belongs_to :scrollbar_shape, class_name: "Shape"
+  # FIXME: check why this is not working
+  validates :project, associated: true
 end

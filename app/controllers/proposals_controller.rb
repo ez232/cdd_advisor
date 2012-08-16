@@ -27,6 +27,7 @@ class ProposalsController < ApplicationController
   # GET /proposals/new.json
   def new
     @proposal = Proposal.new
+    @proposal.build_handle
 
     respond_to do |format|
       format.html # new.html.erb

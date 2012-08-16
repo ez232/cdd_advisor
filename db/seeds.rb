@@ -6,14 +6,3 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Shape.delete_all
-Shape.create(name: "Organic")
-Shape.create(name: "Rectangle")
-Shape.create(name: "Square")
-Shape.create(name: "Trapezium")
-Shape.create(name: "Trapezoid")
-Shape.create(name: "Cylindrical")
-Shape.create(name: "Oval")
-Shape.create(name: "Spherical")
-Shape.create(name: "Conical")
-Shape.create(name: "Triangle")

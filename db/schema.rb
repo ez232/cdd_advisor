@@ -11,7 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120810154705) do
+ActiveRecord::Schema.define(:version => 20120816004928) do
+
+  create_table "handles", :force => true do |t|
+    t.integer  "proposal_id"
+    t.boolean  "holding"
+    t.boolean  "moving"
+    t.boolean  "carrying"
+    t.string   "shape"
+    t.float    "length_or_radius"
+    t.float    "width"
+    t.float    "height"
+    t.boolean  "pinch_grip"
+    t.boolean  "power_grip"
+    t.boolean  "span_grip"
+    t.boolean  "spherical_grip"
+    t.boolean  "cylindrical_grip"
+    t.boolean  "disc_grip"
+    t.boolean  "hook_grip"
+    t.boolean  "flat_hand_push"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "projects", :force => true do |t|
     t.string   "name"
@@ -28,17 +49,6 @@ ActiveRecord::Schema.define(:version => 20120810154705) do
   create_table "proposals", :force => true do |t|
     t.string   "name"
     t.integer  "project_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-    t.integer  "handle_shape_id"
-    t.integer  "switch_shape_id"
-    t.integer  "knob_shape_id"
-    t.integer  "button_shape_id"
-    t.integer  "scrollbar_shape_id"
-  end
-
-  create_table "shapes", :force => true do |t|
-    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
