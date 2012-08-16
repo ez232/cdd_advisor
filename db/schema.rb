@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120816145954) do
+ActiveRecord::Schema.define(:version => 20120816160549) do
 
   create_table "buttons", :force => true do |t|
     t.integer  "proposal_id"
@@ -98,6 +98,13 @@ ActiveRecord::Schema.define(:version => 20120816145954) do
     t.integer  "project_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "screens", :force => true do |t|
+    t.integer  "proposal_id"
+    t.boolean  "has_screen"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "switches", :force => true do |t|

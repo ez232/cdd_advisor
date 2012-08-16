@@ -486,6 +486,21 @@
     </table>
   <% end %>
 
+  <%= f.fields_for :screen do |screen_form| %>
+    <h2>Screen</h2>
+    <!-- FIXME: remove this style from here -->
+    <table style="border: none">
+      <tr>
+        <td>
+          <div class="field">
+            <%= screen_form.check_box :has_screen %>
+            <%= screen_form.label :has_screen %>
+          </div>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

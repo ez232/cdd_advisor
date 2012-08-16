@@ -51,18 +51,18 @@
        <tr>
         <td>
           <span class="label">Length or radius:</span><br />
-          <%= number_with_precision proposal.handle.length_or_radius, 
-            precision: 2 %> mm
+          <%= number_to_human proposal.handle.length_or_radius, 
+            units: { unit: "mm" }, precision: 2 %>
         </td>
         <td>
           <span class="label">Width:</span><br />
-          <%= number_with_precision proposal.handle.width, 
-            precision: 2 %> mm
+          <%= number_to_human proposal.handle.width, 
+            units: { unit: "mm" }, precision: 2 %>
         </td>
         <td>
           <span class="label">Height:</span><br />
-          <%= number_with_precision proposal.handle.height, 
-            precision: 2 %> mm
+          <%= number_to_human proposal.handle.height, 
+            units: { unit: "mm" }, precision: 2 %>
         </td>
       </tr>
       <tr>
@@ -146,25 +146,25 @@
        <tr>
         <td>
           <span class="label">Length or radius:</span><br />
-          <%= number_with_precision proposal.switch.length_or_radius, 
-            precision: 2 %> mm
+          <%= number_to_human proposal.switch.length_or_radius, 
+            units: { unit: "mm" }, precision: 2 %>
         </td>
         <td>
           <span class="label">Width:</span><br />
-          <%= number_with_precision proposal.switch.width, 
-            precision: 2 %> mm
+          <%= number_to_human proposal.switch.width, 
+            units: { unit: "mm" }, precision: 2 %>
         </td>
         <td>
           <span class="label">Height:</span><br />
-          <%= number_with_precision proposal.switch.height, 
-            precision: 2 %> mm
+          <%= number_to_human proposal.switch.height, 
+            units: { unit: "mm" }, precision: 2 %>
         </td>
       </tr>
       <tr>
         <td colspan="3">
           <span class="label">Force required:</span><br />
-          <%= number_with_precision proposal.switch.force_required, 
-            precision: 2 %> N
+          <%= number_to_human proposal.switch.force_required, 
+            units: { unit: "N" }, precision: 2 %>
         </td>
       </tr>
       <tr>
@@ -259,25 +259,25 @@
        <tr>
         <td>
           <span class="label">Length or radius:</span><br />
-          <%= number_with_precision proposal.knob.length_or_radius, 
-            precision: 2 %> mm
+          <%= number_to_human proposal.knob.length_or_radius, 
+            units: { unit: "mm" }, precision: 2 %>
         </td>
         <td>
           <span class="label">Width:</span><br />
-          <%= number_with_precision proposal.knob.width, 
-            precision: 2 %> mm
+          <%= number_to_human proposal.knob.width, 
+            units: { unit: "mm" }, precision: 2 %>
         </td>
         <td>
           <span class="label">Height:</span><br />
-          <%= number_with_precision proposal.knob.height, 
-            precision: 2 %> mm
+          <%= number_to_human proposal.knob.height, 
+            units: { unit: "mm" }, precision: 2 %>
         </td>
       </tr>
       <tr>
         <td colspan="3">
           <span class="label">Force required:</span><br />
-          <%= number_with_precision proposal.knob.force_required, 
-            precision: 2 %> N
+          <%= number_to_human proposal.knob.force_required, 
+            units: { unit: "N" }, precision: 2 %>
         </td>
       </tr>
       <tr>
@@ -372,25 +372,25 @@
        <tr>
         <td>
           <span class="label">Length or radius:</span><br />
-          <%= number_with_precision proposal.button.length_or_radius, 
-            precision: 2 %> mm
+          <%= number_to_human proposal.button.length_or_radius, 
+            units: { unit: "mm" }, precision: 2 %>
         </td>
         <td>
           <span class="label">Width:</span><br />
-          <%= number_with_precision proposal.button.width, 
-            precision: 2 %> mm
+          <%= number_to_human proposal.button.width, 
+            units: { unit: "mm" }, precision: 2 %>
         </td>
         <td>
           <span class="label">Height:</span><br />
-          <%= number_with_precision proposal.button.height, 
-            precision: 2 %> mm
+          <%= number_to_human proposal.button.height, 
+            units: { unit: "mm" }, precision: 2 %>
         </td>
       </tr>
       <tr>
         <td colspan="3">
           <span class="label">Force required:</span><br />
-          <%= number_with_precision proposal.button.force_required, 
-            precision: 2 %> N
+          <%= number_to_human proposal.button.force_required, 
+            units: { unit: "N" }, precision: 2 %>
         </td>
       </tr>
       <tr>
@@ -419,6 +419,18 @@
           <span class="label">Thumb press</span>
         </td>
         <td></td>
+      </tr>
+    </table>
+
+    <h2>Screen</h2>
+    <!-- FIXME: remove this style from here -->
+    <table style="border: none; width: 50%">
+      <tr>
+        <td>
+          <%= check_box_tag "has_screen", "1", proposal.screen.has_screen,
+            disabled: true %>
+          <span class="label">Has screen</span>
+        </td>
       </tr>
     </table>
   <% end %>
