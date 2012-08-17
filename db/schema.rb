@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120817073036) do
+ActiveRecord::Schema.define(:version => 20120817074320) do
+
+  create_table "audio_devices", :force => true do |t|
+    t.integer  "proposal_id"
+    t.string   "range_of_volume_specifications"
+    t.string   "sound_volume_specifications"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
 
   create_table "buttons", :force => true do |t|
     t.integer  "proposal_id"

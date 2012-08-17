@@ -1,4 +1,6 @@
 CddAdvisor::Application.routes.draw do
+  resources :audio_devices
+
   resources :opening_devices
 
   resources :labels

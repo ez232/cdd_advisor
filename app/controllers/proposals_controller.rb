@@ -35,6 +35,7 @@ class ProposalsController < ApplicationController
     @proposal.build_touch_screen
     @proposal.build_label
     @proposal.build_opening_device
+    @proposal.build_audio_device
 
     respond_to do |format|
       format.html # new.html.erb

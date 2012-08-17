@@ -636,6 +636,29 @@
     </table>
   <% end %>
 
+  <%= f.fields_for :audio_device do |audio_device_form| %>
+    <h2>Audio device</h2>
+    <!-- FIXME: remove this style from here -->
+    <table style="border: none">
+      <tr>
+        <td colspan="3">
+          <div class="field">
+            <%= audio_device_form.label :range_of_volume_specifications %><br />
+            <%= audio_device_form.text_field :range_of_volume_specifications %>
+          </div>        
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <div class="field">
+            <%= audio_device_form.label :sound_volume_specifications %><br />
+            <%= audio_device_form.text_field :sound_volume_specifications %>
+          </div>        
+        </td>
+      </tr>
+    </table>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

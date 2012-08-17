@@ -539,6 +539,23 @@
         </td>
       </tr>
     </table>
+
+    <h2>Audio device</h2>
+    <!-- FIXME: remove this style from here -->
+    <table style="border: none; width: 50%">
+      <tr>
+        <td colspan="3">
+          <span class="label">Range of volume specifications:</span><br />
+          <%= proposal.audio_device.range_of_volume_specifications %>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <span class="label">Sound volume specifications:</span><br />
+          <%= proposal.audio_device.sound_volume_specifications %>
+        </td>
+      </tr>
+    </table>
   <% end %>
 <% end %>
 
