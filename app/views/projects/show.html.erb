@@ -22,9 +22,18 @@
   <% @project.proposals.each do |proposal| %>
     <h1><%= proposal.name %></h1>
 
+    <p>
+      <span class="label">Product weight:</span>
+      <%= number_to_human proposal.product_weight, units: { unit: "kg" }, 
+        precision: 2 %>
+    </p>
+    <p>
+      <span class="label">Product colour:</span>
+      <%= proposal.product_colour %>
+    </p>
+
     <h2>Handle</h2>
-    <!-- FIXME: remove this style from here -->
-    <table style="border: none; width: 50%">
+    <table class="fields">
       <tr>
         <td>
           <%= check_box_tag "holding", "1", proposal.handle.holding,
@@ -105,8 +114,7 @@
     </table>
 
     <h2>Switch</h2>
-    <!-- FIXME: remove this style from here -->
-    <table style="border: none; width: 50%">
+    <table class="fields">
       <tr>
         <td>
           <%= check_box_tag "pressing", "1", proposal.switch.pressing,
@@ -218,8 +226,7 @@
     </table>
 
     <h2>Knob</h2>
-    <!-- FIXME: remove this style from here -->
-    <table style="border: none; width: 50%">
+    <table class="fields">
       <tr>
         <td>
           <%= check_box_tag "pressing", "1", proposal.knob.pressing,
@@ -331,8 +338,7 @@
     </table>
 
     <h2>Button</h2>
-    <!-- FIXME: remove this style from here -->
-    <table style="border: none; width: 50%">
+    <table class="fields">
       <tr>
         <td>
           <%= check_box_tag "pressing", "1", proposal.button.pressing,
@@ -423,8 +429,7 @@
     </table>
 
     <h2>Screen</h2>
-    <!-- FIXME: remove this style from here -->
-    <table style="border: none; width: 50%">
+    <table class="fields">
       <tr>
         <td>
           <%= check_box_tag "has_screen", "1", proposal.screen.has_screen,
@@ -435,8 +440,7 @@
     </table>
 
     <h2>Touch screen</h2>
-    <!-- FIXME: remove this style from here -->
-    <table style="border: none; width: 50%">
+    <table class="fields">
       <tr>
         <td colspan="3">
           <span class="label">Button shape:</span><br />
@@ -486,8 +490,7 @@
     </table>
 
     <h2>Label</h2>
-    <!-- FIXME: remove this style from here -->
-    <table style="border: none; width: 50%">
+    <table class="fields">
       <tr>
         <td>
           <%= check_box_tag "printed", "1", proposal.label.printed,
@@ -529,8 +532,7 @@
     </table>
 
     <h2>Screen</h2>
-    <!-- FIXME: remove this style from here -->
-    <table style="border: none; width: 50%">
+    <table class="fields">
       <tr>
         <td>
           <%= check_box_tag "is_opening_device", "1", 
@@ -541,8 +543,7 @@
     </table>
 
     <h2>Audio device</h2>
-    <!-- FIXME: remove this style from here -->
-    <table style="border: none; width: 50%">
+    <table class="fields">
       <tr>
         <td colspan="3">
           <span class="label">Range of volume specifications:</span><br />
@@ -556,6 +557,36 @@
         </td>
       </tr>
     </table>
+
+    <h2>Other attributes</h2>
+    <p>
+      <span class="label">Manufacturing:</span>
+      <%= proposal.manufacturing %>
+    </p>
+    <p>
+      <span class="label">Key components - mechanics:</span>
+      <%= proposal.key_components_mechanics %>
+    </p>
+    <p>
+      <span class="label">Key components - electronics:</span>
+      <%= proposal.key_components_electronics %>
+    </p>
+    <p>
+      <span class="label">Key components - fixings:</span>
+      <%= proposal.key_components_fixing %>
+    </p>
+    <p>
+      <span class="label">Material:</span>
+      <%= proposal.material %>
+    </p>
+    <p>
+      <span class="label">Finishing:</span>
+      <%= proposal.finishing %>
+    </p>
+    <p>
+      <span class="label">Maintenance:</span>
+      <%= proposal.maintenance %>
+    </p>
   <% end %>
 <% end %>
 

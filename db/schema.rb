@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120817074320) do
+ActiveRecord::Schema.define(:version => 20120817100958) do
 
   create_table "audio_devices", :force => true do |t|
     t.integer  "proposal_id"
@@ -123,8 +123,17 @@ ActiveRecord::Schema.define(:version => 20120817074320) do
   create_table "proposals", :force => true do |t|
     t.string   "name"
     t.integer  "project_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.float    "product_weight"
+    t.string   "product_colour"
+    t.string   "manufacturing"
+    t.string   "key_components_mechanics"
+    t.string   "key_components_electronics"
+    t.string   "key_components_fixing"
+    t.string   "material"
+    t.string   "finishing"
+    t.string   "maintenance"
   end
 
   create_table "screens", :force => true do |t|

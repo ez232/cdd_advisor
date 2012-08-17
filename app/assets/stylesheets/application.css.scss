@@ -111,6 +111,14 @@ p, ol, ul, td {
   line-height: 18px; 
 }
 
+.fields {
+  border: none;
+
+  td {
+    width: 160px;
+  }
+}
+
 table {
   border-collapse: collapse;
   border-bottom: 1px solid $blue;

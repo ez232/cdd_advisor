@@ -13,15 +13,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %>: 
+    <%= f.label :name %><br />
     <%= f.text_field :name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :product_weight %><br />
+    <%= f.text_field :product_weight %>
+  </div>
+
+  <div class="field">
+    <%= f.label :product_colour %><br />
+    <%= f.text_field :product_colour %>
   </div>
 
   <!-- TODO: partials??? -->
   <%= f.fields_for :handle do |handle_form| %>
     <h2>Handle</h2>
-    <!-- FIXME: remove this style from here -->
-    <table style="border: none">
+    <table class="fields">
       <tr>
         <td>
           <div class="field">
@@ -114,8 +123,7 @@
 
   <%= f.fields_for :switch do |switch_form| %>
     <h2>Switch</h2>
-    <!-- FIXME: remove this style from here -->
-    <table style="border: none">
+    <table class="fields">
       <tr>
         <td>
           <div class="field">
@@ -246,8 +254,7 @@
 
   <%= f.fields_for :knob do |knob_form| %>
     <h2>Knob</h2>
-    <!-- FIXME: remove this style from here -->
-    <table style="border: none">
+    <table class="fields">
       <tr>
         <td>
           <div class="field">
@@ -378,8 +385,7 @@
 
   <%= f.fields_for :button do |button_form| %>
     <h2>Button</h2>
-    <!-- FIXME: remove this style from here -->
-    <table style="border: none">
+    <table class="fields">
       <tr>
         <td>
           <div class="field">
@@ -420,7 +426,7 @@
           <div class="field">
             <%= button_form.label :shape %>
             <%= button_form.select :shape, Button::SHAPE_VALUES, prompt: true %>
-          </div>        
+          </div>
         </td>
       </tr>
       <tr>
@@ -488,8 +494,7 @@
 
   <%= f.fields_for :screen do |screen_form| %>
     <h2>Screen</h2>
-    <!-- FIXME: remove this style from here -->
-    <table style="border: none">
+    <table class="fields">
       <tr>
         <td>
           <div class="field">
@@ -503,8 +508,7 @@
 
   <%= f.fields_for :touch_screen do |touch_screen_form| %>
     <h2>Touch screen</h2>
-    <!-- FIXME: remove this style from here -->
-    <table style="border: none">
+    <table class="fields">
       <tr>
         <td colspan="3">
           <div class="field">
@@ -570,8 +574,7 @@
 
   <%= f.fields_for :label do |label_form| %>
     <h2>Label</h2>
-    <!-- FIXME: remove this style from here -->
-    <table style="border: none">
+    <table class="fields">
       <tr>
         <td>
           <div class="field">
@@ -623,8 +626,7 @@
 
   <%= f.fields_for :opening_device do |opening_device_form| %>
     <h2>Opening device</h2>
-    <!-- FIXME: remove this style from here -->
-    <table style="border: none">
+    <table class="fields">
       <tr>
         <td>
           <div class="field">
@@ -638,8 +640,7 @@
 
   <%= f.fields_for :audio_device do |audio_device_form| %>
     <h2>Audio device</h2>
-    <!-- FIXME: remove this style from here -->
-    <table style="border: none">
+    <table class="fields">
       <tr>
         <td colspan="3">
           <div class="field">
@@ -658,6 +659,37 @@
       </tr>
     </table>
   <% end %>
+
+  <h2>Other attributes</h2>
+  <div class="field">
+    <%= f.label :manufacturing %>
+    <%= f.select :manufacturing, Proposal::MANUFACTURING_VALUES, prompt: true %>
+  </div>
+  <div class="field">
+    <%= f.label :key_components_mechanics %><br />
+    <%= f.text_field :key_components_mechanics %>
+  </div>
+  <div class="field">
+    <%= f.label :key_components_electronics %><br />
+    <%= f.text_field :key_components_electronics %>
+  </div>
+  <div class="field">
+    <%= f.label :key_components_fixing %><br />
+    <%= f.text_field :key_components_fixing %>
+  </div>
+  <div class="field">
+    <%= f.label :material %>
+    <%= f.select :material, 
+      grouped_options_for_select(Proposal::MATERIAL_VALUES), prompt: true %>
+  </div>
+  <div class="field">
+    <%= f.label :finishing %>
+    <%= f.select :finishing, Proposal::FINISHING_VALUES, prompt: true %>
+  </div>
+  <div class="field">
+    <%= f.label :maintenance %>
+    <%= f.select :maintenance, Proposal::MAINTENANCE_VALUES, prompt: true %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

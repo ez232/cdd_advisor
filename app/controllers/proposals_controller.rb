@@ -27,6 +27,7 @@ class ProposalsController < ApplicationController
   # GET /proposals/new.json
   def new
     @proposal = Proposal.new
+    # TODO: change this creation to a more dynamic approach
     @proposal.build_handle
     @proposal.build_switch
     @proposal.build_knob

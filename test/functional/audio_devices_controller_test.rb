@@ -24,7 +24,9 @@ class AudioDevicesControllerTest < ActionController::TestCase
 
   test "should create audio_device" do
     assert_difference('AudioDevice.count') do
-      post :create, audio_device: { proposal_id: @audio_device.proposal_id, range_of_volume_specifications: @audio_device.range_of_volume_specifications, sound_volume_specifications: @audio_device.sound_volume_specifications }
+      post :create, audio_device: { proposal_id: @audio_device.proposal_id, 
+        range_of_volume_specifications: @audio_device.range_of_volume_specifications, 
+        sound_volume_specifications: @audio_device.sound_volume_specifications }
     end
 
     assert_redirected_to audio_device_path(assigns(:audio_device))
@@ -41,7 +43,10 @@ class AudioDevicesControllerTest < ActionController::TestCase
   end
 
   test "should update audio_device" do
-    put :update, id: @audio_device, audio_device: { proposal_id: @audio_device.proposal_id, range_of_volume_specifications: @audio_device.range_of_volume_specifications, sound_volume_specifications: @audio_device.sound_volume_specifications }
+    put :update, id: @audio_device, audio_device: { 
+      proposal_id: @audio_device.proposal_id, 
+      range_of_volume_specifications: @audio_device.range_of_volume_specifications, 
+      sound_volume_specifications: @audio_device.sound_volume_specifications }
     assert_redirected_to audio_device_path(assigns(:audio_device))
   end
 
