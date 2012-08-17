@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120816174036) do
+ActiveRecord::Schema.define(:version => 20120817073036) do
 
   create_table "buttons", :force => true do |t|
     t.integer  "proposal_id"
@@ -91,6 +91,13 @@ ActiveRecord::Schema.define(:version => 20120816174036) do
     t.float    "labels_reading_distance"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
+  end
+
+  create_table "opening_devices", :force => true do |t|
+    t.integer  "proposal_id"
+    t.boolean  "is_opening_device"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "projects", :force => true do |t|

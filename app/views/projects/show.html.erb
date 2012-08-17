@@ -527,6 +527,18 @@
         </td>
       </tr>
     </table>
+
+    <h2>Screen</h2>
+    <!-- FIXME: remove this style from here -->
+    <table style="border: none; width: 50%">
+      <tr>
+        <td>
+          <%= check_box_tag "is_opening_device", "1", 
+            proposal.opening_device.is_opening_device, disabled: true %>
+          <span class="label">Is opening device</span>
+        </td>
+      </tr>
+    </table>
   <% end %>
 <% end %>
 

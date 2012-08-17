@@ -621,6 +621,21 @@
     </table>
   <% end %>
 
+  <%= f.fields_for :opening_device do |opening_device_form| %>
+    <h2>Opening device</h2>
+    <!-- FIXME: remove this style from here -->
+    <table style="border: none">
+      <tr>
+        <td>
+          <div class="field">
+            <%= opening_device_form.check_box :is_opening_device %>
+            <%= opening_device_form.label :is_opening_device %>
+          </div>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

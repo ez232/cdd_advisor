@@ -1,4 +1,6 @@
 CddAdvisor::Application.routes.draw do
+  resources :opening_devices
+
   resources :labels
 
   resources :touch_screens

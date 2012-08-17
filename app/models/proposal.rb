@@ -1,7 +1,7 @@
 class Proposal < ActiveRecord::Base
   attr_accessible :name, :handle_attributes, :switch_attributes, 
     :knob_attributes, :button_attributes, :screen_attributes, 
-    :touch_screen_attributes, :label_attributes
+    :touch_screen_attributes, :label_attributes, :opening_device_attributes
 
   has_one :handle, dependent: :destroy, inverse_of: :proposal
   has_one :switch, dependent: :destroy, inverse_of: :proposal
@@ -10,11 +10,12 @@ class Proposal < ActiveRecord::Base
   has_one :screen, dependent: :destroy, inverse_of: :proposal
   has_one :touch_screen, dependent: :destroy, inverse_of: :proposal
   has_one :label, dependent: :destroy, inverse_of: :proposal
+  has_one :opening_device, dependent: :destroy, inverse_of: :proposal
 
   belongs_to :project
 
   accepts_nested_attributes_for :handle, :switch, :knob, :button, :screen,
-    :touch_screen, :label
+    :touch_screen, :label, :opening_device
 
   validates :name, presence: true, uniqueness: { scope: :project_id }
   validates :project_id, presence: { message: "is not a valid project" }
