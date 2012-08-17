@@ -55,4 +55,44 @@ class Proposal < ActiveRecord::Base
       [ 'Glass Fibers', 'Carbon Fibers', 'Aramid Fibers', 'Hemp', 
         'Silicon Carbide Fibers' ]
   }
+
+  def excluded_population
+    # TODO: review these rules with Emilene
+    # TODO: implement tests and view
+    unless label.nil?
+      if label.text_size < 12
+        return 3.5
+      end
+
+      if label.text_colour.casecmp(product_colour) == 0 # equal colours
+        return 7.8
+      end
+
+      if label.text_colour.casecmp(product_colour) != 0 and # different colours
+         label.text_size > 12 and
+         label.labels_reading_distance < 300
+         return 3.2
+      end
+    end
+
+    unless handle.nil?
+      if handle.holding and 
+         handle.length_or_radius > 50 and 
+         handle.width > 50 and 
+         product_weight > 5 and
+         handle.pinch_grip
+         return 11.0
+      end
+    end
+
+    unless switch.nil?
+      if switch.shape != Switch::SHAPE_VALUES[0] and # different from 'Organic'
+         switch.length_or_radius > 40 and 
+         switch.width > 40 and
+         switch.force_required > 10 and
+         switch.pinch_grip
+         return 4.1
+      end
+    end
+  end
 end
