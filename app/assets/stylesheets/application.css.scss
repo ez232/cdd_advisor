@@ -96,6 +96,12 @@ body {
   }
 }
 
+.result {
+  color: $red;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 h1 {
   color: $grey;
   border-bottom: 1px dotted;

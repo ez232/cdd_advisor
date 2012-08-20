@@ -31,6 +31,11 @@ class ProjectsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should show project results" do
+    get :results, id: @project
+    assert_response :success
+  end
+
   test "should get edit" do
     get :edit, id: @project
     assert_response :success

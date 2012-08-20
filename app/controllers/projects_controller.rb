@@ -39,6 +39,17 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
   end
 
+  # GET /projects/1/results
+  # GET /projects/1/results.json
+  def results
+    @project = Project.find(params[:id])
+
+    respond_to do |format|
+      format.html # results.html.erb
+      format.json { render json: @project }
+    end
+  end
+
   # POST /projects
   # POST /projects.json
   def create

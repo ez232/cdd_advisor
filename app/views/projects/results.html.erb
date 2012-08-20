@@ -1,0 +1,28 @@
+<div id="menu">
+  <span>Project Specifications</span>
+  &nbsp;&nbsp;&gt;&gt;&nbsp;&nbsp;
+  <span>Design Proposals</span>
+  &nbsp;&nbsp;&gt;&gt;&nbsp;&nbsp;
+  <span id="current">Design Proposals Presentation</span>
+</div>
+
+<h1>Project: <%= @project.name %></h1>
+<% unless @project.proposals.empty? %>
+  <% @project.proposals.each_with_index do |proposal, index| %>
+    <h2><%= "Proposal #{index + 1}: #{proposal.name}" %></h2>
+    <%= render 'images', images: proposal.images %>
+    <p>
+      <span class="result">
+        <%= number_to_percentage proposal.excluded_population, precision: 1 %>
+      </span>
+      of the UK adult population excluded from using the design proposal 
+      <%= index + 1 %>.
+    </p>
+  <% end %>
+<% else %>
+  <p>Please create at least one proposal to view the results.</p>
+<% end %>
+
+<br />
+
+<%= link_to 'Home', projects_path %>

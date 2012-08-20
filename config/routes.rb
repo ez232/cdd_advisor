@@ -21,7 +21,9 @@ CddAdvisor::Application.routes.draw do
 
   resources :proposals
 
-  resources :projects
+  resources :projects do
+    get :results, on: :member
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

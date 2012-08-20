@@ -28,7 +28,7 @@
 <% end %>
 <br />
 <%= link_to 'New Proposal', new_proposal_path, class: 'button'  %>
-<%= link_to 'Next >>', "/", class: 'button'  %>
+<%= link_to 'Next >>', results_project_path(@project), class: 'button'  %>
 <br /><br />
 <%= link_to 'Home', projects_url %> |
 <%= link_to 'Back', edit_project_path(@project) %>

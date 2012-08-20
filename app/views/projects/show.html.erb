@@ -32,17 +32,7 @@
       <%= proposal.product_colour %>
     </p>
 
-    <div id="images">
-      <% proposal.images.each do |image| %>
-        <div class="image">
-          <div class="image_placeholder">
-            <%= image_tag image.image_url.to_s %>
-          </div>
-          <div class="name"><%= image.name %></div>
-        </div>    
-      <% end %>
-      <div class="clear"></div>
-    </div>
+    <%= render 'images', images: proposal.images %>
 
     <h2>Handle</h2>
     <table class="fields">
