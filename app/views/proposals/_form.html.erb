@@ -125,7 +125,11 @@
             <%= handle_form.label :flat_hand_push %>
           </div>
         </td>
-        <td></td>
+        <td>
+          <%= render 'grip_images', images: ['pinch.jpg', 'pinch_2.jpg',
+            'power_grip.jpg', 'span.jpg', 'spherical.jpg', 'cylindrical.jpg',
+            'disc.jpg', 'disc_2.jpg', 'hook.jpg', 'flat_hand_push.jpg' ] %>
+        </td>
       </tr>
     </table>
   <% end %>
@@ -256,7 +260,11 @@
             <%= switch_form.label :thumb_press %>
           </div>
         </td>
-        <td></td>
+        <td>
+          <%= render 'grip_images', images: ['pinch.jpg', 'pinch_2.jpg',
+            'span.jpg', 'spherical.jpg', 'disc.jpg', 'disc_2.jpg', 
+            'flat_hand_push.jpg'  ] %>
+        </td>
       </tr>
     </table>
   <% end %>
@@ -387,7 +395,11 @@
             <%= knob_form.label :thumb_press %>
           </div>
         </td>
-        <td></td>
+        <td>
+          <%= render 'grip_images', images: ['pinch.jpg', 'pinch_2.jpg',
+            'span.jpg', 'spherical.jpg', 'cylindrical.jpg', 'disc.jpg', 
+            'disc_2.jpg' ] %>
+        </td>
       </tr>
     </table>
   <% end %>
