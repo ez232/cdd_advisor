@@ -4,7 +4,8 @@ class Proposal < ActiveRecord::Base
     :key_components_fixing, :material, :finishing, :maintenance, 
     :handle_attributes, :switch_attributes, :knob_attributes, 
     :button_attributes, :screen_attributes, :touch_screen_attributes, 
-    :label_attributes, :opening_device_attributes, :audio_device_attributes
+    :label_attributes, :opening_device_attributes, :audio_device_attributes,
+    :images_attributes
 
   has_one :handle, dependent: :destroy, inverse_of: :proposal
   has_one :switch, dependent: :destroy, inverse_of: :proposal
@@ -15,11 +16,12 @@ class Proposal < ActiveRecord::Base
   has_one :label, dependent: :destroy, inverse_of: :proposal
   has_one :opening_device, dependent: :destroy, inverse_of: :proposal
   has_one :audio_device, dependent: :destroy, inverse_of: :proposal
+  has_many :images, dependent: :destroy, inverse_of: :proposal
 
   belongs_to :project
 
   accepts_nested_attributes_for :handle, :switch, :knob, :button, :screen,
-    :touch_screen, :label, :opening_device, :audio_device
+    :touch_screen, :label, :opening_device, :audio_device, :images
 
   # TODO: review attribute validation
   validates :name, presence: true, uniqueness: { scope: :project_id }
@@ -71,7 +73,7 @@ class Proposal < ActiveRecord::Base
       if label.text_colour.casecmp(product_colour) != 0 and # different colours
          label.text_size > 12 and
          label.labels_reading_distance < 300
-         return 3.2
+         return 2.3
       end
     end
 

@@ -28,6 +28,15 @@
   </div>
 
   <!-- TODO: partials??? -->
+  <h2>Images</h2>
+  <%= f.fields_for :images do |handle_form| %>
+    <div class="field">
+      <%= handle_form.label :name %><br />
+      <%= handle_form.text_field :name %>
+      <%= handle_form.file_field :image %>
+    </div>        
+  <% end %>
+
   <%= f.fields_for :handle do |handle_form| %>
     <h2>Handle</h2>
     <table class="fields">

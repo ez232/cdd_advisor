@@ -37,6 +37,7 @@ class ProposalsController < ApplicationController
     @proposal.build_label
     @proposal.build_opening_device
     @proposal.build_audio_device
+    3.times { @proposal.images.build }
 
     respond_to do |format|
       format.html # new.html.erb

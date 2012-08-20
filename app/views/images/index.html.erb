@@ -1,0 +1,20 @@
+<h1>Listing images</h1>
+
+<div id="images">
+  <% @images.each do |image| %>
+    <div class="image">
+      <div class="image_placeholder"><%= image_tag image.image_url.to_s %></div>
+      <div class="name"><%= image.name %></div>
+      <div class="actions">
+        <%= link_to 'Edit', edit_image_path(image) %> |
+        <%= link_to 'Destroy', image, method: :delete, 
+          data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>    
+  <% end %>
+  <div class="clear"></div>
+</div>
+
+<p>
+  <%= link_to 'New Image', new_image_path %>
+</p>

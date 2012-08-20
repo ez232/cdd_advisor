@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120817100958) do
+ActiveRecord::Schema.define(:version => 20120820104647) do
 
   create_table "audio_devices", :force => true do |t|
     t.integer  "proposal_id"
@@ -61,6 +61,14 @@ ActiveRecord::Schema.define(:version => 20120817100958) do
     t.boolean  "flat_hand_push"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+  end
+
+  create_table "images", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "image"
+    t.integer  "proposal_id"
   end
 
   create_table "knobs", :force => true do |t|
