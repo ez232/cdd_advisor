@@ -1,0 +1,102 @@
+<h2>Handle</h2>
+<table class="fields">
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.check_box :holding %>
+        <%= f.label :holding %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.check_box :moving %>
+        <%= f.label :moving %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.check_box :carrying %>
+        <%= f.label :carrying %>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <div class="field">
+        <%= f.label :shape %>
+        <%= f.select :shape, Handle::SHAPE_VALUES, prompt: true %>
+      </div>        
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.label :length_or_radius %><br />
+        <%= f.text_field :length_or_radius, size: 10 %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :width %><br />
+        <%= f.text_field :width, size: 10 %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :height %><br />
+        <%= f.text_field :height, size: 10 %>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.check_box :pinch_grip %>
+        <%= f.label :pinch_grip %>
+      </div>
+      <div class="field">
+        <%= f.check_box :power_grip %>
+        <%= f.label :power_grip %>
+      </div>
+      <div class="field">
+        <%= f.check_box :span_grip %>
+        <%= f.label :span_grip %>
+      </div>
+      <div class="field">
+        <%= f.check_box :spherical_grip %>
+        <%= f.label :spherical_grip %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.check_box :cylindrical_grip %>
+        <%= f.label :cylindrical_grip %>
+      </div>
+      <div class="field">
+        <%= f.check_box :disc_grip %>
+        <%= f.label :disc_grip %>
+      </div>
+      <div class="field">
+        <%= f.check_box :hook_grip %>
+        <%= f.label :hook_grip %>
+      </div>
+      <div class="field">
+        <%= f.check_box :flat_hand_push %>
+        <%= f.label :flat_hand_push %>
+      </div>
+    </td>
+    <td>
+      <%= render 'grip_images', images: ['pinch.jpg', 'pinch_2.jpg',
+        'power_grip.jpg', 'span.jpg', 'spherical.jpg', 'cylindrical.jpg',
+        'disc.jpg', 'disc_2.jpg', 'hook.jpg', 'flat_hand_push.jpg' ] %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <div class="field">
+        <%= f.check_box :_destroy %>
+        <%= f.label :_destroy, "Remove handle" %>
+      </div>
+    </td>
+  </tr>
+</table>

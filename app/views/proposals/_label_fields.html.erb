@@ -1,0 +1,57 @@
+<h2>Label</h2>
+<table class="fields">
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.check_box :printed %>
+        <%= f.label :printed %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.check_box :digital %>
+        <%= f.label :digital %>
+      </div>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <div class="field">
+        <%= f.label :font_type %>
+        <%= f.text_field :font_type %>
+      </div>        
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.label :text_size %><br />
+        <%= f.text_field :text_size, size: 10 %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :text_colour %><br />
+        <%= f.text_field :text_colour, size: 10 %>
+      </div>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <div class="field">
+        <%= f.label :labels_reading_distance %><br />
+        <%= f.text_field :labels_reading_distance, size: 10 %>
+      </div>        
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <div class="field">
+        <%= f.check_box :_destroy %>
+        <%= f.label :_destroy, "Remove label" %>
+      </div>
+    </td>
+  </tr>
+</table>

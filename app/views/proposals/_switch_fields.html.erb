@@ -1,0 +1,140 @@
+<h2>Switch</h2>
+<table class="fields">
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.check_box :pressing %>
+        <%= f.label :pressing %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.check_box :pushing %>
+        <%= f.label :pushing %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.check_box :pulling %>
+        <%= f.label :pulling %>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.check_box :turning %>
+        <%= f.label :turning %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.check_box :sliding %>
+        <%= f.label :sliding %>
+      </div>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <div class="field">
+        <%= f.label :shape %>
+        <%= f.select :shape, Switch::SHAPE_VALUES, prompt: true %>
+      </div>        
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.label :length_or_radius %><br />
+        <%= f.text_field :length_or_radius, size: 10 %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :width %><br />
+        <%= f.text_field :width, size: 10 %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :height %><br />
+        <%= f.text_field :height, size: 10 %>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <div class="field">
+        <%= f.label :force_required %><br />
+        <%= f.text_field :force_required, size: 10 %>
+      </div>        
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.label :colour %><br />
+        <%= f.text_field :colour, size: 10 %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :background_colour %><br />
+        <%= f.text_field :background_colour, size: 10 %>
+      </div>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.check_box :pinch_grip %>
+        <%= f.label :pinch_grip %>
+      </div>
+      <div class="field">
+        <%= f.check_box :span_grip %>
+        <%= f.label :span_grip %>
+      </div>
+      <div class="field">
+        <%= f.check_box :spherical_grip %>
+        <%= f.label :spherical_grip %>
+      </div>
+      <div class="field">
+        <%= f.check_box :disc_grip %>
+        <%= f.label :disc_grip %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.check_box :flat_hand_push %>
+        <%= f.label :flat_hand_push %>
+      </div>
+      <div class="field">
+        <%= f.check_box :one_finger_press %>
+        <%= f.label :one_finger_press %>
+      </div>
+      <div class="field">
+        <%= f.check_box :two_fingers_press %>
+        <%= f.label :two_fingers_press %>
+      </div>
+      <div class="field">
+        <%= f.check_box :thumb_press %>
+        <%= f.label :thumb_press %>
+      </div>
+    </td>
+    <td>
+      <%= render 'grip_images', images: ['pinch.jpg', 'pinch_2.jpg',
+        'span.jpg', 'spherical.jpg', 'disc.jpg', 'disc_2.jpg', 
+        'flat_hand_push.jpg'  ] %>
+    </td>
+  </tr>
+    <tr>
+    <td colspan="3">
+      <div class="field">
+        <%= f.check_box :_destroy %>
+        <%= f.label :_destroy, "Remove switch" %>
+      </div>
+    </td>
+  </tr>
+</table>

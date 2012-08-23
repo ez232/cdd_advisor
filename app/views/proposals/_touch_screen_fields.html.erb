@@ -1,0 +1,71 @@
+<h2>Touch screen</h2>
+<table class="fields">
+  <tr>
+    <td colspan="3">
+      <div class="field">
+        <%= f.label :button_shape %>
+        <%= f.select :button_shape, 
+          TouchScreen::SHAPE_VALUES, prompt: true %>
+      </div>        
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.label :button_length_or_radius %><br />
+        <%= f.text_field :button_length_or_radius, 
+          size: 10 %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :button_width %><br />
+        <%= f.text_field :button_width, size: 10 %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :button_height %><br />
+        <%= f.text_field :button_height, size: 10 %>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <div class="field">
+        <%= f.label :scroll_bar_shape %>
+        <%= f.select :scroll_bar_shape, 
+          TouchScreen::SHAPE_VALUES, prompt: true %>
+      </div>        
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.label :scroll_bar_length_or_radius %><br />
+        <%= f.text_field :scroll_bar_length_or_radius, 
+          size: 10 %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :scroll_bar_width %><br />
+        <%= f.text_field :scroll_bar_width, size: 10 %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :scroll_bar_height %><br />
+        <%= f.text_field :scroll_bar_height, size: 10 %>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <div class="field">
+        <%= f.check_box :_destroy %>
+        <%= f.label :_destroy, "Remove touch screen" %>
+      </div>
+    </td>
+  </tr>
+</table>
