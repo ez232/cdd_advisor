@@ -29,44 +29,62 @@
 
   <h2>Images</h2>
   <%= f.fields_for :images do |build| %>
-    <%= render 'images_fields', f: build %> 
+    <%= render 'image_fields', f: build %> 
   <% end %>
 
+  <h2>Handle</h2>
   <%= f.fields_for :handle do |build| %>
     <%= render 'handle_fields', f: build %>
   <% end %>
+  <p><%= link_to_add_fields "Add handle", f, :handle %></p>
 
+  <h2>Switch</h2>
   <%= f.fields_for :switch do |build| %>
     <%= render 'switch_fields', f: build %>
   <% end %>
+  <p><%= link_to_add_fields "Add switch", f, :switch %></p>
 
+  <h2>Knob</h2>
   <%= f.fields_for :knob do |build| %>
     <%= render 'knob_fields', f: build %>
   <% end %>
+  <p><%= link_to_add_fields "Add knob", f, :knob %></p>
 
+  <h2>Button</h2>
   <%= f.fields_for :button do |build| %>
     <%= render 'button_fields', f: build %>
   <% end %>
+  <p><%= link_to_add_fields "Add button", f, :button %></p>
 
+  <h2>Screen</h2>
   <%= f.fields_for :screen do |build| %>
     <%= render 'screen_fields', f: build %>
   <% end %>
+  <p><%= link_to_add_fields "Add screen", f, :screen %></p>
 
+  <h2>Touch screen</h2>
   <%= f.fields_for :touch_screen do |build| %>
     <%= render 'touch_screen_fields', f: build %>
   <% end %>
+  <p><%= link_to_add_fields "Add touch screen", f, :touch_screen %></p>
 
+  <h2>Label</h2>
   <%= f.fields_for :label do |build| %>
     <%= render 'label_fields', f: build %>
   <% end %>
+  <p><%= link_to_add_fields "Add label", f, :label %></p>
 
+  <h2>Opening device</h2>
   <%= f.fields_for :opening_device do |build| %>
     <%= render 'opening_device_fields', f: build %>
   <% end %>
+  <p><%= link_to_add_fields "Add opening device", f, :opening_device %></p>
 
+  <h2>Audio device</h2>
   <%= f.fields_for :audio_device do |build| %>
     <%= render 'audio_device_fields', f: build %>
   <% end %>
+  <p><%= link_to_add_fields "Add audio device", f, :audio_device %></p>
 
   <h2>Other attributes</h2>
   <div class="field">

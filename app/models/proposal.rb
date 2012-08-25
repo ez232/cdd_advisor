@@ -97,5 +97,7 @@ class Proposal < ActiveRecord::Base
          return 4.1
       end
     end
+
+    return 0
   end
 end
