@@ -21,8 +21,9 @@ class Proposal < ActiveRecord::Base
   belongs_to :project
 
   accepts_nested_attributes_for :handle, :switch, :knob, :button, :screen,
-    :touch_screen, :label, :opening_device, :audio_device, :images, 
-    allow_destroy: true
+    :touch_screen, :label, :opening_device, :audio_device, allow_destroy: true
+  accepts_nested_attributes_for :images, allow_destroy: true, 
+    reject_if: :all_blank
 
   # TODO: review attribute validation
   validates :name, presence: true, uniqueness: { scope: :project_id }

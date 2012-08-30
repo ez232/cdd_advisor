@@ -3,6 +3,7 @@ require 'test_helper'
 class ProjectsControllerTest < ActionController::TestCase
   setup do
     @project = projects(:iPhone)
+    @project.proposals << proposals(:one)
   end
 
   test "should get index" do
