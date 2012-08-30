@@ -49,45 +49,24 @@
   </tr>
   <tr>
     <td>
-      <div class="field">
-        <%= f.check_box :pinch_grip %>
-        <%= f.label :pinch_grip %>
-      </div>
-      <div class="field">
-        <%= f.check_box :power_grip %>
-        <%= f.label :power_grip %>
-      </div>
-      <div class="field">
-        <%= f.check_box :span_grip %>
-        <%= f.label :span_grip %>
-      </div>
-      <div class="field">
-        <%= f.check_box :spherical_grip %>
-        <%= f.label :spherical_grip %>
-      </div>
+      <%= render 'check_box_with_image', f: f, field: :pinch_grip %>  
+      <%= render 'check_box_with_image', f: f, field: :pinch_grip_2 %> 
     </td>
     <td>
-      <div class="field">
-        <%= f.check_box :cylindrical_grip %>
-        <%= f.label :cylindrical_grip %>
-      </div>
-      <div class="field">
-        <%= f.check_box :disc_grip %>
-        <%= f.label :disc_grip %>
-      </div>
-      <div class="field">
-        <%= f.check_box :hook_grip %>
-        <%= f.label :hook_grip %>
-      </div>
-      <div class="field">
-        <%= f.check_box :flat_hand_push %>
-        <%= f.label :flat_hand_push %>
-      </div>
+      <%= render 'check_box_with_image', f: f, field: :power_grip %>
+      <%= render 'check_box_with_image', f: f, field: :span_grip %>
     </td>
     <td>
-      <%= render 'grip_images', images: ['pinch.jpg', 'pinch_2.jpg',
-        'power_grip.jpg', 'span.jpg', 'spherical.jpg', 'cylindrical.jpg',
-        'disc.jpg', 'disc_2.jpg', 'hook.jpg', 'flat_hand_push.jpg' ] %>
+      <%= render 'check_box_with_image', f: f, field: :spherical_grip %>
+      <%= render 'check_box_with_image', f: f, field: :cylindrical_grip %>
+    </td>
+    <td>
+      <%= render 'check_box_with_image', f: f, field: :disc_grip %>
+      <%= render 'check_box_with_image', f: f, field: :disc_grip_2 %>
+    </td>
+    <td>
+      <%= render 'check_box_with_image', f: f, field: :hook_grip %>
+      <%= render 'check_box_with_image', f: f, field: :flat_hand_push %>
     </td>
   </tr>
   <tr>

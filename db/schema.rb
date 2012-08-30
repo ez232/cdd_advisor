@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120820104647) do
+ActiveRecord::Schema.define(:version => 20120830155825) do
 
   create_table "audio_devices", :force => true do |t|
     t.integer  "proposal_id"
@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(:version => 20120820104647) do
     t.boolean  "flat_hand_push"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.boolean  "pinch_grip_2"
+    t.boolean  "disc_grip_2"
   end
 
   create_table "images", :force => true do |t|
@@ -95,6 +97,8 @@ ActiveRecord::Schema.define(:version => 20120820104647) do
     t.boolean  "thumb_press"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.boolean  "pinch_grip_2"
+    t.boolean  "disc_grip_2"
   end
 
   create_table "labels", :force => true do |t|
@@ -175,6 +179,8 @@ ActiveRecord::Schema.define(:version => 20120820104647) do
     t.boolean  "thumb_press"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.boolean  "pinch_grip_2"
+    t.boolean  "disc_grip_2"
   end
 
   create_table "touch_screens", :force => true do |t|

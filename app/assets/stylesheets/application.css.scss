@@ -125,6 +125,18 @@ p, ol, ul, td {
   }
 }
 
+.vspace {
+  padding: 15px;
+}
+
+.grip {
+  border: 1px $blue solid;
+  background-color: white;
+  text-align: center;
+  padding: $small-padding;
+  // display: table;
+}
+
 table {
   border-collapse: collapse;
   border-bottom: 1px solid $blue;

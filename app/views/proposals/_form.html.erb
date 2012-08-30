@@ -31,13 +31,15 @@
   <%= f.fields_for :images do |build| %>
     <%= render 'image_fields', f: build %> 
   <% end %>
-  <p><%= link_to_add_fields "Add image", f, :images, false %></p>
+  <p><%= link_to_add_fields"Add image", f, :images, false %></p>
 
   <h2>Handle</h2>
   <%= f.fields_for :handle do |build| %>
     <%= render 'handle_fields', f: build %>
   <% end %>
-  <p><%= link_to_add_fields "Add handle", f, :handle %></p>
+  <p>
+    <%= link_to_add_fields "Add handle", f, :handle %>
+  </p>
 
   <h2>Switch</h2>
   <%= f.fields_for :switch do |build| %>
