@@ -27,7 +27,6 @@ class ProposalsController < ApplicationController
   # GET /proposals/new.json
   def new
     @proposal = Proposal.new
-    3.times { @proposal.images.build }
 
     respond_to do |format|
       format.html # new.html.erb
