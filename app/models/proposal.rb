@@ -60,45 +60,54 @@ class Proposal < ActiveRecord::Base
         'Silicon Carbide Fibers' ]
   }
 
-  def excluded_population
-    # TODO: review these rules with Emilene
-    # TODO: implement tests and view
-    unless handle.nil?
-      if handle.holding and 
-         handle.length_or_radius > 50 and 
-         handle.width > 50 and 
-         product_weight > 5 and
-         handle.pinch_grip
-         return 11.0 # 
-      end
+  def results
+    if @results.nil?
+      generate_results
+    else
+      @results
     end
-
-    unless label.nil?
-      if label.text_colour.casecmp(product_colour) == 0 # equal colours
-        return 7.8
-      end
-
-      if label.text_size < 12
-        return 3.5
-      end
-
-      if label.text_colour.casecmp(product_colour) != 0 and # different colours
-         label.text_size > 12 and
-         label.labels_reading_distance < 300
-         return 2.3
-      end
-    end
-
-    unless switch.nil?
-      if switch.shape != Switch::SHAPE_VALUES[0] and # different from 'Organic'
-         switch.length_or_radius > 40 and 
-         switch.width > 40 and
-         switch.force_required > 10 and
-         switch.pinch_grip
-         return 4.1
-      end
-    end
-
-    return 0
   end
+
+  private
+    def generate_results
+      results = {}
+
+      unless label.nil?
+        results[label] = 
+          if label.text_colour.casecmp(product_colour) == 0 # equal colours
+            { percentual: 7.8, recommendation: "Label text colour and product colour should not be equal. Both are #{product_colour}." }
+          elsif label.text_size < 12
+            { percentual: 3.5, recommendation: "Label text size should be greater or equal to 12pt (actual value: #{label.text_size}pt)." }
+          elsif label.text_colour.casecmp(product_colour) != 0 and # different colours
+                label.text_size > 12 and
+                label.labels_reading_distance < 300
+            { percentual: 2.3, recommendation: "Write some recommendation here..." }
+          end
+      end
+
+      unless handle.nil?
+        results[handle] =
+          if handle.holding and 
+             handle.length_or_radius > 50 and 
+             handle.width > 50 and 
+             product_weight > 5 and
+             handle.pinch_grip
+            { percentual: 11.0, recommendation: "Write some recommendation here..." }
+        end
+      end
+
+
+      unless switch.nil?
+        results[switch] =
+          if switch.shape != Switch::SHAPE_VALUES[0] and # different from 'Organic'
+             switch.length_or_radius > 40 and 
+             switch.width > 40 and
+             switch.force_required > 10 and
+             switch.pinch_grip
+            { percentual: 4.1, recommendation: "Write some recommendation here..." }
+          end
+      end
+
+      results
+    end
 end

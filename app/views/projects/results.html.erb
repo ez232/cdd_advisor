@@ -9,15 +9,29 @@
 <h1>Project: <%= @project.name %></h1>
 <% unless @project.proposals.empty? %>
   <% @project.proposals.each_with_index do |proposal, index| %>
-    <h2><%= "Proposal #{index + 1}: #{proposal.name}" %></h2>
+    <h2><%= "#{proposal.name}" %></h2>
     <%= render 'images', images: proposal.images %>
-    <p>
-      <span class="result">
-        <%= number_to_percentage proposal.excluded_population, precision: 1 %>
-      </span>
-      of the UK adult population excluded from using the design proposal 
-      <%= index + 1 %>.
-    </p>
+    
+    <%= render 'result', label: 'Handle', field: proposal.handle, 
+      results: proposal.results, index: index + 1 %>
+    <%= render 'result', label: 'Switch', field: proposal.switch, 
+      results: proposal.results, index: index + 1 %>
+    <%= render 'result', label: 'Knob', field: proposal.knob, 
+      results: proposal.results, index: index + 1 %>
+    <%= render 'result', label: 'Button', field: proposal.button, 
+      results: proposal.results, index: index + 1 %>
+    <%= render 'result', label: 'Screen', field: proposal.screen, 
+      results: proposal.results, index: index + 1 %>
+    <%= render 'result', label: 'Touch screen', field: proposal.touch_screen, 
+      results: proposal.results, index: index + 1 %>
+    <%= render 'result', label: 'Label', field: proposal.label, 
+      results: proposal.results, index: index + 1 %>
+    <%= render 'result', label: 'Opening device', 
+      field: proposal.opening_device, results: proposal.results, 
+      index: index + 1 %>
+    <%= render 'result', label: 'Audio device', field: proposal.audio_device, 
+      results: proposal.results, index: index + 1 %>
+
   <% end %>
 <% else %>
   <p>Please create at least one proposal to view the results.</p>

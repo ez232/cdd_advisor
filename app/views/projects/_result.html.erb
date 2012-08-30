@@ -1,0 +1,22 @@
+<% unless field.nil? %>
+  <div class="results">
+    <h3><%= label %></h3>
+    <% result = results[field] %>
+    <% unless result.nil? %>
+        <p>
+          <b>Accessibility:</b>
+          <span class="result">
+            <%= number_to_percentage result[:percentual], precision: 1 %>
+          </span> of the UK adult population excluded from using the design 
+          proposal <%= index %>.
+        </p>
+        <p>
+          <b>Recommendation:</b>
+          <%= result[:recommendation] %>
+        </p>
+    <% else %>
+      <p class="positive_result">Ok.</p>
+    <% end %>
+  </div>
+  <br />
+<% end %>

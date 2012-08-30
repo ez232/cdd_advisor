@@ -96,9 +96,22 @@ body {
   }
 }
 
+.results {
+  padding: $small-padding;
+  background: $ddd-grey;
+
+  p {
+    padding-left: $padding;
+  }
+}
 .result {
   color: $red;
   font-size: 18px;
+  font-weight: bold;
+}
+
+.positive_result {
+  color: #0A0;
   font-weight: bold;
 }
 
