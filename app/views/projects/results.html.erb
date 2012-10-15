@@ -8,35 +8,26 @@
 
 <h1>Project: <%= @project.name %></h1>
 <% unless @project.proposals.empty? %>
-  <% @project.proposals.each_with_index do |proposal, index| %>
+  <% @project.proposals.each do |proposal| %>
     <h2><%= "#{proposal.name}" %></h2>
     <%= render 'images', images: proposal.images %>
-    
-    <%= render 'result', label: 'Handle', field: proposal.handle, 
-      results: proposal.results, index: index + 1 %>
-    <%= render 'result', label: 'Switch', field: proposal.switch, 
-      results: proposal.results, index: index + 1 %>
-    <%= render 'result', label: 'Knob', field: proposal.knob, 
-      results: proposal.results, index: index + 1 %>
-    <%= render 'result', label: 'Button', field: proposal.button, 
-      results: proposal.results, index: index + 1 %>
-    <%= render 'result', label: 'Screen', field: proposal.screen, 
-      results: proposal.results, index: index + 1 %>
-    <%= render 'result', label: 'Touch screen', field: proposal.touch_screen, 
-      results: proposal.results, index: index + 1 %>
-    <%= render 'result', label: 'Label', field: proposal.label, 
-      results: proposal.results, index: index + 1 %>
-    <%= render 'result', label: 'Opening device', 
-      field: proposal.opening_device, results: proposal.results, 
-      index: index + 1 %>
-    <%= render 'result', label: 'Audio device', field: proposal.audio_device, 
-      results: proposal.results, index: index + 1 %>
 
+    <h3>Dexterity</h3>
+    <%= render 'result', values: proposal.results[:dexterity] %>
+
+    <h3>Visibility</h3>
+    <%= render 'result', values: proposal.results[:visibility] %>
+
+    <h3>Strength</h3>
+    <%= render 'result', values: proposal.results[:strength] %>
+    <br /><br />
+    <%= link_to "Edit #{proposal.name}", edit_proposal_path(proposal), 
+      class: 'button' %>
+    <br /><br />
   <% end %>
 <% else %>
   <p>Please create at least one proposal to view the results.</p>
 <% end %>
 
-<br />
-
+<%= link_to 'Back', proposals_path %> |
 <%= link_to 'Home', projects_path %>

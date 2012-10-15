@@ -14,11 +14,13 @@ class ProposalTest < ActiveSupport::TestCase
 
   test "proposal is not valid without a unique name inside project" do
     proposal = Proposal.new(name: proposals(:one).name)
+    proposal.product_weight = 100
     proposal.project_id = projects(:iPhone).id
 
     assert proposal.save
 
     proposal = Proposal.new(name: proposals(:one).name)
+    proposal.product_weight = 100
     proposal.project_id = projects(:iPhone).id
 
     assert !proposal.save
@@ -26,6 +28,7 @@ class ProposalTest < ActiveSupport::TestCase
                  proposal.errors[:name].join('; ')
 
     proposal = Proposal.new(name: proposals(:one).name)
+    proposal.product_weight = 100
     proposal.project_id = projects(:GalaxySIII).id
 
     assert proposal.valid?
@@ -45,7 +48,8 @@ class ProposalTest < ActiveSupport::TestCase
   test "proposal should be valid" do
     proposal = proposals(:one)
     proposal.project_id = projects(:iPhone).id
-
+    proposal.product_weight = 100
+    
     assert proposal.valid?
     assert !proposal.errors[:name].any?
     assert !proposal.errors[:project_id].any?

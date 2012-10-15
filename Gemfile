@@ -40,3 +40,5 @@ gem 'jquery-rails'
 gem 'will_paginate', '~> 3.0'
 
 gem 'carrierwave'
+
+gem 'irbtools'

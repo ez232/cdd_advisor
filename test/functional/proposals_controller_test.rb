@@ -30,7 +30,7 @@ class ProposalsControllerTest < ActionController::TestCase
   test "should create proposal" do
     assert_difference('Proposal.count') do
       session[:project_id] = @project.id
-      post :create, proposal: { name: "xxx" }
+      post :create, proposal: { name: "xxx", product_weight: 100 }
     end
 
     assert_redirected_to proposals_url
