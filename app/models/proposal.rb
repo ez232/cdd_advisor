@@ -221,13 +221,13 @@ class Proposal < ActiveRecord::Base
             update_values values, 2.60, 
               'Change your handle to allow other type of grip rather than pinch grip.'
           elsif product_weight < 500
-            update_values values, 2.60, 
+            update_values values, 4.80, 
               [ 
                 'Change your handle to allow other type of grip rather than pinch grip.',
                 'Change the product weight for less than 100gr.'
               ]
           elsif product_weight >= 500
-            update_values values, 2.60, 
+            update_values values, 6.00, 
               [ 
                 'Change your handle to allow other type of grip rather than pinch grip.',
                 'Change the product weight for less than 500gr.'
