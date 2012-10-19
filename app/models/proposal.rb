@@ -96,60 +96,152 @@ class Proposal < ActiveRecord::Base
           if product_weight <= 400
             if handle.length_or_radius <= 30
               if handle.moving or handle.carrying or handle.holding
-                update_values values, 0.46, 'Message'
-              end # else???
+                update_values values, 0.46, 
+                'This is the minimum exclusion for this type of handle'
+              end
             elsif handle.length_or_radius <= 70
               if handle.moving or handle.carrying
-                update_values values, 0.83, 'Message'
+                update_values values, 0.83, 
+                'Change the handle dimensions (length or diameter) 
+                to lesser than 30 mm to enhance inclusivity'
               elsif handle.holding
-                update_values values, 0.62, 'Message'
-              end # else ???
+                update_values values, 0.62, 
+                'Change the handle dimensions (length or diameter) 
+                to lesser than 30 mm to enhance inclusivity'
+              else
+                update_values values, 0.83, 
+                'Change the handle dimensions (length or diameter) 
+                to lesser than 30 mm to enhance inclusivity'
+              end
             elsif handle.length_or_radius > 70
               if handle.moving or handle.carrying
-                update_values values, 0.95, 'Message'
+                update_values values, 0.95, 
+                'Change the handle dimensions (length or diameter) 
+                to lesser than 70 mm or 30 mm to enhance inclusivity'
               elsif handle.holding
-                update_values values, 0.73, 'Message'
-              end # else ???
+                update_values values, 0.73, 
+                'Change the handle dimensions (length or diameter) 
+                to lesser than 70 mm or 30 mm to enhance inclusivity'
+              else
+                update_values values, 0.95, 
+                'Change the handle dimensions (length or diameter) 
+                to lesser than 70 mm or 30 mm to enhance inclusivity'
+              end
             end
           elsif product_weight < 2000
             if handle.length_or_radius <= 30
               if handle.moving or handle.carrying
-                update_values values, 1.80, 'Message'
+                update_values values, 1.80, 
+                'Change the product weight to 400 gr or less'
               elsif handle.holding
-                update_values values, 1.60, 'Message'
-              end # else???
+                update_values values, 1.60, 
+                'Change the product weight to 400 gr or less'
+              else
+                update_values values, 1.80,
+                'Change the product weight to 400gr or less'
+              end
             elsif handle.length_or_radius <= 70
               if handle.moving or handle.carrying
-                update_values values, 2.30, 'Message'
+                update_values values, 2.30, 
+                [
+                  'Change the product weight to 400 gr or less',
+                  'Change the handle dimensions (length or diameter) to lesser than 30 mm 
+                  to enhance inclusivity '
+                 ]
               elsif handle.holding
-                update_values values, 1.80, 'Message'
-              end # else ???
+                update_values values, 1.80, 
+                [
+                  'Change the product weight to 400 gr or less',
+                  'Change the handle dimensions (length or diameter) to lesser than 30 mm 
+                  to enhance inclusivity '
+                 ]
+              else
+                update_values values, 2.30,
+                [
+                  'Change the product weight to 400gr or less',
+                  'Change the handle dimensions (length or diameter) to lesser than 30mm
+                  to enhance inclusivity'
+                ]
+              end
             elsif handle.length_or_radius > 70
               if handle.moving or handle.carrying
-                update_values values, 2.70, 'Message'
+                update_values values, 2.70, 
+                [
+                  'Change the product weight to 400 gr or less',
+                  'Change the handle dimensions (length or diameter) to lesser than 70 mm or 30 mm 
+                  to enhance inclusivity '
+                 ]
               elsif handle.holding
-                update_values values, 2.30, 'Message'
-              end # else ???
+                update_values values, 2.30, 
+                [
+                  'Change the product weight to 400 gr or less',
+                  'Change the handle dimensions (length or diameter) to lesser than 70 mm or 30 mm 
+                  to enhance inclusivity '
+                 ]
+              else
+                update_values values, 2.70,
+                [
+                  'Change the product weight to 400gr or less',
+                  'Change the handle dimensions (length or diameter) to lesser than 70mm or 30mm
+                  to enhance inclusivity'
+                ]
+              end
             end
           elsif product_weight >= 2000
             if handle.length_or_radius <= 30
               if handle.moving or handle.carrying
-                update_values values, 3.50, 'Message'
+                update_values values, 3.50, 
+                'Change the product weight to lesser than 2Kg or less than 
+                400gr to enhance inclusivity'
               elsif handle.holding
-                update_values values, 3.40, 'Message'
-              end # else???
+                update_values values, 3.40, 
+                'Change the product weight to lesser than 2Kg or less than 
+                400gr to enhance inclusivity'
+              else
+                update_values values, 3.50,
+                'Change the product weight to lesser than 2Kg or less than 
+                400gr to enhance inclusivity'
+              end
             elsif handle.length_or_radius <= 70
               if handle.moving or handle.carrying
-                update_values values, 3.80, 'Message'
+                update_values values, 3.80, 
+                [
+                  'Change the product weight to less than 2Kg or lesser than 400gr to enhance inclusivity',
+                  'Change the handle dimensions (length or diameter) to lesser than 30mm'
+                ]
               elsif handle.holding
-                update_values values, 3.60, 'Message'
-              end # else ???
+                update_values values, 3.60, 
+                [
+                  'Change the product weight to less than 2Kg or lesser than 400gr to enhance inclusivity',
+                  'Change the handle dimensions (length or diameter) to lesser than 30mm'
+                ]
+              else
+                update_values values, 3.80,
+                [
+                  'Change the product weight to less than 2Kg or lesser than 400gr to enhance inclusivity',
+                  'Change the handle dimensions (length or diameter) to lesser than 30mm'
+                ]
+              end
             elsif handle.length_or_radius > 70
               if handle.moving or handle.carrying
-                update_values values, 4.20, 'Message'
+                update_values values, 4.20, 
+                [
+                  'Change the product weight to less than 2Kg or lesser than 400gr to enhance inclusivity',
+                  'Change the handle dimensions (length or diameter) to lesser than 70mm or 30mm'
+                ]
               elsif handle.holding
-                update_values values, 3.98, 'Message'
-              end # else ???
+                update_values values, 3.98, 
+                [
+                  'Change the product weight to less than 2Kg or lesser than 400gr to enhance inclusivity',
+                  'Change the handle dimensions (length or diameter) to lesser than 70mm or 30mm'
+                ]
+              else
+                update_values values, 4.20,
+                [
+                  'Change the product weight to less than 2Kg or lesser than 400gr to enhance inclusivity',
+                  'Change the handle dimensions (length or diameter) to lesser than 70mm or 30mm'
+                ]
+              end 
             end
           end
         end # else???
@@ -158,60 +250,151 @@ class Proposal < ActiveRecord::Base
           if product_weight <= 400
             if handle.length_or_radius <= 30
               if handle.moving or handle.carrying or handle.holding
-                update_values values, 0.46, 'Message'
-              end # else???
+                update_values values, 0.46, 
+                'This is the minimum exclusion for this type of handle'
+              end
             elsif handle.length_or_radius <= 70
               if handle.moving or handle.carrying
-                update_values values, 0.83, 'Message'
+                update_values values, 0.83, 
+                'Change the handle dimensions (length or diameter) 
+                to lesser than 30 mm to enhance inclusivity'
               elsif handle.holding
-                update_values values, 0.62, 'Message'
-              end # else ???
+                update_values values, 0.62, 
+                'Change the handle dimensions (length or diameter) 
+                to lesser than 30 mm to enhance inclusivity'
+              else
+                update_values values, 0.83,
+                'Change the handle dimensions (length or diameter)
+                to lesser than 30mm to enhance inclusivity'
+              end
             elsif handle.length_or_radius > 70
               if handle.moving or handle.carrying
-                update_values values, 0.95, 'Message'
+                update_values values, 0.95, 
+                'Change the handle dimensions (length or diameter) 
+                to lesser than 70 mm or 30 mm to enhance inclusivity'
               elsif handle.holding
-                update_values values, 0.73, 'Message'
-              end # else ???
+                update_values values, 0.73, 
+                'Change the handle dimensions (length or diameter) 
+                to lesser than 70 mm or 30 mm to enhance inclusivity'
+              else
+                update_values values, 0.95,
+                'Change the handle dimensions (length or diameter) to lesser than 70mm or 30mm
+                to enhance inclusivity'
+              end
             end
           elsif product_weight < 1000
             if handle.length_or_radius <= 30
               if handle.moving or handle.carrying
-                update_values values, 1.80, 'Message'
+                update_values values,  1.80, 
+                'Change the product weight to 400 gr or less'
               elsif handle.holding
-                update_values values, 1.60, 'Message'
-              end # else???
+                update_values values, 1.60, 
+                'Change the product weight to 400 gr or less'
+              else
+                update_values values, 2.70,
+                 'Change the product weight to 400gr or less'
+              end
             elsif handle.length_or_radius <= 70
               if handle.moving or handle.carrying
-                update_values values, 2.30, 'Message'
+                update_values values, 2.30, 
+                [
+                  'Change the product weight to 400 gr or less',
+                  'Change the handle dimensions (length or diameter) to lesser than 30 mm 
+                  to enhance inclusivity '
+                 ]
               elsif handle.holding
-                update_values values, 1.80, 'Message'
-              end # else ???
+                update_values values, 1.80, 
+                [
+                  'Change the product weight to 400 gr or less',
+                  'Change the handle dimensions (length or diameter) to lesser than 30 mm 
+                  to enhance inclusivity '
+                 ]
+              else
+                update_values values, 2.30,
+                [
+                  'Change the product weight to 400gr or less',
+                  'Change the handle dimensions (length or diameter) to lesser than 30mm
+                  to enhance inclusivity'
+                ]
+              end
             elsif handle.length_or_radius > 70
               if handle.moving or handle.carrying
-                update_values values, 2.70, 'Message'
+                update_values values, 2.70, 
+                [
+                  'Change the product weight to 400 gr or less',
+                  'Change the handle dimensions (length or diameter) to lesser than 70 mm or 30 mm 
+                  to enhance inclusivity '
+                 ]
               elsif handle.holding
-                update_values values, 2.30, 'Message'
-              end # else ???
+                update_values values, 2.30, 
+                [
+                  'Change the product weight to 400 gr or less',
+                  'Change the handle dimensions (length or diameter) to lesser than 70 mm or 30 mm 
+                  to enhance inclusivity '
+                 ]
+              else
+                update_values values, 2.70,
+                [
+                  'Change the product weight to 400gr or less',
+                  'Change the handle dimensions (length or diameter) to lesser than 70mm or 30mm
+                  to enhance inclusivity'
+                ]
+              end
             end
           elsif product_weight >= 1000
             if handle.length_or_radius <= 30
               if handle.moving or handle.carrying
-                update_values values, 3.50, 'Message'
+                update_values values, 3.50, 
+                'Change the product weight to lesser than 1Kg or less than 
+                400gr to enhance inclusivity'
               elsif handle.holding
-                update_values values, 3.40, 'Message'
-              end # else???
+                update_values values, 3.40, 
+                'Change the product weight to lesser than 1Kg or less than 
+                400gr to enhance inclusivity'
+              else
+                update_values values, 3.50,
+                  'Change the product weight to less than 1Kg or lesser than 400gr to enhance inclusivity'
+              end
             elsif handle.length_or_radius <= 70
               if handle.moving or handle.carrying
-                update_values values, 3.80, 'Message'
+                update_values values, 3.80, 
+                [
+                  'Change the product weight to less than 1Kg or lesser than 400gr to enhance inclusivity',
+                  'Change the handle dimensions (length or diameter) to lesser than 30mm'
+                ]
               elsif handle.holding
-                update_values values, 3.60, 'Message'
-              end # else ???
+                update_values values, 3.60, 
+                [
+                  'Change the product weight to less than 1Kg or lesser than 400gr to enhance inclusivity',
+                  'Change the handle dimensions (length or diameter) to lesser than 30mm'
+                ]
+              else
+                update_values values, 3.80,
+                [
+                  'Change the product weight to less than 1Kg or lesser than 400gr to enhance inclusivity',
+                  'Change the handle dimensions (length or diameter) to lesser than 30mm'
+                ]
+              end
             elsif handle.length_or_radius > 70
               if handle.moving or handle.carrying
-                update_values values, 4.20, 'Message'
+                update_values values, 4.20, 
+                [
+                  'Change the product weight to less than 1Kg or lesser than 400gr to enhance inclusivity',
+                  'Change the handle dimensions (length or diameter) to lesser than 70mm or 30mm'
+                ]
               elsif handle.holding
-                update_values values, 3.98, 'Message'
-              end # else ???
+                update_values values, 3.98, 
+                [
+                  'Change the product weight to less than 1Kg or lesser than 400gr to enhance inclusivity',
+                  'Change the handle dimensions (length or diameter) to lesser than 70mm or 30mm'
+                ]
+              else
+                update_values values, 4.20,
+                [
+                  'Change the product weight to less than 1Kg or lesser than 400gr to enhance inclusivity',
+                  'Change the handle dimensions (length or diameter) to lesser than 70mm or 30mm'
+                ]
+              end 
             end
           end
         end # else ???
