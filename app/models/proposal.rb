@@ -418,7 +418,74 @@ class Proposal < ActiveRecord::Base
           end            
         end # else ???
       end
-
+values = results[:visibility]
+      # 1.1) Rules on Label
+      #
+      # Checks if the proposal has a label.
+      unless label.nil?
+        # TODO: check parallel or serial rules with Emilene
+        if label.text_colour
+          if product_colour == label.text_colour
+          update_values values, 5.35, 
+              [
+                'Increase background-foreground colour contrast (product colour-text colour)',
+                '100% black in 100% white is the best foreground-background contrast',
+                'Avoid red in green or green in red colour contrast 
+                (to not excluded red-green colour blind people)'
+              ]
+          else 
+            if label.text_size < 12
+              if label.labels_reading_distance > 500
+              update_values values, 4.35,
+              [
+               'Increase text size',
+               'Increase background-foreground colour contrast (product colour-text colour)',
+               'Reduce reading distance'
+              ]
+              else
+              update_values values, 3.35, 
+              [
+               'Increase text size',
+               'Increase background-foreground colour contrast (product colour-text colour)'
+              ]
+              end
+            elsif label.text_size < 14
+              if label.labels_reading_distance > 500
+              update_values values, 2.30,
+              [
+               'Increase text size',
+               'Increase background-foreground colour contrast (product colour-text colour)',
+               'Reduce reading distance'
+              ]
+              else
+              update_values values, 1.50, 
+              [
+               'Increase text size',
+               'Increase background-foreground colour contrast (product colour-text colour)'
+              ]
+              end
+            elsif label.text_size >= 14
+              if label.labels_reading_distance > 500
+              update_values values, 1.30,
+              [
+                'Reduce reading distance',
+                'Increase background-foreground colour contrast (product colour-text colour)'
+              ]
+              else
+              update_values values, 0.70,
+                'Increase background-foreground colour contrast (product colour-text colour)'
+              end
+            else
+            update_values values, 4.35,
+            [
+              'Increase text size',
+              'Increase background-foreground colour contrast (product colour-text colour)',
+              'Reduce reading distance'
+            ]
+            end
+          end
+        end # else???
+      end
       logger.debug results
       results
     end
