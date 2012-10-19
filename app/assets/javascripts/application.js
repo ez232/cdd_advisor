@@ -12,7 +12,7 @@
 // BLANK LINE SHOULD GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery-ui 
+//= require jquery-ui
 //= require jquery_ujs
 //= require_tree .
 
@@ -21,7 +21,7 @@ function remove_fields(link, show_add) {
   $(link).closest(".fields").hide("blind", {direction: "vertical"}, 250);
 
   if (show_add = true) {
-    $(link).closest(".fields").parent().next("p").children().show();
+    $(link).closest(".fields").parent().nextAll("p").first().children().show();
   }
 }
 

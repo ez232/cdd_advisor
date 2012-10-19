@@ -1,7 +1,7 @@
 <%= form_for(@proposal) do |f| %>
   <% if @proposal.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@proposal.errors.count, "error") %> prohibited this 
+      <h2><%= pluralize(@proposal.errors.count, "error") %> prohibited this
         proposal from being saved:</h2>
 
       <ul>
@@ -16,7 +16,7 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
-  
+
   <div class="field">
     <%= f.label :product_weight %><br />
     <%= f.text_field :product_weight %>
@@ -29,65 +29,84 @@
 
   <h2>Images</h2>
   <%= f.fields_for :images do |build| %>
-    <%= render 'image_fields', f: build %> 
+    <%= render 'image_fields', f: build %>
   <% end %>
-  <p><%= link_to_add_fields"Add image", f, :images, false %></p>
+  <p><%= link_to_add_fields "Add image", f, :images, true, false %></p>
 
   <h2>Handle</h2>
   <%= f.fields_for :handle do |build| %>
     <%= render 'handle_fields', f: build %>
   <% end %>
   <p>
-    <%= link_to_add_fields "Add handle", f, :handle %>
+    <%= link_to_add_fields "Add handle", f, :handle, @proposal.handle.nil? %>
   </p>
 
   <h2>Switch</h2>
   <%= f.fields_for :switch do |build| %>
     <%= render 'switch_fields', f: build %>
   <% end %>
-  <p><%= link_to_add_fields "Add switch", f, :switch %></p>
+  <p>
+    <%= link_to_add_fields "Add switch", f, :switch, @proposal.switch.nil? %>
+  </p>
 
   <h2>Knob</h2>
   <%= f.fields_for :knob do |build| %>
     <%= render 'knob_fields', f: build %>
   <% end %>
-  <p><%= link_to_add_fields "Add knob", f, :knob %></p>
+  <p>
+    <%= link_to_add_fields "Add knob", f, :knob, @proposal.knob.nil? %>
+  </p>
 
   <h2>Button</h2>
   <%= f.fields_for :button do |build| %>
     <%= render 'button_fields', f: build %>
   <% end %>
-  <p><%= link_to_add_fields "Add button", f, :button %></p>
+  <p>
+    <%= link_to_add_fields "Add button", f, :button, @proposal.button.nil? %>
+  </p>
 
   <h2>Screen</h2>
   <%= f.fields_for :screen do |build| %>
     <%= render 'screen_fields', f: build %>
   <% end %>
-  <p><%= link_to_add_fields "Add screen", f, :screen %></p>
+  <p>
+    <%= link_to_add_fields "Add screen", f, :screen, @proposal.screen.nil? %>
+  </p>
 
   <h2>Touch screen</h2>
   <%= f.fields_for :touch_screen do |build| %>
     <%= render 'touch_screen_fields', f: build %>
   <% end %>
-  <p><%= link_to_add_fields "Add touch screen", f, :touch_screen %></p>
+  <p>
+    <%= link_to_add_fields "Add touch screen", f, :touch_screen,
+      @proposal.touch_screen.nil? %>
+  </p>
 
   <h2>Label</h2>
   <%= f.fields_for :label do |build| %>
     <%= render 'label_fields', f: build %>
   <% end %>
-  <p><%= link_to_add_fields "Add label", f, :label %></p>
+  <p>
+    <%= link_to_add_fields "Add label", f, :label, @proposal.label.nil? %>
+  </p>
 
   <h2>Opening device</h2>
   <%= f.fields_for :opening_device do |build| %>
     <%= render 'opening_device_fields', f: build %>
   <% end %>
-  <p><%= link_to_add_fields "Add opening device", f, :opening_device %></p>
+  <p>
+    <%= link_to_add_fields "Add opening device", f, :opening_device,
+      @proposal.opening_device.nil? %>
+  </p>
 
   <h2>Audio device</h2>
   <%= f.fields_for :audio_device do |build| %>
     <%= render 'audio_device_fields', f: build %>
   <% end %>
-  <p><%= link_to_add_fields "Add audio device", f, :audio_device %></p>
+  <p>
+    <%= link_to_add_fields "Add audio device", f, :audio_device,
+      @proposal.audio_device.nil? %>
+  </p>
 
   <h2>Other attributes</h2>
   <div class="field">
@@ -108,7 +127,7 @@
   </div>
   <div class="field">
     <%= f.label :material %>
-    <%= f.select :material, 
+    <%= f.select :material,
       grouped_options_for_select(Proposal::MATERIAL_VALUES), prompt: true %>
   </div>
   <div class="field">
