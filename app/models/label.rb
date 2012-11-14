@@ -5,4 +5,9 @@ class Label < ActiveRecord::Base
   belongs_to :proposal, inverse_of: :label
 
   validates :proposal, presence: { message: "is not a valid proposal" }
+  validates :text_colour, presence: { message: "can't be blank" }
+  validates :text_size, presence: true,
+    numericality: { :greater_than => 0 }
+  validates :labels_reading_distance, presence: true,
+    numericality: { :greater_than => 0 }
 end

@@ -102,30 +102,24 @@ class Proposal < ActiveRecord::Base
             elsif handle.length_or_radius <= 70
               if handle.moving or handle.carrying
                 update_recommendations values, 0.83,
-                'Change the handle dimensions (length or diameter)
-                to lesser than 30 mm to enhance inclusivity'
+                'Change the handle dimensions (length or diameter) to lesser than 30 mm to enhance inclusivity'
               elsif handle.holding
                 update_recommendations values, 0.62,
-                'Change the handle dimensions (length or diameter)
-                to lesser than 30 mm to enhance inclusivity'
+                'Change the handle dimensions (length or diameter) to lesser than 30 mm to enhance inclusivity'
               else
                 update_recommendations values, 0.83,
-                'Change the handle dimensions (length or diameter)
-                to lesser than 30 mm to enhance inclusivity'
+                'Change the handle dimensions (length or diameter) to lesser than 30 mm to enhance inclusivity'
               end
             elsif handle.length_or_radius > 70
               if handle.moving or handle.carrying
                 update_recommendations values, 0.95,
-                'Change the handle dimensions (length or diameter)
-                to lesser than 70 mm or 30 mm to enhance inclusivity'
+                'Change the handle dimensions (length or diameter) to lesser than 70 mm or 30 mm to enhance inclusivity'
               elsif handle.holding
                 update_recommendations values, 0.73,
-                'Change the handle dimensions (length or diameter)
-                to lesser than 70 mm or 30 mm to enhance inclusivity'
+                'Change the handle dimensions (length or diameter) to lesser than 70 mm or 30 mm to enhance inclusivity'
               else
                 update_recommendations values, 0.95,
-                'Change the handle dimensions (length or diameter)
-                to lesser than 70 mm or 30 mm to enhance inclusivity'
+                'Change the handle dimensions (length or diameter) to lesser than 70 mm or 30 mm to enhance inclusivity'
               end
             end
           elsif product_weight < 2000
@@ -145,22 +139,19 @@ class Proposal < ActiveRecord::Base
                 update_recommendations values, 2.30,
                 [
                   'Change the product weight to 400 gr or less',
-                  'Change the handle dimensions (length or diameter) to lesser than 30 mm
-                  to enhance inclusivity '
+                  'Change the handle dimensions (length or diameter) to lesser than 30 mm to enhance inclusivity '
                  ]
               elsif handle.holding
                 update_recommendations values, 1.80,
                 [
                   'Change the product weight to 400 gr or less',
-                  'Change the handle dimensions (length or diameter) to lesser than 30 mm
-                  to enhance inclusivity '
+                  'Change the handle dimensions (length or diameter) to lesser than 30 mm to enhance inclusivity '
                  ]
               else
                 update_recommendations values, 2.30,
                 [
                   'Change the product weight to 400gr or less',
-                  'Change the handle dimensions (length or diameter) to lesser than 30mm
-                  to enhance inclusivity'
+                  'Change the handle dimensions (length or diameter) to lesser than 30mm to enhance inclusivity'
                 ]
               end
             elsif handle.length_or_radius > 70
@@ -168,22 +159,19 @@ class Proposal < ActiveRecord::Base
                 update_recommendations values, 2.70,
                 [
                   'Change the product weight to 400 gr or less',
-                  'Change the handle dimensions (length or diameter) to lesser than 70 mm or 30 mm
-                  to enhance inclusivity '
+                  'Change the handle dimensions (length or diameter) to lesser than 70 mm or 30 mm to enhance inclusivity '
                  ]
               elsif handle.holding
                 update_recommendations values, 2.30,
                 [
                   'Change the product weight to 400 gr or less',
-                  'Change the handle dimensions (length or diameter) to lesser than 70 mm or 30 mm
-                  to enhance inclusivity '
+                  'Change the handle dimensions (length or diameter) to lesser than 70 mm or 30 mm to enhance inclusivity '
                  ]
               else
                 update_recommendations values, 2.70,
                 [
                   'Change the product weight to 400gr or less',
-                  'Change the handle dimensions (length or diameter) to lesser than 70mm or 30mm
-                  to enhance inclusivity'
+                  'Change the handle dimensions (length or diameter) to lesser than 70mm or 30mm to enhance inclusivity'
                 ]
               end
             end
@@ -191,16 +179,13 @@ class Proposal < ActiveRecord::Base
             if handle.length_or_radius <= 30
               if handle.moving or handle.carrying
                 update_recommendations values, 3.50,
-                'Change the product weight to lesser than 2Kg or less than
-                400gr to enhance inclusivity'
+                'Change the product weight to lesser than 2Kg or less than 400gr to enhance inclusivity'
               elsif handle.holding
                 update_recommendations values, 3.40,
-                'Change the product weight to lesser than 2Kg or less than
-                400gr to enhance inclusivity'
+                'Change the product weight to lesser than 2Kg or less than 400gr to enhance inclusivity'
               else
                 update_recommendations values, 3.50,
-                'Change the product weight to lesser than 2Kg or less than
-                400gr to enhance inclusivity'
+                'Change the product weight to lesser than 2Kg or less than 400gr to enhance inclusivity'
               end
             elsif handle.length_or_radius <= 70
               if handle.moving or handle.carrying
@@ -256,26 +241,21 @@ class Proposal < ActiveRecord::Base
             elsif handle.length_or_radius <= 70
               if handle.moving or handle.carrying
                 update_recommendations values, 0.83,
-                'Change the handle dimensions (length or diameter)
-                to lesser than 30 mm to enhance inclusivity'
+                'Change the handle dimensions (length or diameter) to lesser than 30 mm to enhance inclusivity'
               elsif handle.holding
                 update_recommendations values, 0.62,
-                'Change the handle dimensions (length or diameter)
-                to lesser than 30 mm to enhance inclusivity'
+                'Change the handle dimensions (length or diameter) to lesser than 30 mm to enhance inclusivity'
               else
                 update_recommendations values, 0.83,
-                'Change the handle dimensions (length or diameter)
-                to lesser than 30mm to enhance inclusivity'
+                'Change the handle dimensions (length or diameter) to lesser than 30mm to enhance inclusivity'
               end
             elsif handle.length_or_radius > 70
               if handle.moving or handle.carrying
                 update_recommendations values, 0.95,
-                'Change the handle dimensions (length or diameter)
-                to lesser than 70 mm or 30 mm to enhance inclusivity'
+                'Change the handle dimensions (length or diameter) to lesser than 70 mm or 30 mm to enhance inclusivity'
               elsif handle.holding
                 update_recommendations values, 0.73,
-                'Change the handle dimensions (length or diameter)
-                to lesser than 70 mm or 30 mm to enhance inclusivity'
+                'Change the handle dimensions (length or diameter) to lesser than 70 mm or 30 mm to enhance inclusivity'
               else
                 update_recommendations values, 0.95,
                 'Change the handle dimensions (length or diameter) to lesser than 70mm or 30mm
@@ -299,22 +279,19 @@ class Proposal < ActiveRecord::Base
                 update_recommendations values, 2.30,
                 [
                   'Change the product weight to 400 gr or less',
-                  'Change the handle dimensions (length or diameter) to lesser than 30 mm
-                  to enhance inclusivity '
+                  'Change the handle dimensions (length or diameter) to lesser than 30 mm to enhance inclusivity '
                  ]
               elsif handle.holding
                 update_recommendations values, 1.80,
                 [
                   'Change the product weight to 400 gr or less',
-                  'Change the handle dimensions (length or diameter) to lesser than 30 mm
-                  to enhance inclusivity '
+                  'Change the handle dimensions (length or diameter) to lesser than 30 mm to enhance inclusivity '
                  ]
               else
                 update_recommendations values, 2.30,
                 [
                   'Change the product weight to 400gr or less',
-                  'Change the handle dimensions (length or diameter) to lesser than 30mm
-                  to enhance inclusivity'
+                  'Change the handle dimensions (length or diameter) to lesser than 30mm to enhance inclusivity'
                 ]
               end
             elsif handle.length_or_radius > 70
@@ -322,22 +299,19 @@ class Proposal < ActiveRecord::Base
                 update_recommendations values, 2.70,
                 [
                   'Change the product weight to 400 gr or less',
-                  'Change the handle dimensions (length or diameter) to lesser than 70 mm or 30 mm
-                  to enhance inclusivity '
+                  'Change the handle dimensions (length or diameter) to lesser than 70 mm or 30 mm to enhance inclusivity '
                  ]
               elsif handle.holding
                 update_recommendations values, 2.30,
                 [
                   'Change the product weight to 400 gr or less',
-                  'Change the handle dimensions (length or diameter) to lesser than 70 mm or 30 mm
-                  to enhance inclusivity '
+                  'Change the handle dimensions (length or diameter) to lesser than 70 mm or 30 mm to enhance inclusivity '
                  ]
               else
                 update_recommendations values, 2.70,
                 [
                   'Change the product weight to 400gr or less',
-                  'Change the handle dimensions (length or diameter) to lesser than 70mm or 30mm
-                  to enhance inclusivity'
+                  'Change the handle dimensions (length or diameter) to lesser than 70mm or 30mm to enhance inclusivity'
                 ]
               end
             end
@@ -345,12 +319,10 @@ class Proposal < ActiveRecord::Base
             if handle.length_or_radius <= 30
               if handle.moving or handle.carrying
                 update_recommendations values, 3.50,
-                'Change the product weight to lesser than 1Kg or less than
-                400gr to enhance inclusivity'
+                'Change the product weight to lesser than 1Kg or less than 400gr to enhance inclusivity'
               elsif handle.holding
                 update_recommendations values, 3.40,
-                'Change the product weight to lesser than 1Kg or less than
-                400gr to enhance inclusivity'
+                'Change the product weight to lesser than 1Kg or less than 400gr to enhance inclusivity'
               else
                 update_recommendations values, 3.50,
                   'Change the product weight to less than 1Kg or lesser than 400gr to enhance inclusivity'
