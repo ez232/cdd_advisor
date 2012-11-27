@@ -2,52 +2,23 @@
 
 <table>
   <tr>
-    <th>Proposal</th>
-    <th>Pressing</th>
-    <th>Pushing</th>
-    <th>Pulling</th>
-    <th>Turning</th>
-    <th>Sliding</th>
-    <th>Shape</th>
-    <th>Length or external diameter</th>
-    <th>Width</th>
-    <th>Height</th>
-    <th>Force required</th>
-    <th>Colour</th>
-    <th>Background colour</th>
-    <th>One finger press</th>
-    <th>Two fingers press</th>
-    <th>Thumb press</th>
-    <th></th>
+    <th>Name</th>
     <th></th>
     <th></th>
   </tr>
 
 <% @buttons.each do |button| %>
   <tr>
-    <td><%= button.proposal_id %></td>
-    <td><%= button.pressing %></td>
-    <td><%= button.pushing %></td>
-    <td><%= button.pulling %></td>
-    <td><%= button.turning %></td>
-    <td><%= button.sliding %></td>
-    <td><%= button.shape %></td>
-    <td><%= button.length_or_external_diameter %></td>
-    <td><%= button.width %></td>
-    <td><%= button.height %></td>
-    <td><%= button.force_required %></td>
-    <td><%= button.colour %></td>
-    <td><%= button.background_colour %></td>
-    <td><%= button.one_finger_press %></td>
-    <td><%= button.two_fingers_press %></td>
-    <td><%= button.thumb_press %></td>
-    <td><%= link_to 'Show', button %></td>
-    <td><%= link_to 'Edit', edit_button_path(button) %></td>
-    <td><%= link_to 'Destroy', button, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= button.name %></td>
+    <td><%= link_to 'Edit',
+          edit_project_proposal_button_path(@project, @proposal, button) %></td>
+    <td><%= link_to 'Remove', [@project, @proposal, button], method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Button', new_button_path %>
+<%= link_to '&laquo; Back'.html_safe, :back %>
+<%= link_to 'New Button', new_project_proposal_button_path(@project, @proposal) %>

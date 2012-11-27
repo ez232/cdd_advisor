@@ -3,10 +3,10 @@ require 'test_helper'
 class LabelsControllerTest < ActionController::TestCase
   setup do
     @project = projects(:iPhone)
-    
+
     @proposal = proposals(:one)
     @project.proposals << @proposal
-    
+
     @label = labels(:one)
     @proposal.label = @label
   end
@@ -24,7 +24,7 @@ class LabelsControllerTest < ActionController::TestCase
 
   test "should create label" do
     assert_difference('Label.count') do
-      post :create, label: { digital: @label.digital, font_type: @label.font_type, labels_reading_distance: @label.labels_reading_distance, printed: @label.printed, proposal_id: @label.proposal_id, text_colour: @label.text_colour, text_size: @label.text_size }
+      post :create, label: { digital: @label.digital, font_type: @label.font_type, reading_distance: @label.reading_distance, printed: @label.printed, proposal_id: @label.proposal_id, text_colour: @label.text_colour, text_size: @label.text_size }
     end
 
     assert_redirected_to label_path(assigns(:label))
@@ -41,7 +41,7 @@ class LabelsControllerTest < ActionController::TestCase
   end
 
   test "should update label" do
-    put :update, id: @label, label: { digital: @label.digital, font_type: @label.font_type, labels_reading_distance: @label.labels_reading_distance, printed: @label.printed, proposal_id: @label.proposal_id, text_colour: @label.text_colour, text_size: @label.text_size }
+    put :update, id: @label, label: { digital: @label.digital, font_type: @label.font_type, reading_distance: @label.reading_distance, printed: @label.printed, proposal_id: @label.proposal_id, text_colour: @label.text_colour, text_size: @label.text_size }
     assert_redirected_to label_path(assigns(:label))
   end
 

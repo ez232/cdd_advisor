@@ -2,50 +2,23 @@
 
 <table>
   <tr>
-    <th>Proposal</th>
-    <th>Holding</th>
-    <th>Moving</th>
-    <th>Carrying</th>
-    <th>Shape</th>
-    <th>Length or external diameter</th>
-    <th>Width</th>
-    <th>Height</th>
-    <th>Pinch grip</th>
-    <th>Power grip</th>
-    <th>Span grip</th>
-    <th>Spherical grip</th>
-    <th>Cylindrical grip</th>
-    <th>Disc grip</th>
-    <th>Hook grip</th>
-    <th>Flat hand push</th>
-    <th></th>
+    <th>Name</th>
     <th></th>
     <th></th>
   </tr>
 
 <% @handles.each do |handle| %>
   <tr>
-    <td><%= handle.proposal_id %></td>
-    <td><%= handle.holding %></td>
-    <td><%= handle.moving %></td>
-    <td><%= handle.carrying %></td>
-    <td><%= handle.shape %></td>
-    <td><%= handle.external_diameter %></td>
-    <td><%= handle.width %></td>
-    <td><%= handle.height %></td>
-    <td><%= handle.pinch_grip %></td>
-    <td><%= handle.power_grip %></td>
-    <td><%= handle.spherical_grip %></td>
-    <td><%= handle.cylindrical_grip %></td>
-    <td><%= handle.disc_grip %></td>
-    <td><%= handle.hook_grip %></td>
-    <td><%= link_to 'Show', handle %></td>
-    <td><%= link_to 'Edit', edit_handle_path(handle) %></td>
-    <td><%= link_to 'Destroy', handle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= handle.name %></td>
+    <td><%= link_to 'Edit',
+          edit_project_proposal_handle_path(@project, @proposal, handle) %></td>
+    <td><%= link_to 'Remove', [@project, @proposal, handle], method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Handle', new_handle_path %>
+<%= link_to '&laquo; Back'.html_safe, :back %>
+<%= link_to 'New Handle', new_project_proposal_handle_path(@project, @proposal) %>

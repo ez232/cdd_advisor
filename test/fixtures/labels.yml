@@ -7,7 +7,7 @@ one:
   font_type: MyString
   text_size: 1.5
   text_colour: MyString
-  labels_reading_distance: 1.5
+  reading_distance: 1.5
 
 two:
   proposal_id: 1
@@ -16,4 +16,4 @@ two:
   font_type: MyString
   text_size: 1.5
   text_colour: MyString
-  labels_reading_distance: 1.5
+  reading_distance: 1.5

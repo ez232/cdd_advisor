@@ -1,83 +1,65 @@
 class SwitchesController < ApplicationController
-  # GET /switches
-  # GET /switches.json
+  # GET projects/1/proposals/1projects/1/proposals/1/switches
   def index
-    @switches = Switch.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @switches }
-    end
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @switches = @proposal.switches
   end
 
-  # GET /switches/1
-  # GET /switches/1.json
-  def show
-    @switch = Switch.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @switch }
-    end
-  end
-
-  # GET /switches/new
-  # GET /switches/new.json
+  # GET projects/1/proposals/1/switches/new
   def new
-    @switch = Switch.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @switch }
-    end
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @switch = @proposal.switches.build
   end
 
-  # GET /switches/1/edit
-  def edit
-    @switch = Switch.find(params[:id])
-  end
-
-  # POST /switches
-  # POST /switches.json
+  # POST projects/1/proposals/1/switches
   def create
-    @switch = Switch.new(params[:switch])
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @switch = @proposal.switches.build(params[:switch])
 
-    respond_to do |format|
-      if @switch.save
-        format.html { redirect_to @switch, notice: 'Switch was successfully created.' }
-        format.json { render json: @switch, status: :created, location: @switch }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @switch.errors, status: :unprocessable_entity }
-      end
+    if @switch.save
+      redirect_to project_proposal_switches_url(@project, @proposal),
+        notice: 'Switch was successfully created.'
+    else
+      render action: 'new'
     end
   end
 
-  # PUT /switches/1
-  # PUT /switches/1.json
+  # GET projects/1/proposals/1/switches/1/edit
+  def edit
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @switch = @proposal.switches.find(params[:id])
+  end
+
+  # PUT projects/1/proposals/1/switches/1
   def update
-    @switch = Switch.find(params[:id])
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @switch = @proposal.switches.find(params[:id])
 
-    respond_to do |format|
-      if @switch.update_attributes(params[:switch])
-        format.html { redirect_to @switch, notice: 'Switch was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @switch.errors, status: :unprocessable_entity }
-      end
+    if @switch.update_attributes(params[:switch])
+      redirect_to project_proposal_switches_url(@project, @proposal),
+        notice: 'Switch was successfully updated.'
+    else
+      render action: 'edit'
     end
   end
 
-  # DELETE /switches/1
-  # DELETE /switches/1.json
+  # DELETE projects/1/proposals/1/switches/1
   def destroy
-    @switch = Switch.find(params[:id])
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @switch = @proposal.switches.find(params[:id])
     @switch.destroy
 
-    respond_to do |format|
-      format.html { redirect_to switches_url }
-      format.json { head :no_content }
-    end
+    redirect_to project_proposal_switches_url
   end
+
+  # GET projects/1/proposals/1/switches/1
+  # def show
+  #   @switch = Switch.find(params[:id])
+  # end
 end

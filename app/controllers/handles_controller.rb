@@ -1,83 +1,65 @@
 class HandlesController < ApplicationController
-  # GET /handles
-  # GET /handles.json
+  # GET projects/1/proposals/1/handles
   def index
-    @handles = Handle.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @handles }
-    end
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @handles = @proposal.handles
   end
 
-  # GET /handles/1
-  # GET /handles/1.json
-  def show
-    @handle = Handle.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @handle }
-    end
-  end
-
-  # GET /handles/new
-  # GET /handles/new.json
+  # GET projects/1/proposals/1/handles/new
   def new
-    @handle = Handle.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @handle }
-    end
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @handle = @proposal.handles.build
   end
 
-  # GET /handles/1/edit
-  def edit
-    @handle = Handle.find(params[:id])
-  end
-
-  # POST /handles
-  # POST /handles.json
+  # POST projects/1/proposals/1/handles
   def create
-    @handle = Handle.new(params[:handle])
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @handle = @proposal.handles.build(params[:handle])
 
-    respond_to do |format|
-      if @handle.save
-        format.html { redirect_to @handle, notice: 'Handle was successfully created.' }
-        format.json { render json: @handle, status: :created, location: @handle }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @handle.errors, status: :unprocessable_entity }
-      end
+    if @handle.save
+      redirect_to project_proposal_handles_url(@project, @proposal),
+        notice: 'Handle was successfully created.'
+    else
+      render action: 'new'
     end
   end
 
-  # PUT /handles/1
-  # PUT /handles/1.json
+  # GET projects/1/proposals/1/handles/1/edit
+  def edit
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @handle = @proposal.handles.find(params[:id])
+  end
+
+  # PUT projects/1/proposals/1/handles/1
   def update
-    @handle = Handle.find(params[:id])
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @handle = @proposal.handles.find(params[:id])
 
-    respond_to do |format|
-      if @handle.update_attributes(params[:handle])
-        format.html { redirect_to @handle, notice: 'Handle was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @handle.errors, status: :unprocessable_entity }
-      end
+    if @handle.update_attributes(params[:handle])
+      redirect_to project_proposal_handles_url(@project, @proposal),
+        notice: 'Handle was successfully updated.'
+    else
+      render action: 'edit'
     end
   end
 
-  # DELETE /handles/1
-  # DELETE /handles/1.json
+  # DELETE projects/1/proposals/1/handles/1
   def destroy
-    @handle = Handle.find(params[:id])
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @handle = @proposal.handles.find(params[:id])
     @handle.destroy
 
-    respond_to do |format|
-      format.html { redirect_to handles_url }
-      format.json { head :no_content }
-    end
+    redirect_to project_proposal_handles_url
   end
+
+  # GET projects/1/proposals/1/handles/1
+  # def show
+  #   @handle = Handle.find(params[:id])
+  # end
 end

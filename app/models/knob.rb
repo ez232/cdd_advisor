@@ -3,11 +3,13 @@ class Knob < ActiveRecord::Base
     :force_required, :height, :length_or_external_diameter, :one_finger_press, :pinch_grip,
     :pressing, :proposal_id, :pulling, :pushing, :shape, :sliding, :span_grip,
     :spherical_grip, :thumb_press, :turning, :two_fingers_press, :width,
-    :pinch_grip_2, :disc_grip_2
+    :pinch_grip_2, :disc_grip_2, :name
 
-  belongs_to :proposal, inverse_of: :knob
+  belongs_to :proposal, inverse_of: :knobs
 
   validates :proposal, presence: { message: "is not a valid proposal" }
+
+  validates :name, presence: { message: "can't be blank" }
 
   SHAPE_VALUES = [ "Organic", "Rectangle", "Square", "Trapezium", "Trapezoid",
     "Cylindrical", "Oval", "Spherical", "Conical", "Triangle" ]

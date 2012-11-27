@@ -1,98 +1,77 @@
 class ProposalsController < ApplicationController
-  before_filter :check_current_project
-
-  # GET /proposals
-  # GET /proposals.json
+  # GET project/1/proposals
   def index
+    @project = Project.find(params[:project_id])
     @proposals = @project.proposals
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @proposals }
-    end
   end
 
-  # GET /proposals/1
-  # GET /proposals/1.json
-  def show
-    @proposal = Proposal.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @proposal }
-    end
-  end
-
-  # GET /proposals/new
-  # GET /proposals/new.json
+  # GET project/1/proposals/new
   def new
-    @proposal = Proposal.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @proposal }
-    end
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.build
   end
 
-  # GET /proposals/1/edit
-  def edit
-    @proposal = Proposal.find(params[:id])
-  end
-
-  # POST /proposals
-  # POST /proposals.json
+  # POST project/1/proposals
   def create
-    @proposal = Proposal.new(params[:proposal])
-    @project.proposals << @proposal
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.build(params[:proposal])
 
-    respond_to do |format|
-      if @proposal.save
-        format.html { redirect_to proposals_url }
-        format.json { render json: @proposal, status: :created, 
-          location: @proposal }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @proposal.errors, 
-          status: :unprocessable_entity }
-      end
+    if @proposal.save
+      redirect_to correct_url(params)
+    else
+      render action: 'new'
     end
   end
 
-  # PUT /proposals/1
-  # PUT /proposals/1.json
+  # GET project/1/proposals/1/edit
+  def edit
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:id])
+  end
+
+
+  # PUT project/1/proposals/1
   def update
-    @proposal = Proposal.find(params[:id])
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:id])
 
-    respond_to do |format|
-      if @proposal.update_attributes(params[:proposal])
-        format.html { redirect_to proposals_url }
-        format.json { head :no_content }
+    if @proposal.update_attributes(params[:proposal])
+      redirect_to correct_url(params)
+    else
+      render action: 'edit'
+    end
+  end
+
+  # GET project/1/proposals/1
+  # def show
+  #   @proposal = Proposal.find(params[:id])
+  # end
+
+  # DELETE project/1/proposals/1
+  # def destroy
+  #   @proposal = Proposal.find(params[:id])
+  #   @proposal.destroy
+
+  #   redirect_to proposals_url
+  # end
+
+  private
+    def correct_url(params)
+      case params.select{ |key| key =~ /action_/ }.first[0]
+      when 'action_save'
+        project_proposals_url(@project)
+      when 'action_labels'
+        project_proposal_labels_url(@project, @proposal)
+      when 'action_handles'
+        project_proposal_handles_url(@project, @proposal)
+      when 'action_switches'
+        project_proposal_switches_url(@project, @proposal)
+      when 'action_knobs'
+        project_proposal_knobs_url(@project, @proposal)
+      when 'action_buttons'
+        project_proposal_buttons_url(@project, @proposal)
       else
-        format.html { render action: "edit" }
-        format.json { render json: @proposal.errors, 
-          status: :unprocessable_entity }
+        project_proposals_url(@project)
       end
-    end
-  end
-
-  # DELETE /proposals/1
-  # DELETE /proposals/1.json
-  def destroy
-    @proposal = Proposal.find(params[:id])
-    @proposal.destroy
-
-    respond_to do |format|
-      format.html { redirect_to proposals_url }
-      format.json { head :no_content }
-    end
-  end
-
-  protected
-    def check_current_project
-      if current_project.nil?
-        redirect_to projects_url
-      else
-        @project = current_project
-      end 
     end
 end

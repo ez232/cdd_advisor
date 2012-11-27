@@ -10,10 +10,9 @@
       <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
         <td class="list_description"><%= project.name %></td>
         <td class="list_actions">
-            <%= link_to 'View', project %>
+            <%= link_to 'Results', results_project_path(project) %>
+            <%= link_to 'Manage proposals', project_proposals_path(project) %>
             <%= link_to 'Edit', edit_project_path(project) %>
-            <%= link_to 'Remove', project, method: :delete, 
-              data: { confirm: 'All project data, including proposals, will be deleted. This action cannot be undone. Press OK to continue.' } %>
         </td>
       </tr>
     <% end %>

@@ -1,83 +1,66 @@
 class KnobsController < ApplicationController
-  # GET /knobs
-  # GET /knobs.json
+  # GET projects/1/proposals/1/knobs
   def index
-    @knobs = Knob.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @knobs }
-    end
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @knobs = @proposal.knobs
   end
 
-  # GET /knobs/1
-  # GET /knobs/1.json
-  def show
-    @knob = Knob.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @knob }
-    end
-  end
-
-  # GET /knobs/new
-  # GET /knobs/new.json
+  # GET projects/1/proposals/1/knobs/new
   def new
-    @knob = Knob.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @knob }
-    end
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @knob = @proposal.knobs.build
   end
 
-  # GET /knobs/1/edit
-  def edit
-    @knob = Knob.find(params[:id])
-  end
-
-  # POST /knobs
-  # POST /knobs.json
+  # POST projects/1/proposals/1/knobs
   def create
-    @knob = Knob.new(params[:knob])
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @knob = @proposal.knobs.build(params[:knob])
 
-    respond_to do |format|
-      if @knob.save
-        format.html { redirect_to @knob, notice: 'Knob was successfully created.' }
-        format.json { render json: @knob, status: :created, location: @knob }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @knob.errors, status: :unprocessable_entity }
-      end
+    if @knob.save
+      redirect_to project_proposal_knobs_url(@project, @proposal),
+        notice: 'Knob was successfully created.'
+    else
+      render action: 'new'
     end
   end
 
-  # PUT /knobs/1
-  # PUT /knobs/1.json
+  # GET projects/1/proposals/1/knobs/1/edit
+  def edit
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @knob = @proposal.knobs.find(params[:id])
+  end
+
+
+  # PUT projects/1/proposals/1/knobs/1
   def update
-    @knob = Knob.find(params[:id])
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @knob = @proposal.knobs.find(params[:id])
 
-    respond_to do |format|
-      if @knob.update_attributes(params[:knob])
-        format.html { redirect_to @knob, notice: 'Knob was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @knob.errors, status: :unprocessable_entity }
-      end
+    if @knob.update_attributes(params[:knob])
+      redirect_to project_proposal_knobs_url(@project, @proposal),
+        notice: 'Knob was successfully updated.'
+    else
+      render action: 'edit'
     end
   end
 
-  # DELETE /knobs/1
-  # DELETE /knobs/1.json
+  # DELETE projects/1/proposals/1/knobs/1
   def destroy
-    @knob = Knob.find(params[:id])
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @knob = @proposal.knobs.find(params[:id])
     @knob.destroy
 
-    respond_to do |format|
-      format.html { redirect_to knobs_url }
-      format.json { head :no_content }
-    end
+    redirect_to project_proposal_knobs_url
   end
+
+  # GET projects/1/proposals/1/knobs/1
+  # def show
+  #   @knob = Knob.find(params[:id])
+  # end
 end

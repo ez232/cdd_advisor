@@ -1,7 +1,7 @@
 <%= form_for(@project) do |f| %>
   <% if @project.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this 
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this
         project from being saved:</h2>
 
       <ul>
@@ -37,6 +37,8 @@
     <%= f.text_field :final_price %>
   </div>
   <div class="actions">
-    <%= f.submit "Next >>" %>
+    <%= link_to '&laquo; Back'.html_safe, :back %>
+    <%= f.submit 'Save', name: :action_save %>
+    <%= f.submit 'Manage proposals &raquo;'.html_safe, name: :action_proposals %>
   </div>
 <% end %>

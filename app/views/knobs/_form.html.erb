@@ -1,4 +1,4 @@
-<%= form_for(@knob) do |f| %>
+<%= form_for([@project, @proposal, @knob]) do |f| %>
   <% if @knob.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@knob.errors.count, "error") %> prohibited this knob from being saved:</h2>
@@ -11,91 +11,134 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :proposal_id %><br />
-    <%= f.number_field :proposal_id %>
-  </div>
-  <div class="field">
-    <%= f.label :pressing %><br />
-    <%= f.check_box :pressing %>
-  </div>
-  <div class="field">
-    <%= f.label :pushing %><br />
-    <%= f.check_box :pushing %>
-  </div>
-  <div class="field">
-    <%= f.label :pulling %><br />
-    <%= f.check_box :pulling %>
-  </div>
-  <div class="field">
-    <%= f.label :turning %><br />
-    <%= f.check_box :turning %>
-  </div>
-  <div class="field">
-    <%= f.label :sliding %><br />
-    <%= f.check_box :sliding %>
-  </div>
-  <div class="field">
-    <%= f.label :shape %><br />
-    <%= f.text_field :shape %>
-  </div>
-  <div class="field">
-    <%= f.label :length_or_external_diameter %><br />
-    <%= f.text_field :length_or_external_diameter %>
-  </div>
-  <div class="field">
-    <%= f.label :width %><br />
-    <%= f.text_field :width %>
-  </div>
-  <div class="field">
-    <%= f.label :height %><br />
-    <%= f.text_field :height %>
-  </div>
-  <div class="field">
-    <%= f.label :force_required %><br />
-    <%= f.text_field :force_required %>
-  </div>
-  <div class="field">
-    <%= f.label :colour %><br />
-    <%= f.text_field :colour %>
-  </div>
-  <div class="field">
-    <%= f.label :background_colour %><br />
-    <%= f.text_field :background_colour %>
-  </div>
-  <div class="field">
-    <%= f.label :pinch_grip %><br />
-    <%= f.check_box :pinch_grip %>
-  </div>
-  <div class="field">
-    <%= f.label :span_grip %><br />
-    <%= f.check_box :span_grip %>
-  </div>
-  <div class="field">
-    <%= f.label :spherical_grip %><br />
-    <%= f.check_box :spherical_grip %>
-  </div>
-  <div class="field">
-    <%= f.label :cylindrical_grip %><br />
-    <%= f.check_box :cylindrical_grip %>
-  </div>
-  <div class="field">
-    <%= f.label :disc_grip %><br />
-    <%= f.check_box :disc_grip %>
-  </div>
-  <div class="field">
-    <%= f.label :one_finger_press %><br />
-    <%= f.check_box :one_finger_press %>
-  </div>
-  <div class="field">
-    <%= f.label :two_fingers_press %><br />
-    <%= f.check_box :two_fingers_press %>
-  </div>
-  <div class="field">
-    <%= f.label :thumb_press %><br />
-    <%= f.check_box :thumb_press %>
-  </div>
+  <table class="fields">
+    <tr>
+      <td colspan="3">
+        <div class="field">
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="field">
+          <%= f.check_box :pressing %>
+          <%= f.label :pressing %>
+        </div>
+      </td>
+      <td>
+        <div class="field">
+          <%= f.check_box :pushing %>
+          <%= f.label :pushing %>
+        </div>
+      </td>
+      <td>
+        <div class="field">
+          <%= f.check_box :pulling %>
+          <%= f.label :pulling %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="field">
+          <%= f.check_box :turning %>
+          <%= f.label :turning %>
+        </div>
+      </td>
+      <td>
+        <div class="field">
+          <%= f.check_box :sliding %>
+          <%= f.label :sliding %>
+        </div>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <div class="field">
+          <%= f.label :shape %>
+          <%= f.select :shape, Knob::SHAPE_VALUES, prompt: true %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="field">
+          <%= f.label 'Length or external diameter (mm)' %><br />
+          <%= f.text_field :length_or_external_diameter, size: 10 %>
+        </div>
+      </td>
+      <td>
+        <div class="field">
+          <%= f.label 'width (mm)' %><br />
+          <%= f.text_field :width, size: 10 %>
+        </div>
+      </td>
+      <td>
+        <div class="field">
+          <%= f.label 'height (mm)' %><br />
+          <%= f.text_field :height, size: 10 %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <div class="field">
+          <%= f.label 'force_required (N)' %><br />
+          <%= f.text_field :force_required, size: 10 %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="field">
+          <%= f.label :colour %><br />
+          <%= f.text_field :colour, size: 10 %>
+        </div>
+      </td>
+      <td>
+        <div class="field">
+          <%= f.label :background_colour %><br />
+          <%= f.text_field :background_colour, size: 10 %>
+        </div>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <%= render 'shared/check_box_with_image', f: f, field: :pinch_grip %>
+        <%= render 'shared/check_box_with_image', f: f, field: :pinch_grip_2 %>
+      </td>
+      <td>
+        <%= render 'shared/check_box_with_image', f: f, field: :span_grip %>
+        <%= render 'shared/check_box_with_image', f: f, field: :spherical_grip %>
+      </td>
+      <td>
+        <%= render 'shared/check_box_with_image', f: f, field: :disc_grip %>
+        <%= render 'shared/check_box_with_image', f: f, field: :disc_grip_2 %>
+      </td>
+      <td>
+        <%= render 'shared/check_box_with_image', f: f, field: :cylindrical_grip %>
+        <div class="field">
+          <%= f.check_box :one_finger_press %>
+          <%= f.label :one_finger_press %>
+        </div>
+        <div class="field">
+          <%= f.check_box :two_fingers_press %>
+          <%= f.label :two_fingers_press %>
+        </div>
+        <div class="field">
+          <%= f.check_box :thumb_press %>
+          <%= f.label :thumb_press %>
+        </div>
+        <div class="vspace"></div>
+      </td>
+    </tr>
+  </table>
   <div class="actions">
-    <%= f.submit %>
+    <%= link_to '&laquo; Back'.html_safe, :back %>
+    <%= f.submit 'Save', name: :action_save %>
   </div>
 <% end %>

@@ -2,62 +2,23 @@
 
 <table>
   <tr>
-    <th>Proposal</th>
-    <th>Pressing</th>
-    <th>Pushing</th>
-    <th>Pulling</th>
-    <th>Turning</th>
-    <th>Sliding</th>
-    <th>Shape</th>
-    <th>Length or external diameter</th>
-    <th>Width</th>
-    <th>Height</th>
-    <th>Force required</th>
-    <th>Colour</th>
-    <th>Background colour</th>
-    <th>Pinch grip</th>
-    <th>Span grip</th>
-    <th>Spherical grip</th>
-    <th>Cylindrical grip</th>
-    <th>Disc grip</th>
-    <th>One finger press</th>
-    <th>Two fingers press</th>
-    <th>Thumb press</th>
-    <th></th>
+    <th>Name</th>
     <th></th>
     <th></th>
   </tr>
 
 <% @knobs.each do |knob| %>
   <tr>
-    <td><%= knob.proposal_id %></td>
-    <td><%= knob.pressing %></td>
-    <td><%= knob.pushing %></td>
-    <td><%= knob.pulling %></td>
-    <td><%= knob.turning %></td>
-    <td><%= knob.sliding %></td>
-    <td><%= knob.shape %></td>
-    <td><%= knob.length_or_external_diameter %></td>
-    <td><%= knob.width %></td>
-    <td><%= knob.height %></td>
-    <td><%= knob.force_required %></td>
-    <td><%= knob.colour %></td>
-    <td><%= knob.background_colour %></td>
-    <td><%= knob.pinch_grip %></td>
-    <td><%= knob.span_grip %></td>
-    <td><%= knob.spherical_grip %></td>
-    <td><%= knob.cylindrical_grip %></td>
-    <td><%= knob.disc_grip %></td>
-    <td><%= knob.one_finger_press %></td>
-    <td><%= knob.two_fingers_press %></td>
-    <td><%= knob.thumb_press %></td>
-    <td><%= link_to 'Show', knob %></td>
-    <td><%= link_to 'Edit', edit_knob_path(knob) %></td>
-    <td><%= link_to 'Destroy', knob, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= knob.name %></td>
+    <td><%= link_to 'Edit',
+          edit_project_proposal_knob_path(@project, @proposal, knob) %></td>
+    <td><%= link_to 'Remove', [@project, @proposal, knob], method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Knob', new_knob_path %>
+<%= link_to '&laquo; Back'.html_safe, :back %>
+<%= link_to 'New Knob', new_project_proposal_knob_path(@project, @proposal) %>

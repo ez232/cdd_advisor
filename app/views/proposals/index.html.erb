@@ -18,17 +18,12 @@
       <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
         <td class="list_description"><%= proposal.name %></td>
         <td class="list_actions">
-          <%= link_to 'Edit', edit_proposal_path(proposal) %>
-          <%= link_to 'Remove', proposal, method: :delete, 
-                      data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Edit', edit_project_proposal_path(@project, proposal) %>
         </td>
       </tr>
     <% end %>
   </table>
 <% end %>
 <br />
-<%= link_to 'New Proposal', new_proposal_path, class: 'button'  %>
-<%= link_to 'Next >>', results_project_path(@project), class: 'button'  %>
-<br /><br />
-<%= link_to 'Home', projects_url %> |
-<%= link_to 'Back', edit_project_path(@project) %>
+<%= link_to '&laquo; Back'.html_safe, :back %>
+<%= link_to 'New Proposal', new_project_proposal_path, class: 'button'  %>

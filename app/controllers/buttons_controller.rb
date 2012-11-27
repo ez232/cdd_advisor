@@ -1,83 +1,66 @@
 class ButtonsController < ApplicationController
-  # GET /buttons
-  # GET /buttons.json
+  # GET projects/1/proposals/1/buttons
   def index
-    @buttons = Button.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @buttons }
-    end
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @buttons = @proposal.buttons
   end
 
-  # GET /buttons/1
-  # GET /buttons/1.json
-  def show
-    @button = Button.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @button }
-    end
-  end
-
-  # GET /buttons/new
-  # GET /buttons/new.json
+  # GET projects/1/proposals/1/buttons/new
   def new
-    @button = Button.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @button }
-    end
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @button = @proposal.buttons.build
   end
 
-  # GET /buttons/1/edit
-  def edit
-    @button = Button.find(params[:id])
-  end
-
-  # POST /buttons
-  # POST /buttons.json
+  # POST projects/1/proposals/1/buttons
   def create
-    @button = Button.new(params[:button])
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @button = @proposal.buttons.build(params[:button])
 
-    respond_to do |format|
-      if @button.save
-        format.html { redirect_to @button, notice: 'Button was successfully created.' }
-        format.json { render json: @button, status: :created, location: @button }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @button.errors, status: :unprocessable_entity }
-      end
+    if @button.save
+      redirect_to project_proposal_buttons_url(@project, @proposal),
+        notice: 'Button was successfully created.'
+    else
+      render action: 'new'
     end
   end
 
-  # PUT /buttons/1
-  # PUT /buttons/1.json
+  # GET projects/1/proposals/1/buttons/1/edit
+  def edit
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @button = @proposal.buttons.find(params[:id])
+  end
+
+
+  # PUT projects/1/proposals/1/buttons/1
   def update
-    @button = Button.find(params[:id])
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @button = @proposal.buttons.find(params[:id])
 
-    respond_to do |format|
-      if @button.update_attributes(params[:button])
-        format.html { redirect_to @button, notice: 'Button was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @button.errors, status: :unprocessable_entity }
-      end
+    if @button.update_attributes(params[:button])
+      redirect_to project_proposal_buttons_url(@project, @proposal),
+        notice: 'Button was successfully updated.'
+    else
+      render action: 'edit'
     end
   end
 
-  # DELETE /buttons/1
-  # DELETE /buttons/1.json
+  # DELETE projects/1/proposals/1/buttons/1
   def destroy
-    @button = Button.find(params[:id])
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @button = @proposal.buttons.find(params[:id])
     @button.destroy
 
-    respond_to do |format|
-      format.html { redirect_to buttons_url }
-      format.json { head :no_content }
-    end
+    redirect_to project_proposal_buttons_url
   end
+
+  # GET projects/1/proposals/1/buttons/1
+  # def show
+  #   @button = Button.find(params[:id])
+  # end
 end

@@ -1,21 +1,14 @@
 CddAdvisor::Application.routes.draw do
-  resources :images
-
-  resources :labels
-
-  resources :buttons
-
-  resources :knobs
-
-  resources :switches
-
-  resources :handles
-
-  resources :proposals
-
-  resources :projects do
-    get :results, on: :member
+  resources :projects, except: [:show, :destroy] do
+    get :results, as: :results, on: :member
+    resources :proposals, except: [:show, :destroy] do
+      resources :labels, except: :show
+      resources :buttons, except: :show
+      resources :knobs, except: :show
+      resources :switches, except: :show
+      resources :handles, except: :show
+    end
   end
 
-  root :to => 'projects#index'
+  root :to => 'home#index'
 end

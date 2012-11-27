@@ -3,20 +3,17 @@ class Proposal < ActiveRecord::Base
   attr_accessible :name, :product_weight, :manufacturing,
     :key_components_mechanics, :key_components_electronics,
     :key_components_fixing, :material, :finishing, :maintenance,
-    :handle_attributes, :switch_attributes, :knob_attributes,
-    :button_attributes, :label_attributes, :images_attributes
+    :images_attributes
 
-  has_one :handle, dependent: :destroy, inverse_of: :proposal
-  has_one :switch, dependent: :destroy, inverse_of: :proposal
-  has_one :knob, dependent: :destroy, inverse_of: :proposal
-  has_one :button, dependent: :destroy, inverse_of: :proposal
-  has_one :label, dependent: :destroy, inverse_of: :proposal
+  has_many :handles, dependent: :destroy, inverse_of: :proposal
+  has_many :switches, dependent: :destroy, inverse_of: :proposal
+  has_many :knobs, dependent: :destroy, inverse_of: :proposal
+  has_many :buttons, dependent: :destroy, inverse_of: :proposal
+  has_many :labels, dependent: :destroy, inverse_of: :proposal
   has_many :images, dependent: :destroy, inverse_of: :proposal
 
   belongs_to :project
 
-  accepts_nested_attributes_for :handle, :switch, :knob, :button, :label,
-    allow_destroy: true
   accepts_nested_attributes_for :images, allow_destroy: true,
     reject_if: :all_blank
 
@@ -399,7 +396,7 @@ class Proposal < ActiveRecord::Base
               ]
           else
             if label.text_size < 12
-              if label.labels_reading_distance > 500
+              if label.reading_distance > 500
               update_recommendations values, 4.35,
               [
                'Increase text size',
@@ -414,7 +411,7 @@ class Proposal < ActiveRecord::Base
               ]
               end
             elsif label.text_size < 14
-              if label.labels_reading_distance > 500
+              if label.reading_distance > 500
               update_recommendations values, 2.30,
               [
                'Increase text size',
@@ -429,7 +426,7 @@ class Proposal < ActiveRecord::Base
               ]
               end
             elsif label.text_size >= 14
-              if label.labels_reading_distance > 500
+              if label.reading_distance > 500
               update_recommendations values, 1.30,
               [
                 'Reduce reading distance',

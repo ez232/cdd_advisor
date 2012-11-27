@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20120817123239) do
 
   create_table "buttons", :force => true do |t|
     t.integer  "proposal_id"
+    t.string   "name"
     t.boolean  "pressing"
     t.boolean  "pushing"
     t.boolean  "pulling"
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20120817123239) do
 
   create_table "handles", :force => true do |t|
     t.integer  "proposal_id"
+    t.string   "name"
     t.boolean  "holding"
     t.boolean  "moving"
     t.boolean  "carrying"
@@ -65,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20120817123239) do
 
   create_table "knobs", :force => true do |t|
     t.integer  "proposal_id"
+    t.string   "name"
     t.boolean  "pressing"
     t.boolean  "pushing"
     t.boolean  "pulling"
@@ -93,15 +96,16 @@ ActiveRecord::Schema.define(:version => 20120817123239) do
 
   create_table "labels", :force => true do |t|
     t.integer  "proposal_id"
+    t.string   "name"
     t.boolean  "printed"
     t.boolean  "digital"
     t.string   "font_type"
     t.float    "text_size"
     t.string   "text_colour"
     t.string   "background_colour"
-    t.float    "labels_reading_distance"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.float    "reading_distance"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "projects", :force => true do |t|
@@ -133,6 +137,7 @@ ActiveRecord::Schema.define(:version => 20120817123239) do
 
   create_table "switches", :force => true do |t|
     t.integer  "proposal_id"
+    t.string   "name"
     t.boolean  "pressing"
     t.boolean  "pushing"
     t.boolean  "pulling"

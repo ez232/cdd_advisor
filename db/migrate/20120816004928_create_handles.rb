@@ -2,6 +2,7 @@ class CreateHandles < ActiveRecord::Migration
   def change
     create_table :handles do |t|
       t.integer :proposal_id
+      t.string :name
       t.boolean :holding
       t.boolean :moving
       t.boolean :carrying

@@ -2,6 +2,7 @@ class CreateKnobs < ActiveRecord::Migration
   def change
     create_table :knobs do |t|
       t.integer :proposal_id
+      t.string :name
       t.boolean :pressing
       t.boolean :pushing
       t.boolean :pulling
