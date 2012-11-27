@@ -1,15 +1,7 @@
 CddAdvisor::Application.routes.draw do
   resources :images
 
-  resources :audio_devices
-
-  resources :opening_devices
-
   resources :labels
-
-  resources :touch_screens
-
-  resources :screens
 
   resources :buttons
 

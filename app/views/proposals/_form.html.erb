@@ -65,47 +65,12 @@
     <%= link_to_add_fields "Add button", f, :button, @proposal.button.nil? %>
   </p>
 
-  <h2>Screen</h2>
-  <%= f.fields_for :screen do |build| %>
-    <%= render 'screen_fields', f: build %>
-  <% end %>
-  <p>
-    <%= link_to_add_fields "Add screen", f, :screen, @proposal.screen.nil? %>
-  </p>
-
-  <h2>Touch screen</h2>
-  <%= f.fields_for :touch_screen do |build| %>
-    <%= render 'touch_screen_fields', f: build %>
-  <% end %>
-  <p>
-    <%= link_to_add_fields "Add touch screen", f, :touch_screen,
-      @proposal.touch_screen.nil? %>
-  </p>
-
   <h2>Label</h2>
   <%= f.fields_for :label do |build| %>
     <%= render 'label_fields', f: build %>
   <% end %>
   <p>
     <%= link_to_add_fields "Add label", f, :label, @proposal.label.nil? %>
-  </p>
-
-  <h2>Opening device</h2>
-  <%= f.fields_for :opening_device do |build| %>
-    <%= render 'opening_device_fields', f: build %>
-  <% end %>
-  <p>
-    <%= link_to_add_fields "Add opening device", f, :opening_device,
-      @proposal.opening_device.nil? %>
-  </p>
-
-  <h2>Audio device</h2>
-  <%= f.fields_for :audio_device do |build| %>
-    <%= render 'audio_device_fields', f: build %>
-  <% end %>
-  <p>
-    <%= link_to_add_fields "Add audio device", f, :audio_device,
-      @proposal.audio_device.nil? %>
   </p>
 
   <h2>Other attributes</h2>
