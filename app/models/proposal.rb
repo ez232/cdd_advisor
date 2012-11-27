@@ -75,8 +75,7 @@ class Proposal < ActiveRecord::Base
       #        message2
       #        message3
       results = {  dexterity: { percentual: 0.0, messages: [] },
-                  visibility: { percentual: 0.0, messages: [] },
-                    strength: { percentual: 0.0, messages: [] } }
+                  visibility: { percentual: 0.0, messages: [] } }
 
       # 1) Evaluating dexterity rules
       values = results[:dexterity]

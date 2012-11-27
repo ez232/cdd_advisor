@@ -18,10 +18,8 @@
     <h3>Visibility</h3>
     <%= render 'result', values: proposal.results[:visibility] %>
 
-    <h3>Strength</h3>
-    <%= render 'result', values: proposal.results[:strength] %>
     <br /><br />
-    <%= link_to "Edit #{proposal.name}", edit_proposal_path(proposal), 
+    <%= link_to "Edit #{proposal.name}", edit_proposal_path(proposal),
       class: 'button' %>
     <br /><br />
   <% end %>
