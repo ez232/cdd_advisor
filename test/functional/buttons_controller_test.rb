@@ -3,10 +3,10 @@ require 'test_helper'
 class ButtonsControllerTest < ActionController::TestCase
   setup do
     @project = projects(:iPhone)
-    
+
     @proposal = proposals(:one)
     @project.proposals << @proposal
-    
+
     @button = buttons(:one)
     @proposal.button = @button
   end
@@ -24,7 +24,7 @@ class ButtonsControllerTest < ActionController::TestCase
 
   test "should create button" do
     assert_difference('Button.count') do
-      post :create, button: { background_colour: @button.background_colour, colour: @button.colour, force_required: @button.force_required, height: @button.height, length_or_radius: @button.length_or_radius, one_finger_press: @button.one_finger_press, pressing: @button.pressing, proposal_id: @button.proposal_id, pulling: @button.pulling, pushing: @button.pushing, shape: @button.shape, sliding: @button.sliding, thumb_press: @button.thumb_press, turning: @button.turning, two_fingers_press: @button.two_fingers_press, width: @button.width }
+      post :create, button: { background_colour: @button.background_colour, colour: @button.colour, force_required: @button.force_required, height: @button.height, length_or_external_diameter: @button.length_or_external_diameter, one_finger_press: @button.one_finger_press, pressing: @button.pressing, proposal_id: @button.proposal_id, pulling: @button.pulling, pushing: @button.pushing, shape: @button.shape, sliding: @button.sliding, thumb_press: @button.thumb_press, turning: @button.turning, two_fingers_press: @button.two_fingers_press, width: @button.width }
     end
 
     assert_redirected_to button_path(assigns(:button))
@@ -41,7 +41,7 @@ class ButtonsControllerTest < ActionController::TestCase
   end
 
   test "should update button" do
-    put :update, id: @button, button: { background_colour: @button.background_colour, colour: @button.colour, force_required: @button.force_required, height: @button.height, length_or_radius: @button.length_or_radius, one_finger_press: @button.one_finger_press, pressing: @button.pressing, proposal_id: @button.proposal_id, pulling: @button.pulling, pushing: @button.pushing, shape: @button.shape, sliding: @button.sliding, thumb_press: @button.thumb_press, turning: @button.turning, two_fingers_press: @button.two_fingers_press, width: @button.width }
+    put :update, id: @button, button: { background_colour: @button.background_colour, colour: @button.colour, force_required: @button.force_required, height: @button.height, length_or_external_diameter: @button.length_or_external_diameter, one_finger_press: @button.one_finger_press, pressing: @button.pressing, proposal_id: @button.proposal_id, pulling: @button.pulling, pushing: @button.pushing, shape: @button.shape, sliding: @button.sliding, thumb_press: @button.thumb_press, turning: @button.turning, two_fingers_press: @button.two_fingers_press, width: @button.width }
     assert_redirected_to button_path(assigns(:button))
   end
 

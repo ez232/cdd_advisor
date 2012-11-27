@@ -8,7 +8,7 @@ class CreateButtons < ActiveRecord::Migration
       t.boolean :turning
       t.boolean :sliding
       t.string :shape
-      t.float :length_or_radius
+      t.float :length_or_external_diameter
       t.float :width
       t.float :height
       t.float :force_required

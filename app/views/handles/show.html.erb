@@ -26,8 +26,8 @@
 </p>
 
 <p>
-  <b>Length or radius:</b>
-  <%= @handle.length_or_radius %>
+  <b>External diameter:</b>
+  <%= @handle.external_diameter %>
 </p>
 
 <p>
@@ -51,11 +51,6 @@
 </p>
 
 <p>
-  <b>Span grip:</b>
-  <%= @handle.span_grip %>
-</p>
-
-<p>
   <b>Spherical grip:</b>
   <%= @handle.spherical_grip %>
 </p>
@@ -74,12 +69,6 @@
   <b>Hook grip:</b>
   <%= @handle.hook_grip %>
 </p>
-
-<p>
-  <b>Flat hand push:</b>
-  <%= @handle.flat_hand_push %>
-</p>
-
 
 <%= link_to 'Edit', edit_handle_path(@handle) %> |
 <%= link_to 'Back', handles_path %>

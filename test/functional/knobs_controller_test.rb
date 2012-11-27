@@ -3,10 +3,10 @@ require 'test_helper'
 class KnobsControllerTest < ActionController::TestCase
   setup do
     @project = projects(:iPhone)
-    
+
     @proposal = proposals(:one)
     @project.proposals << @proposal
-    
+
     @knob = knobs(:one)
     @proposal.knob = @knob
   end
@@ -24,16 +24,16 @@ class KnobsControllerTest < ActionController::TestCase
 
   test "should create knob" do
     assert_difference('Knob.count') do
-      post :create, knob: { background_colour: @knob.background_colour, 
-        colour: @knob.colour, cylindrical_grip: @knob.cylindrical_grip, 
-        disc_grip: @knob.disc_grip, force_required: @knob.force_required, 
-        height: @knob.height, length_or_radius: @knob.length_or_radius, 
-        one_finger_press: @knob.one_finger_press, pinch_grip: @knob.pinch_grip, 
-        pressing: @knob.pressing, proposal_id: @knob.proposal_id, 
-        pulling: @knob.pulling, pushing: @knob.pushing, shape: @knob.shape, 
-        sliding: @knob.sliding, span_grip: @knob.span_grip, 
-        spherical_grip: @knob.spherical_grip, 
-        thumb_press: @knob.thumb_press, turning: @knob.turning, 
+      post :create, knob: { background_colour: @knob.background_colour,
+        colour: @knob.colour, cylindrical_grip: @knob.cylindrical_grip,
+        disc_grip: @knob.disc_grip, force_required: @knob.force_required,
+        height: @knob.height, length_or_external_diameter: @knob.length_or_external_diameter,
+        one_finger_press: @knob.one_finger_press, pinch_grip: @knob.pinch_grip,
+        pressing: @knob.pressing, proposal_id: @knob.proposal_id,
+        pulling: @knob.pulling, pushing: @knob.pushing, shape: @knob.shape,
+        sliding: @knob.sliding, span_grip: @knob.span_grip,
+        spherical_grip: @knob.spherical_grip,
+        thumb_press: @knob.thumb_press, turning: @knob.turning,
         two_fingers_press: @knob.two_fingers_press, width: @knob.width }
     end
 
@@ -51,16 +51,16 @@ class KnobsControllerTest < ActionController::TestCase
   end
 
   test "should update knob" do
-    put :update, id: @knob, knob: { background_colour: @knob.background_colour, 
-      colour: @knob.colour, cylindrical_grip: @knob.cylindrical_grip, 
-      disc_grip: @knob.disc_grip, force_required: @knob.force_required, 
-      height: @knob.height, length_or_radius: @knob.length_or_radius, 
-      one_finger_press: @knob.one_finger_press, pinch_grip: @knob.pinch_grip, 
-      pressing: @knob.pressing, proposal_id: @knob.proposal_id, 
-      pulling: @knob.pulling, pushing: @knob.pushing, shape: @knob.shape, 
-      sliding: @knob.sliding, span_grip: @knob.span_grip, 
-      spherical_grip: @knob.spherical_grip, thumb_press: @knob.thumb_press, 
-      turning: @knob.turning, two_fingers_press: @knob.two_fingers_press, 
+    put :update, id: @knob, knob: { background_colour: @knob.background_colour,
+      colour: @knob.colour, cylindrical_grip: @knob.cylindrical_grip,
+      disc_grip: @knob.disc_grip, force_required: @knob.force_required,
+      height: @knob.height, length_or_external_diameter: @knob.length_or_external_diameter,
+      one_finger_press: @knob.one_finger_press, pinch_grip: @knob.pinch_grip,
+      pressing: @knob.pressing, proposal_id: @knob.proposal_id,
+      pulling: @knob.pulling, pushing: @knob.pushing, shape: @knob.shape,
+      sliding: @knob.sliding, span_grip: @knob.span_grip,
+      spherical_grip: @knob.spherical_grip, thumb_press: @knob.thumb_press,
+      turning: @knob.turning, two_fingers_press: @knob.two_fingers_press,
       width: @knob.width }
     assert_redirected_to knob_path(assigns(:knob))
   end

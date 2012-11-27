@@ -39,14 +39,14 @@
       <div class="field">
         <%= f.label :shape %>
         <%= f.select :shape, Knob::SHAPE_VALUES, prompt: true %>
-      </div>        
+      </div>
     </td>
   </tr>
   <tr>
     <td>
       <div class="field">
-        <%= f.label 'length_or_diameter (mm)' %><br />
-        <%= f.text_field :length_or_radius, size: 10 %>
+        <%= f.label 'Length or external diameter (mm)' %><br />
+        <%= f.text_field :length_or_external_diameter, size: 10 %>
       </div>
     </td>
     <td>
@@ -67,7 +67,7 @@
       <div class="field">
         <%= f.label 'force_required (N)' %><br />
         <%= f.text_field :force_required, size: 10 %>
-      </div>        
+      </div>
     </td>
   </tr>
   <tr>
@@ -87,8 +87,8 @@
   </tr>
   <tr>
     <td>
-      <%= render 'check_box_with_image', f: f, field: :pinch_grip %>  
-      <%= render 'check_box_with_image', f: f, field: :pinch_grip_2 %> 
+      <%= render 'check_box_with_image', f: f, field: :pinch_grip %>
+      <%= render 'check_box_with_image', f: f, field: :pinch_grip_2 %>
     </td>
     <td>
       <%= render 'check_box_with_image', f: f, field: :span_grip %>

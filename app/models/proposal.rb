@@ -1,5 +1,6 @@
 class Proposal < ActiveRecord::Base
-  attr_accessible :name, :product_weight, :product_colour, :manufacturing,
+
+  attr_accessible :name, :product_weight, :manufacturing,
     :key_components_mechanics, :key_components_electronics,
     :key_components_fixing, :material, :finishing, :maintenance,
     :handle_attributes, :switch_attributes, :knob_attributes,
@@ -83,15 +84,14 @@ class Proposal < ActiveRecord::Base
       #
       # Checks if the proposal has a handle.
       unless handle.nil?
-        # TODO: check parallel or serial rules with Emilene
         if handle.power_grip or handle.cylindrical_grip or handle.hook_grip
           if product_weight <= 400
-            if handle.length_or_radius <= 30
+            if handle.external_diameter <= 30
               if handle.moving or handle.carrying or handle.holding
                 update_recommendations values, 0.46,
                 'This is the minimum exclusion for this type of handle'
               end
-            elsif handle.length_or_radius <= 70
+            elsif handle.external_diameter <= 70
               if handle.moving or handle.carrying
                 update_recommendations values, 0.83,
                 'Change the handle dimensions (length or diameter) to lesser than 30 mm to enhance inclusivity'
@@ -102,7 +102,7 @@ class Proposal < ActiveRecord::Base
                 update_recommendations values, 0.83,
                 'Change the handle dimensions (length or diameter) to lesser than 30 mm to enhance inclusivity'
               end
-            elsif handle.length_or_radius > 70
+            elsif handle.external_diameter > 70
               if handle.moving or handle.carrying
                 update_recommendations values, 0.95,
                 'Change the handle dimensions (length or diameter) to lesser than 70 mm or 30 mm to enhance inclusivity'
@@ -115,7 +115,7 @@ class Proposal < ActiveRecord::Base
               end
             end
           elsif product_weight < 2000
-            if handle.length_or_radius <= 30
+            if handle.external_diameter <= 30
               if handle.moving or handle.carrying
                 update_recommendations values, 1.80,
                 'Change the product weight to 400 gr or less'
@@ -126,7 +126,7 @@ class Proposal < ActiveRecord::Base
                 update_recommendations values, 1.80,
                 'Change the product weight to 400gr or less'
               end
-            elsif handle.length_or_radius <= 70
+            elsif handle.external_diameter <= 70
               if handle.moving or handle.carrying
                 update_recommendations values, 2.30,
                 [
@@ -146,7 +146,7 @@ class Proposal < ActiveRecord::Base
                   'Change the handle dimensions (length or diameter) to lesser than 30mm to enhance inclusivity'
                 ]
               end
-            elsif handle.length_or_radius > 70
+            elsif handle.external_diameter > 70
               if handle.moving or handle.carrying
                 update_recommendations values, 2.70,
                 [
@@ -168,7 +168,7 @@ class Proposal < ActiveRecord::Base
               end
             end
           elsif product_weight >= 2000
-            if handle.length_or_radius <= 30
+            if handle.external_diameter <= 30
               if handle.moving or handle.carrying
                 update_recommendations values, 3.50,
                 'Change the product weight to lesser than 2Kg or less than 400gr to enhance inclusivity'
@@ -179,7 +179,7 @@ class Proposal < ActiveRecord::Base
                 update_recommendations values, 3.50,
                 'Change the product weight to lesser than 2Kg or less than 400gr to enhance inclusivity'
               end
-            elsif handle.length_or_radius <= 70
+            elsif handle.external_diameter <= 70
               if handle.moving or handle.carrying
                 update_recommendations values, 3.80,
                 [
@@ -199,7 +199,7 @@ class Proposal < ActiveRecord::Base
                   'Change the handle dimensions (length or diameter) to lesser than 30mm'
                 ]
               end
-            elsif handle.length_or_radius > 70
+            elsif handle.external_diameter > 70
               if handle.moving or handle.carrying
                 update_recommendations values, 4.20,
                 [
@@ -225,12 +225,12 @@ class Proposal < ActiveRecord::Base
 
         if handle.spherical_grip or handle.disc_grip or handle.disc_grip_2
           if product_weight <= 400
-            if handle.length_or_radius <= 30
+            if handle.external_diameter <= 30
               if handle.moving or handle.carrying or handle.holding
                 update_recommendations values, 0.46,
                 'This is the minimum exclusion for this type of handle'
               end
-            elsif handle.length_or_radius <= 70
+            elsif handle.external_diameter <= 70
               if handle.moving or handle.carrying
                 update_recommendations values, 0.83,
                 'Change the handle dimensions (length or diameter) to lesser than 30 mm to enhance inclusivity'
@@ -241,7 +241,7 @@ class Proposal < ActiveRecord::Base
                 update_recommendations values, 0.83,
                 'Change the handle dimensions (length or diameter) to lesser than 30mm to enhance inclusivity'
               end
-            elsif handle.length_or_radius > 70
+            elsif handle.external_diameter > 70
               if handle.moving or handle.carrying
                 update_recommendations values, 0.95,
                 'Change the handle dimensions (length or diameter) to lesser than 70 mm or 30 mm to enhance inclusivity'
@@ -255,7 +255,7 @@ class Proposal < ActiveRecord::Base
               end
             end
           elsif product_weight < 1000
-            if handle.length_or_radius <= 30
+            if handle.external_diameter <= 30
               if handle.moving or handle.carrying
                 update_recommendations values,  1.80,
                 'Change the product weight to 400 gr or less'
@@ -266,7 +266,7 @@ class Proposal < ActiveRecord::Base
                 update_recommendations values, 2.70,
                  'Change the product weight to 400gr or less'
               end
-            elsif handle.length_or_radius <= 70
+            elsif handle.external_diameter <= 70
               if handle.moving or handle.carrying
                 update_recommendations values, 2.30,
                 [
@@ -286,7 +286,7 @@ class Proposal < ActiveRecord::Base
                   'Change the handle dimensions (length or diameter) to lesser than 30mm to enhance inclusivity'
                 ]
               end
-            elsif handle.length_or_radius > 70
+            elsif handle.external_diameter > 70
               if handle.moving or handle.carrying
                 update_recommendations values, 2.70,
                 [
@@ -308,7 +308,7 @@ class Proposal < ActiveRecord::Base
               end
             end
           elsif product_weight >= 1000
-            if handle.length_or_radius <= 30
+            if handle.external_diameter <= 30
               if handle.moving or handle.carrying
                 update_recommendations values, 3.50,
                 'Change the product weight to lesser than 1Kg or less than 400gr to enhance inclusivity'
@@ -319,7 +319,7 @@ class Proposal < ActiveRecord::Base
                 update_recommendations values, 3.50,
                   'Change the product weight to less than 1Kg or lesser than 400gr to enhance inclusivity'
               end
-            elsif handle.length_or_radius <= 70
+            elsif handle.external_diameter <= 70
               if handle.moving or handle.carrying
                 update_recommendations values, 3.80,
                 [
@@ -339,7 +339,7 @@ class Proposal < ActiveRecord::Base
                   'Change the handle dimensions (length or diameter) to lesser than 30mm'
                 ]
               end
-            elsif handle.length_or_radius > 70
+            elsif handle.external_diameter > 70
               if handle.moving or handle.carrying
                 update_recommendations values, 4.20,
                 [
@@ -388,9 +388,10 @@ class Proposal < ActiveRecord::Base
       #
       # Checks if the proposal has a label.
       unless label.nil?
-        # TODO: check parallel or serial rules with Emilene
         if label.text_colour
-          if product_colour == label.text_colour
+          # FIXME
+          # if product_colour == label.text_colour
+          if 'Blue' == label.text_colour
           update_recommendations values, 5.35,
               [
                 'Increase background-foreground colour contrast (product colour-text colour)',

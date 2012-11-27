@@ -8,7 +8,7 @@ one:
   turning: false
   sliding: false
   shape: MyString
-  length_or_radius: 1.5
+  length_or_external_diameter: 1.5
   width: 1.5
   height: 1.5
   force_required: 1.5
@@ -31,7 +31,7 @@ two:
   turning: false
   sliding: false
   shape: MyString
-  length_or_radius: 1.5
+  length_or_external_diameter: 1.5
   width: 1.5
   height: 1.5
   force_required: 1.5

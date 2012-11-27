@@ -24,18 +24,18 @@ class SwitchesControllerTest < ActionController::TestCase
 
   test "should create switch" do
     assert_difference('Switch.count') do
-      post :create, switch: { background_colour: @switch.background_colour, 
-        colour: @switch.colour, disc_grip: @switch.disc_grip, 
-        flat_hand_push: @switch.flat_hand_push, 
-        force_required: @switch.force_required, height: @switch.height, 
-        length_or_radius: @switch.length_or_radius, 
-        one_finger_press: @switch.one_finger_press, 
-        pinch_grip: @switch.pinch_grip, pressing: @switch.pressing, 
-        proposal_id: @switch.proposal_id, pulling: @switch.pulling, 
-        pushing: @switch.pushing, shape: @switch.shape, 
-        sliding: @switch.sliding, span_grip: @switch.span_grip, 
-        spherical_grip: @switch.spherical_grip, 
-        thumb_press: @switch.thumb_press, turning: @switch.turning, 
+      post :create, switch: { background_colour: @switch.background_colour,
+        colour: @switch.colour, disc_grip: @switch.disc_grip,
+        flat_hand_push: @switch.flat_hand_push,
+        force_required: @switch.force_required, height: @switch.height,
+        length_or_external_diameter: @switch.length_or_external_diameter,
+        one_finger_press: @switch.one_finger_press,
+        pinch_grip: @switch.pinch_grip, pressing: @switch.pressing,
+        proposal_id: @switch.proposal_id, pulling: @switch.pulling,
+        pushing: @switch.pushing, shape: @switch.shape,
+        sliding: @switch.sliding, span_grip: @switch.span_grip,
+        spherical_grip: @switch.spherical_grip,
+        thumb_press: @switch.thumb_press, turning: @switch.turning,
         two_fingers_press: @switch.two_fingers_press, width: @switch.width }
     end
 
@@ -53,17 +53,17 @@ class SwitchesControllerTest < ActionController::TestCase
   end
 
   test "should update switch" do
-    put :update, id: @switch, switch: { 
-      background_colour: @switch.background_colour, colour: @switch.colour, 
-      disc_grip: @switch.disc_grip, flat_hand_push: @switch.flat_hand_push, 
-      force_required: @switch.force_required, height: @switch.height, 
-      length_or_radius: @switch.length_or_radius, 
-      one_finger_press: @switch.one_finger_press, 
-      pinch_grip: @switch.pinch_grip, pressing: @switch.pressing, 
-      proposal_id: @switch.proposal_id, pulling: @switch.pulling, 
-      pushing: @switch.pushing, shape: @switch.shape, sliding: @switch.sliding, 
-      span_grip: @switch.span_grip, spherical_grip: @switch.spherical_grip, 
-      thumb_press: @switch.thumb_press, turning: @switch.turning, 
+    put :update, id: @switch, switch: {
+      background_colour: @switch.background_colour, colour: @switch.colour,
+      disc_grip: @switch.disc_grip, flat_hand_push: @switch.flat_hand_push,
+      force_required: @switch.force_required, height: @switch.height,
+      length_or_external_diameter: @switch.length_or_external_diameter,
+      one_finger_press: @switch.one_finger_press,
+      pinch_grip: @switch.pinch_grip, pressing: @switch.pressing,
+      proposal_id: @switch.proposal_id, pulling: @switch.pulling,
+      pushing: @switch.pushing, shape: @switch.shape, sliding: @switch.sliding,
+      span_grip: @switch.span_grip, spherical_grip: @switch.spherical_grip,
+      thumb_press: @switch.thumb_press, turning: @switch.turning,
       two_fingers_press: @switch.two_fingers_press, width: @switch.width }
     assert_redirected_to switch_path(assigns(:switch))
   end

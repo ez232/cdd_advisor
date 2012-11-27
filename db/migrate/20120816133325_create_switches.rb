@@ -8,7 +8,7 @@ class CreateSwitches < ActiveRecord::Migration
       t.boolean :turning
       t.boolean :sliding
       t.string :shape
-      t.float :length_or_radius
+      t.float :length_or_external_diameter
       t.float :width
       t.float :height
       t.float :force_required
@@ -22,6 +22,8 @@ class CreateSwitches < ActiveRecord::Migration
       t.boolean :one_finger_press
       t.boolean :two_fingers_press
       t.boolean :thumb_press
+      t.boolean :pinch_grip_2
+      t.boolean :disc_grip_2
 
       t.timestamps
     end

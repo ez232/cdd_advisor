@@ -32,8 +32,8 @@
     <%= f.text_field :shape %>
   </div>
   <div class="field">
-    <%= f.label :length_or_radius %><br />
-    <%= f.text_field :length_or_radius %>
+    <%= f.label :external_diameter %><br />
+    <%= f.text_field :external_diameter %>
   </div>
   <div class="field">
     <%= f.label :width %><br />
@@ -52,10 +52,6 @@
     <%= f.check_box :power_grip %>
   </div>
   <div class="field">
-    <%= f.label :span_grip %><br />
-    <%= f.check_box :span_grip %>
-  </div>
-  <div class="field">
     <%= f.label :spherical_grip %><br />
     <%= f.check_box :spherical_grip %>
   </div>
@@ -70,10 +66,6 @@
   <div class="field">
     <%= f.label :hook_grip %><br />
     <%= f.check_box :hook_grip %>
-  </div>
-  <div class="field">
-    <%= f.label :flat_hand_push %><br />
-    <%= f.check_box :flat_hand_push %>
   </div>
   <div class="actions">
     <%= f.submit %>

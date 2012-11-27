@@ -1,6 +1,6 @@
 class Button < ActiveRecord::Base
-  attr_accessible :background_colour, :colour, :force_required, :height, 
-    :length_or_radius, :one_finger_press, :pressing, :proposal_id, :pulling,
+  attr_accessible :background_colour, :colour, :force_required, :height,
+    :length_or_external_diameter, :one_finger_press, :pressing, :proposal_id, :pulling,
     :pushing, :shape, :sliding, :thumb_press, :turning, :two_fingers_press,
     :width
 

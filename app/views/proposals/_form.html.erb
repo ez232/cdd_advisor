@@ -22,11 +22,6 @@
     <%= f.text_field :product_weight %>
   </div>
 
-  <div class="field">
-    <%= f.label :product_colour %><br />
-    <%= f.text_field :product_colour %>
-  </div>
-
   <h2>Images</h2>
   <%= f.fields_for :images do |build| %>
     <%= render 'image_fields', f: build %>
