@@ -7,6 +7,7 @@ class CreateLabels < ActiveRecord::Migration
       t.string :font_type
       t.float :text_size
       t.string :text_colour
+      t.string :background_colour
       t.float :labels_reading_distance
 
       t.timestamps

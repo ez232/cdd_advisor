@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(:version => 20120817123239) do
     t.string   "font_type"
     t.float    "text_size"
     t.string   "text_colour"
+    t.string   "background_colour"
     t.float    "labels_reading_distance"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
