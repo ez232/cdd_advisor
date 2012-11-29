@@ -1,44 +1,39 @@
-<%= form_for(@project) do |f| %>
-  <% if @project.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this
-        project from being saved:</h2>
-
-      <ul>
-      <% @project.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for(@project, html: { class: 'form-horizontal' }) do |f| %>
+  <%= field_set_tag t('.legend') do %>
+    <%= tb_form_wrapper(@project, :name) do %>
+      <%= f.text_field :name, placeholder: t('.name_placeholder') %>
+    <% end %>
+    <%= tb_form_wrapper(@project, :target_market) do %>
+      <label class="checkbox">
+        <%= f.check_box :maximum_target %>
+        Target as many people as possible?
+      </label>
+      <%= f.text_field :target_market,
+                       placeholder: t('.target_market_placeholder') %>
+    <% end %>
+    <%= tb_form_wrapper(@project, :timescale) do %>
+      <div class="input-append">
+        <%= f.text_field :timescale, class: 'input-small' %>
+        <span class="add-on"><%= t('.timescale_unit') %></span>
+      </div>
+    <% end %>
+    <%= tb_form_wrapper(@project, :volume_of_sale) do %>
+      <div class="input-append">
+        <%= f.text_field :volume_of_sale, class: 'input-small' %>
+        <span class="add-on"><%= t('.volume_of_sale_unit') %></span>
+      </div>
+    <% end %>
+    <%= tb_form_wrapper(@project, :final_price) do %>
+      <div class="input-prepend">
+        <span class="add-on"><%= t('.final_price_unit') %></span>
+        <%= f.text_field :final_price, class: 'input-small' %>
+      </div>
+    <% end %>
+    <div class="form-actions">
+      <%= link_to t('.back'), projects_path, class: 'btn' %>
+      <%= f.submit t('.save'), name: :action_save, class: 'btn' %>
+      <%= f.submit t('.proposals'), name: :action_proposals,
+                   class: 'btn btn-primary' %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.check_box :maximum_target %>
-    Target as many people as possible?
-  </div>
-  <div class="field">
-    <%= f.label :target_market %><br />
-    <%= f.text_field :target_market %>
-  </div>
-  <div class="field">
-    <%= f.label 'timescale (months)' %><br />
-    <%= f.text_field :timescale %>
-  </div>
-  <div class="field">
-    <%= f.label 'volume_of_sale (units)' %><br />
-    <%= f.number_field :volume_of_sale %>
-  </div>
-  <div class="field">
-    <%= f.label 'final_price (£)' %><br />
-    <%= f.text_field :final_price %>
-  </div>
-  <div class="actions">
-    <%= link_to '&laquo; Back'.html_safe, :back %>
-    <%= f.submit 'Save', name: :action_save %>
-    <%= f.submit 'Manage proposals &raquo;'.html_safe, name: :action_proposals %>
-  </div>
 <% end %>

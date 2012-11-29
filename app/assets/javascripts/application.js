@@ -14,24 +14,5 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require_tree .
-
-function remove_fields(link, show_add) {
-  $(link).prev("input[type=hidden]").val("1");
-  $(link).closest(".fields").hide("blind", {direction: "vertical"}, 250);
-
-  if (show_add = true) {
-    $(link).closest(".fields").parent().nextAll("p").first().children().show();
-  }
-}
-
-function add_fields(link, association, content, hide_add) {
-  var new_id = new Date().getTime();
-  var regexp = new RegExp("new_" + association, "g")
-  $(link).parent().before(content.replace(regexp, new_id));
-  $(link).parent().prev(".fields").show("blind", {direction: "vertical"}, 250);
-
-  if (hide_add == true) {
-    $(link).hide();
-  }
-}

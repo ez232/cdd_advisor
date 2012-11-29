@@ -1,57 +1,27 @@
 class Proposal < ActiveRecord::Base
 
-  attr_accessible :name, :product_weight, :manufacturing,
-    :key_components_mechanics, :key_components_electronics,
-    :key_components_fixing, :material, :finishing, :maintenance,
-    :images_attributes
+  attr_accessible :name, :product_weight, :key_components_mechanics,
+    :key_components_electronics, :key_components_fixing, :image1, :image2,
+    :manufacturing_value_ids, :finishing_value_ids, :maintenance_value_ids,
+    :material_value_ids
 
   has_many :handles, dependent: :destroy, inverse_of: :proposal
   has_many :switches, dependent: :destroy, inverse_of: :proposal
   has_many :knobs, dependent: :destroy, inverse_of: :proposal
   has_many :buttons, dependent: :destroy, inverse_of: :proposal
   has_many :labels, dependent: :destroy, inverse_of: :proposal
-  has_many :images, dependent: :destroy, inverse_of: :proposal
+  has_and_belongs_to_many :manufacturing_values
+  has_and_belongs_to_many :finishing_values
+  has_and_belongs_to_many :maintenance_values
+  has_and_belongs_to_many :material_values
 
   belongs_to :project
-
-  accepts_nested_attributes_for :images, allow_destroy: true,
-    reject_if: :all_blank
 
   validates :name, presence: true, uniqueness: { scope: :project_id }
   validates :project_id, presence: { message: 'is not a valid project' }
   validates :product_weight, presence: true,
     numericality: { :greater_than => 0 }
   validates :project, associated: true
-
-  MANUFACTURING_VALUES = [ 'Molding', 'Casting', 'Bulk Forming',
-                           'Sheet Forming', 'Lay-up Methods', 'Powder Methods',
-                           'Joining Methods' ]
-
-  FINISHING_VALUES = [ 'Printing', 'Plating', 'Polishing', 'Coating', 'Etching',
-                       'Texturing' ]
-
-  MAINTENANCE_VALUES = [ 'Changing Parts', 'Cleaning', 'Fixing' ]
-
-  MATERIAL_VALUES = {
-    'Natural' =>
-    [ 'Bamboo', 'Balsa', 'Cork', 'Leather', 'Wood' ],
-    'Ceramic & Glasses' =>
-    [ 'Soda-lime Glass', 'Silica Glass', 'Barosilicate', 'Glass Ceramic',
-      'Alumina', 'Silicon Carbide' ],
-    'Polymer' =>
-    [ 'Polyethylene - PE', 'Polypropylene - PP', 'Polystyrene - PS', 'ABS',
-      'Polyamide - PA, Nylon', 'Polymethylmethathacrylate - PMMA', 'Acrylic',
-      'Polycarbonate - PC', 'Acetal', 'Ionometers', 'Celluloses', 'PEEK',
-      'PVC', 'PU', 'Silicones', 'Polyesters - PET, PBT', 'Epoxy', 'Phenolic',
-      'Elastomers', 'Polymer Foams ', 'Polymer composites' ],
-    'Metal' =>
-    [ 'Carbon Steels', 'Stainless Steels', 'Low Alloy Steels',
-      'Aluminium Alloy', 'Magnesium Alloy', 'Cooper Alloy - Brass / Bronze',
-      'Titanium Alloy', 'Nickel Alloy', 'Zinc Alloy' ],
-    'Fibers' =>
-    [ 'Glass Fibers', 'Carbon Fibers', 'Aramid Fibers', 'Hemp',
-      'Silicon Carbide Fibers' ]
-  }
 
   def results
     if @results.nil?

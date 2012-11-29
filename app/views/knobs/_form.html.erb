@@ -1,144 +1,93 @@
-<%= form_for([@project, @proposal, @knob]) do |f| %>
-  <% if @knob.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@knob.errors.count, "error") %> prohibited this knob from being saved:</h2>
-
-      <ul>
-      <% @knob.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <table class="fields">
-    <tr>
-      <td colspan="3">
-        <div class="field">
-          <%= f.label :name %>
-          <%= f.text_field :name %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div class="field">
+<%= form_for([@project, @proposal, @knob],
+      html: { class: 'form-horizontal' }) do |f| %>
+  <%= field_set_tag t('.legend') do %>
+    <%= tb_form_wrapper(@knob, :name) do %>
+      <%= f.text_field :name %>
+    <% end %>
+    <%= tb_form_wrapper(@knob, :tasks) do %>
+      <a rel="tooltip" data-placement="right"
+        data-original-title="<%= t('.task_tooltip') %>">
+        <label class="checkbox inline">
           <%= f.check_box :pressing %>
-          <%= f.label :pressing %>
-        </div>
-      </td>
-      <td>
-        <div class="field">
+          <%= t('.pressing') %>
+        </label>
+        <label class="checkbox inline">
           <%= f.check_box :pushing %>
-          <%= f.label :pushing %>
-        </div>
-      </td>
-      <td>
-        <div class="field">
+          <%= t('.pushing') %>
+        </label>
+        <label class="checkbox inline">
           <%= f.check_box :pulling %>
-          <%= f.label :pulling %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div class="field">
+          <%= t('.pulling') %>
+        </label>
+        <label class="checkbox inline">
           <%= f.check_box :turning %>
-          <%= f.label :turning %>
-        </div>
-      </td>
-      <td>
-        <div class="field">
+          <%= t('.turning') %>
+        </label>
+        <label class="checkbox inline">
           <%= f.check_box :sliding %>
-          <%= f.label :sliding %>
-        </div>
-      </td>
-      <td></td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <div class="field">
-          <%= f.label :shape %>
-          <%= f.select :shape, Knob::SHAPE_VALUES, prompt: true %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div class="field">
-          <%= f.label 'Length or external diameter (mm)' %><br />
-          <%= f.text_field :length_or_external_diameter, size: 10 %>
-        </div>
-      </td>
-      <td>
-        <div class="field">
-          <%= f.label 'width (mm)' %><br />
-          <%= f.text_field :width, size: 10 %>
-        </div>
-      </td>
-      <td>
-        <div class="field">
-          <%= f.label 'height (mm)' %><br />
-          <%= f.text_field :height, size: 10 %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <div class="field">
-          <%= f.label 'force_required (N)' %><br />
-          <%= f.text_field :force_required, size: 10 %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div class="field">
-          <%= f.label :colour %><br />
-          <%= f.text_field :colour, size: 10 %>
-        </div>
-      </td>
-      <td>
-        <div class="field">
-          <%= f.label :background_colour %><br />
-          <%= f.text_field :background_colour, size: 10 %>
-        </div>
-      </td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>
-        <%= render 'shared/check_box_with_image', f: f, field: :pinch_grip %>
-        <%= render 'shared/check_box_with_image', f: f, field: :pinch_grip_2 %>
-      </td>
-      <td>
-        <%= render 'shared/check_box_with_image', f: f, field: :span_grip %>
-        <%= render 'shared/check_box_with_image', f: f, field: :spherical_grip %>
-      </td>
-      <td>
-        <%= render 'shared/check_box_with_image', f: f, field: :disc_grip %>
-        <%= render 'shared/check_box_with_image', f: f, field: :disc_grip_2 %>
-      </td>
-      <td>
-        <%= render 'shared/check_box_with_image', f: f, field: :cylindrical_grip %>
-        <div class="field">
-          <%= f.check_box :one_finger_press %>
-          <%= f.label :one_finger_press %>
-        </div>
-        <div class="field">
-          <%= f.check_box :two_fingers_press %>
-          <%= f.label :two_fingers_press %>
-        </div>
-        <div class="field">
-          <%= f.check_box :thumb_press %>
-          <%= f.label :thumb_press %>
-        </div>
-        <div class="vspace"></div>
-      </td>
-    </tr>
-  </table>
-  <div class="actions">
-    <%= link_to '&laquo; Back'.html_safe, :back %>
-    <%= f.submit 'Save', name: :action_save %>
+          <%= t('.sliding') %>
+        </label>
+      </a>
+    <% end %>
+    <%= tb_form_wrapper(@knob, :shape) do %>
+      <%= f.select :shape, Handle::SHAPE_VALUES, prompt: true %>
+    <% end %>
+    <%= tb_form_wrapper(@knob, :length_or_external_diameter) do %>
+      <div class="input-append">
+        <%= f.text_field :length_or_external_diameter, class: 'input-small' %>
+        <span class="add-on"><%= t('.length_or_external_diameter_unit') %></span>
+      </div>
+    <% end %>
+    <%= tb_form_wrapper(@knob, :width) do %>
+      <div class="input-append">
+        <%= f.text_field :width, class: 'input-small' %>
+        <span class="add-on"><%= t('.width_unit') %></span>
+      </div>
+    <% end %>
+    <%= tb_form_wrapper(@knob, :height) do %>
+      <div class="input-append">
+        <%= f.text_field :height, class: 'input-small' %>
+        <span class="add-on"><%= t('.height_unit') %></span>
+      </div>
+    <% end %>
+    <%= tb_form_wrapper(@knob, :force_required) do %>
+      <div class="input-append">
+        <%= f.text_field :force_required, class: 'input-small' %>
+        <span class="add-on"><%= t('.force_required_unit') %></span>
+      </div>
+    <% end %>
+    <%= tb_form_wrapper(@knob, :colour) do %>
+      <%= f.text_field :colour, class: 'input-small' %>
+    <% end %>
+    <%= tb_form_wrapper(@knob, :background_colour) do %>
+      <%= f.text_field :background_colour, class: 'input-small' %>
+    <% end %>
+    <%= tb_form_wrapper(@knob, :grips) do %>
+      <ul class="thumbnails">
+        <%= render 'shared/grip_image', f: f, field: :pinch_grip %>
+        <%= render 'shared/grip_image', f: f, field: :pinch_grip_2 %>
+        <%= render 'shared/grip_image', f: f, field: :span_grip %>
+        <%= render 'shared/grip_image', f: f, field: :spherical_grip %>
+      </ul>
+    <% end %>
+    <%= tb_form_wrapper(@knob, :fake_grips) do %>
+      <ul class="thumbnails">
+        <%= render 'shared/grip_image', f: f, field: :disc_grip %>
+        <%= render 'shared/grip_image', f: f, field: :disc_grip_2 %>
+        <%= render 'shared/grip_image', f: f, field: :cylindrical_grip %>
+        <%= render 'shared/grip_image', f: f, field: :one_finger_press %>
+      </ul>
+    <% end %>
+    <%= tb_form_wrapper(@knob, :fake_grips) do %>
+      <ul class="thumbnails">
+        <%= render 'shared/grip_image', f: f, field: :two_fingers_press %>
+        <%= render 'shared/grip_image', f: f, field: :thumb_press %>
+      </ul>
+    <% end %>
+  <% end %>
+  <div class="form-actions">
+    <%= link_to t('.back'), project_proposal_knobs_path(@project, @proposal),
+          class: 'btn' %>
+    <%= f.submit t('.save'), name: :action_save, class: 'btn btn-primary' %>
   </div>
 <% end %>

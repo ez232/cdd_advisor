@@ -5,14 +5,14 @@ class CreateProposals < ActiveRecord::Migration
       t.integer :project_id
       t.float :product_weight
 
+      # images
+      t.string :image1
+      t.string :image2
+
       # Other attributes
-      t.string :manufacturing
       t.string :key_components_mechanics
       t.string :key_components_electronics
       t.string :key_components_fixing
-      t.string :material
-      t.string :finishing
-      t.string :maintenance
 
       t.timestamps
     end

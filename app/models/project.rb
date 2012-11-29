@@ -9,12 +9,4 @@ class Project < ActiveRecord::Base
     allow_blank: true
 
   has_many :proposals, dependent: :destroy
-
-  def maximum_target=(value)
-    self.target_market = nil if value
-  end
-
-  def maximum_target
-    target_market.nil? || target_market.empty?
-  end
 end

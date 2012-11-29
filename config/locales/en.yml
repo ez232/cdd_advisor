@@ -1,5 +1,318 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+# Sample localization file for English. Add more files in this directory for
+# other locales. See https://github.com/svenfuchs/rails-
+# i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  app_name: "Client-Design Designer Advisor"
+
+  # /
+  home:
+    index:
+      header: "Hello, world!"
+      greetings:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum."
+      start: "Start »"
+
+  projects:
+    # /projects
+    index:
+      title: "Projects"
+      name: "Name"
+      actions: "Actions"
+      results: "Results"
+      results_tip: "Please create at least one proposal"
+      manage_proposals: "Manage proposals"
+      edit: "Edit"
+      new: "New project"
+    # /projects/new
+    new:
+      title: "New project"
+    # /projects/1/edit
+    edit:
+      title: "Editing project '%{name}'"
+    # /projects/new or /projects/1/edit
+    form:
+      legend: "Please describe the project specifications:"
+      name: "Name"
+      name_placeholder: "Project's name"
+      target_market: "Target market"
+      target_market_placeholder: "Target market description"
+      timescale: "Time scale"
+      timescale_unit: "months"
+      volume_of_sale: "Volume of sale"
+      volume_of_sale_unit: "units"
+      final_price: "Final price"
+      final_price_unit: "£"
+      back: "« Back"
+      save: "Save"
+      proposals: "Manage proposals »"
+
+  proposals:
+    # /proposals
+    index:
+      title: "Proposals"
+      name: "Name"
+      actions: "Actions"
+      edit: "Edit"
+      back: "« Back"
+      new: "New proposal"
+    # /proposal/new
+    new:
+      title: "New proposal"
+    # /proposal/1/edit
+    edit:
+      title: "Editing proposal '%{name}'"
+    # /proposals/new or /proposals/1/edit
+    form:
+      legend: "Please add the design attributes of the proposal you are attaching:"
+      name: "Name"
+      name_placeholder: "Design proposal's name"
+      product_weight: "Product weight"
+      product_weight_placeholder: "Overall product weight"
+      product_weight_unit: "Kg"
+      images: "Images"
+      back: "« Back"
+      save: "Save"
+      attributes: "Attributes"
+      labels: "Labels"
+      handles: "Handles"
+      switches: "Switches"
+      knobs: "Knobs"
+      buttons: "Buttons"
+      other_attributes: "Other attributes"
+    # /project/1/proposals/1/edit_other_attributes
+    edit_other_attributes:
+      title: "'%{name}' details"
+      legend: "Editing other attributes"
+      manufacturing: "Manufacturing"
+      key_components_mechanics: "Key components mechanics"
+      key_components_electronics: "Key components electronics"
+      key_components_fixing: "Key components fixing"
+      material: "Material"
+      finishing: "Finishing"
+      maintenance: "Maintenance"
+      back: "« Back"
+      save: "Save"
+
+  labels:
+    # /projects/1/proposals/1/labels
+    index:
+      title: "Labels"
+      name: "Name"
+      actions: "Actions"
+      edit: "Edit"
+      remove: "Remove"
+      delete_confirm: "Are you sure?"
+      back: "« Back"
+      new: "New label"
+    # /projects/1/proposals/1/labels/new
+    new:
+      title: "New label"
+    # /projects/1/proposals/1/labels/1/edit
+    edit:
+      title: "Editing label '%{name}'"
+    # /projects/1/proposals/1/labels/new or /projects/1/proposals/1/labels/1/edit
+    form:
+      legend: "Please select the label characteristics:"
+      name: "Name"
+      media: "Media"
+      font_type: "Font type"
+      text_size: "Text size"
+      text_size_unit: "pt"
+      reading_distance: "Reading distance"
+      reading_distance_unit: "mm"
+      text_colour: "Text colour"
+      background_colour: "Background colour"
+      back: "« Back"
+      save: "Save"
+  handles:
+    # /projects/1/proposals/1/handles
+    index:
+      title: "Handles"
+      name: "Name"
+      actions: "Actions"
+      edit: "Edit"
+      remove: "Remove"
+      delete_confirm: "Are you sure?"
+      back: "« Back"
+      new: "New handle"
+    # /projects/1/proposals/1/handles/new
+    new:
+      title: "New handle"
+    # /projects/1/proposals/1/handles/1/edit
+    edit:
+      title: "Editing handle '%{name}'"
+    # /projects/1/proposals/1/handles/new or /projects/1/proposals/1/handles/1/edit
+    form:
+      legend: "Please select the handle characteristics:"
+      name: "Name"
+      tasks: "Tasks"
+      holding: "Holding"
+      moving: "Moving"
+      carrying: "Carrying"
+      task_tooltip: "All tasks are considered as one-off task of short duration"
+      shape: "Shape"
+      external_diameter: "External diameter"
+      external_diameter_unit: "mm"
+      width: "Width"
+      width_unit: "mm"
+      height: "Height"
+      height_unit: "mm"
+      grips: "Grips"
+      fake_grips: " "
+      back: "« Back"
+      save: "Save"
+
+  switches:
+    # /projects/1/proposals/1/switches
+    index:
+      title: "Switches"
+      name: "Name"
+      actions: "Actions"
+      edit: "Edit"
+      remove: "Remove"
+      delete_confirm: "Are you sure?"
+      back: "« Back"
+      new: "New switch"
+    # /projects/1/proposals/1/switches/new
+    new:
+      title: "New switch"
+    # /projects/1/proposals/1/switches/1/edit
+    edit:
+      title: "Editing switch '%{name}'"
+    # /projects/1/proposals/1/switches/new or /projects/1/proposals/1/switches/1/edit
+    form:
+      legend: "Please select the switch characteristics:"
+      name: "Name"
+      tasks: "Tasks"
+      pressing: "Pressing"
+      pushing: "Pushing"
+      pulling: "Pulling"
+      turning: "Turning"
+      sliding: "Sliding"
+      task_tooltip: "All tasks are considered as one-off task of short duration"
+      shape: "Shape"
+      length_or_external_diameter: "Length or external diameter"
+      length_or_external_diameter_unit: "mm"
+      width: "Width"
+      width_unit: "mm"
+      height: "Height"
+      height_unit: "mm"
+      force_required: "Force required"
+      force_required_unit: "N"
+      background_colour: "Background colour"
+      colour: "Colour"
+      grips: "Grips"
+      fake_grips: " "
+      back: "« Back"
+      save: "Save"
+
+  knobs:
+    # /projects/1/proposals/1/knobs
+    index:
+      title: "Knobs"
+      name: "Name"
+      actions: "Actions"
+      edit: "Edit"
+      remove: "Remove"
+      delete_confirm: "Are you sure?"
+      back: "« Back"
+      new: "New knob"
+    # /projects/1/proposals/1/knobs/new
+    new:
+      title: "New knob"
+    # /projects/1/proposals/1/knobs/1/edit
+    edit:
+      title: "Editing knob '%{name}'"
+    # /projects/1/proposals/1/knobs/new or /projects/1/proposals/1/knobs/1/edit
+    form:
+      legend: "Please select the knob characteristics:"
+      name: "Name"
+      tasks: "Tasks"
+      pressing: "Pressing"
+      pushing: "Pushing"
+      pulling: "Pulling"
+      turning: "Turning"
+      sliding: "Sliding"
+      task_tooltip: "All tasks are considered as one-off task of short duration"
+      shape: "Shape"
+      length_or_external_diameter: "Length or external diameter"
+      length_or_external_diameter_unit: "mm"
+      width: "Width"
+      width_unit: "mm"
+      height: "Height"
+      height_unit: "mm"
+      force_required: "Force required"
+      force_required_unit: "N"
+      background_colour: "Background colour"
+      colour: "Colour"
+      grips: "Grips"
+      fake_grips: " "
+      back: "« Back"
+      save: "Save"
+
+  buttons:
+    # /projects/1/proposals/1/buttons
+    index:
+      title: "Buttons"
+      name: "Name"
+      actions: "Actions"
+      edit: "Edit"
+      remove: "Remove"
+      delete_confirm: "Are you sure?"
+      back: "« Back"
+      new: "New button"
+    # /projects/1/proposals/1/buttons/new
+    new:
+      title: "New button"
+    # /projects/1/proposals/1/buttons/1/edit
+    edit:
+      title: "Editing button '%{name}'"
+    # /projects/1/proposals/1/buttons/new or /projects/1/proposals/1/buttons/1/edit
+    form:
+      legend: "Please select the button characteristics:"
+      name: "Name"
+      tasks: "Tasks"
+      pressing: "Pressing"
+      pushing: "Pushing"
+      pulling: "Pulling"
+      turning: "Turning"
+      sliding: "Sliding"
+      task_tooltip: "All tasks are considered as one-off task of short duration"
+      shape: "Shape"
+      length_or_external_diameter: "Length or external diameter"
+      length_or_external_diameter_unit: "mm"
+      width: "Width"
+      width_unit: "mm"
+      height: "Height"
+      height_unit: "mm"
+      force_required: "Force required"
+      force_required_unit: "N"
+      background_colour: "Background colour"
+      colour: "Colour"
+      grips: "Grips"
+      fake_grips: " "
+      back: "« Back"
+      save: "Save"
+
+  shared:
+    grip_image:
+      pinch_grip: "Pinch"
+      pinch_grip_2: "Pinch 2"
+      power_grip: "Power"
+      spherical_grip: "Spherical"
+      cylindrical_grip: "Cylindrical"
+      disc_grip: "Disc"
+      disc_grip_2: "Disc 2"
+      hook_grip: "Hook"
+      span_grip: "Span"
+      flat_hand_push: "Flat hand push"
+      one_finger_press: "One finger press"
+      two_fingers_press: "Two fingers press"
+      thumb_press: "Thumb press"

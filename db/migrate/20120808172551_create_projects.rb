@@ -6,6 +6,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :timescale
       t.integer :volume_of_sale
       t.decimal :final_price
+      t.boolean :maximum_target
 
       t.timestamps
     end

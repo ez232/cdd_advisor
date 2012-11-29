@@ -29,12 +29,20 @@ class ProposalsController < ApplicationController
     @proposal = @project.proposals.find(params[:id])
   end
 
+  # GET project/1/proposals/1/edit_other_attributes
+  def edit_other_attributes
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:id])
+  end
 
   # PUT project/1/proposals/1
   def update
     @project = Project.find(params[:project_id])
     @proposal = @project.proposals.find(params[:id])
 
+    logger.warn('**********')
+    logger.warn(params[:proposal])
+    logger.warn('**********')
     if @proposal.update_attributes(params[:proposal])
       redirect_to correct_url(params)
     else
@@ -70,6 +78,10 @@ class ProposalsController < ApplicationController
         project_proposal_knobs_url(@project, @proposal)
       when 'action_buttons'
         project_proposal_buttons_url(@project, @proposal)
+      when 'action_other_attributes'
+        edit_other_attributes_project_proposal_url(@project, @proposal)
+      when 'action_edit_other_attributes'
+        edit_project_proposal_path(@project, @proposal)
       else
         project_proposals_url(@project)
       end

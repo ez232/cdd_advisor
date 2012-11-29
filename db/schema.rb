@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120817123239) do
+ActiveRecord::Schema.define(:version => 20121130041848) do
 
   create_table "buttons", :force => true do |t|
     t.integer  "proposal_id"
@@ -35,6 +35,20 @@ ActiveRecord::Schema.define(:version => 20120817123239) do
     t.datetime "updated_at",                  :null => false
   end
 
+  create_table "finishing_values", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "finishing_values_proposals", :id => false, :force => true do |t|
+    t.integer "finishing_value_id"
+    t.integer "proposal_id"
+  end
+
+  add_index "finishing_values_proposals", ["finishing_value_id"], :name => "index_finishing_values_proposals_on_finishing_value_id"
+  add_index "finishing_values_proposals", ["proposal_id"], :name => "index_finishing_values_proposals_on_proposal_id"
+
   create_table "handles", :force => true do |t|
     t.integer  "proposal_id"
     t.string   "name"
@@ -55,14 +69,6 @@ ActiveRecord::Schema.define(:version => 20120817123239) do
     t.boolean  "disc_grip_2"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
-  end
-
-  create_table "images", :force => true do |t|
-    t.string   "name"
-    t.string   "image"
-    t.integer  "proposal_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
   end
 
   create_table "knobs", :force => true do |t|
@@ -108,12 +114,56 @@ ActiveRecord::Schema.define(:version => 20120817123239) do
     t.datetime "updated_at",        :null => false
   end
 
+  create_table "maintenance_values", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "maintenance_values_proposals", :id => false, :force => true do |t|
+    t.integer "maintenance_value_id"
+    t.integer "proposal_id"
+  end
+
+  add_index "maintenance_values_proposals", ["maintenance_value_id"], :name => "index_maintenance_values_proposals_on_maintenance_value_id"
+  add_index "maintenance_values_proposals", ["proposal_id"], :name => "index_maintenance_values_proposals_on_proposal_id"
+
+  create_table "manufacturing_values", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "manufacturing_values_proposals", :id => false, :force => true do |t|
+    t.integer "manufacturing_value_id"
+    t.integer "proposal_id"
+  end
+
+  add_index "manufacturing_values_proposals", ["manufacturing_value_id"], :name => "index_manufacturing_values_proposals_on_manufacturing_value_id"
+  add_index "manufacturing_values_proposals", ["proposal_id"], :name => "index_manufacturing_values_proposals_on_proposal_id"
+
+  create_table "material_values", :force => true do |t|
+    t.string   "category"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "material_values_proposals", :id => false, :force => true do |t|
+    t.integer "material_value_id"
+    t.integer "proposal_id"
+  end
+
+  add_index "material_values_proposals", ["material_value_id"], :name => "index_material_values_proposals_on_material_value_id"
+  add_index "material_values_proposals", ["proposal_id"], :name => "index_material_values_proposals_on_proposal_id"
+
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.string   "target_market"
     t.string   "timescale"
     t.integer  "volume_of_sale"
     t.decimal  "final_price"
+    t.boolean  "maximum_target"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
@@ -124,13 +174,11 @@ ActiveRecord::Schema.define(:version => 20120817123239) do
     t.string   "name"
     t.integer  "project_id"
     t.float    "product_weight"
-    t.string   "manufacturing"
+    t.string   "image1"
+    t.string   "image2"
     t.string   "key_components_mechanics"
     t.string   "key_components_electronics"
     t.string   "key_components_fixing"
-    t.string   "material"
-    t.string   "finishing"
-    t.string   "maintenance"
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
   end

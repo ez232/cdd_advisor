@@ -1,11 +1,3 @@
-<div id="menu">
-  <span id="current">Project Specifications</span>
-  &nbsp;&nbsp;&gt;&gt;&nbsp;&nbsp;
-  <span>Design Proposals</span>
-  &nbsp;&nbsp;&gt;&gt;&nbsp;&nbsp;
-  <span>Design Proposals Presentation</span>
-</div>
-
-<h1>Editing project</h1>
-
+<%= content_for_breadcrumb %>
+<h1><%= t('.title', name: @project.name) %></h1>
 <%= render 'form' %>

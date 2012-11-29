@@ -1,96 +1,67 @@
-<%= form_for([@project, @proposal, @handle]) do |f| %>
-  <% if @handle.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@handle.errors.count, "error") %> prohibited this handle from being saved:</h2>
-
-      <ul>
-      <% @handle.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <table class="fields">
-    <tr>
-      <td colspan="3">
-        <div class="field">
-          <%= f.label :name %><br />
-          <%= f.text_field :name %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div class="field">
+<%= form_for([@project, @proposal, @handle],
+      html: { class: 'form-horizontal' }) do |f| %>
+  <%= field_set_tag t('.legend') do %>
+    <%= tb_form_wrapper(@handle, :name) do %>
+      <%= f.text_field :name %>
+    <% end %>
+    <%= tb_form_wrapper(@handle, :tasks) do %>
+      <a rel="tooltip" data-placement="right"
+        data-original-title="<%= t('.task_tooltip') %>">
+        <label class="checkbox inline">
           <%= f.check_box :holding %>
-          <%= f.label :holding %>
-        </div>
-      </td>
-      <td>
-        <div class="field">
+          <%= t('.holding') %>
+        </label>
+        <label class="checkbox inline">
           <%= f.check_box :moving %>
-          <%= f.label :moving %>
-        </div>
-      </td>
-      <td>
-        <div class="field">
+          <%= t('.moving') %>
+        </label>
+        <label class="checkbox inline">
           <%= f.check_box :carrying %>
-          <%= f.label :carrying %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <div class="field">
-          <%= f.label :shape %>
-          <%= f.select :shape, Handle::SHAPE_VALUES, prompt: true %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div class="field">
-          <%= f.label :external_diameter %><br />
-          <%= f.text_field :external_diameter, size: 10 %>
-        </div>
-      </td>
-      <td>
-        <div class="field">
-          <%= f.label :width %><br />
-          <%= f.text_field :width, size: 10 %>
-        </div>
-      </td>
-      <td>
-        <div class="field">
-          <%= f.label :height %><br />
-          <%= f.text_field :height, size: 10 %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <%= render 'shared/check_box_with_image', f: f, field: :pinch_grip %>
-        <%= render 'shared/check_box_with_image', f: f, field: :pinch_grip_2 %>
-      </td>
-      <td>
-        <%= render 'shared/check_box_with_image', f: f, field: :power_grip %>
-      </td>
-      <td>
-        <%= render 'shared/check_box_with_image', f: f, field: :spherical_grip %>
-        <%= render 'shared/check_box_with_image', f: f, field: :cylindrical_grip %>
-      </td>
-      <td>
-        <%= render 'shared/check_box_with_image', f: f, field: :disc_grip %>
-        <%= render 'shared/check_box_with_image', f: f, field: :disc_grip_2 %>
-      </td>
-      <td>
-        <%= render 'shared/check_box_with_image', f: f, field: :hook_grip %>
-      </td>
-    </tr>
-  </table>
-  <div class="actions">
-    <%= link_to '&laquo; Back'.html_safe, :back %>
-    <%= f.submit 'Save', name: :action_save %>
+          <%= t('.carrying') %>
+        </label>
+      </a>
+    <% end %>
+    <%= tb_form_wrapper(@handle, :shape) do %>
+      <%= f.select :shape, Handle::SHAPE_VALUES, prompt: true %>
+    <% end %>
+    <%= tb_form_wrapper(@handle, :external_diameter) do %>
+      <div class="input-append">
+        <%= f.text_field :external_diameter, class: 'input-small' %>
+        <span class="add-on"><%= t('.external_diameter_unit') %></span>
+      </div>
+    <% end %>
+    <%= tb_form_wrapper(@handle, :width) do %>
+      <div class="input-append">
+        <%= f.text_field :width, class: 'input-small' %>
+        <span class="add-on"><%= t('.width_unit') %></span>
+      </div>
+    <% end %>
+    <%= tb_form_wrapper(@handle, :height) do %>
+      <div class="input-append">
+        <%= f.text_field :height, class: 'input-small' %>
+        <span class="add-on"><%= t('.height_unit') %></span>
+      </div>
+    <% end %>
+    <%= tb_form_wrapper(@handle, :grips) do %>
+      <ul class="thumbnails">
+        <%= render 'shared/grip_image', f: f, field: :pinch_grip %>
+        <%= render 'shared/grip_image', f: f, field: :pinch_grip_2 %>
+        <%= render 'shared/grip_image', f: f, field: :power_grip %>
+        <%= render 'shared/grip_image', f: f, field: :spherical_grip %>
+      </ul>
+    <% end %>
+    <%= tb_form_wrapper(@handle, :fake_grips) do %>
+      <ul class="thumbnails">
+        <%= render 'shared/grip_image', f: f, field: :cylindrical_grip %>
+        <%= render 'shared/grip_image', f: f, field: :disc_grip %>
+        <%= render 'shared/grip_image', f: f, field: :disc_grip_2 %>
+        <%= render 'shared/grip_image', f: f, field: :hook_grip %>
+      </ul>
+    <% end %>
+  <% end %>
+  <div class="form-actions">
+    <%= link_to t('.back'), project_proposal_labels_path(@project, @proposal),
+          class: 'btn' %>
+    <%= f.submit t('.save'), name: :action_save, class: 'btn btn-primary' %>
   </div>
 <% end %>

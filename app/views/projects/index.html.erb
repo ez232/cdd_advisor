@@ -1,25 +1,40 @@
-<h1>Projects</h1>
+<%= content_for_breadcrumb %>
+<h1><%= t('.title') %></h1>
 
-<% unless @projects.empty? %>
-  <table>
+<table class="table table-hover">
+  <thead>
     <tr>
-      <th>Name</th>
-      <th></th>
+      <th><%= t('.name') %></th>
+      <th><%= t('.actions') %></th>
     </tr>
-    <% @projects.each do |project| %>
-      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-        <td class="list_description"><%= project.name %></td>
-        <td class="list_actions">
-            <%= link_to 'Results', results_project_path(project) %>
-            <%= link_to 'Manage proposals', project_proposals_path(project) %>
-            <%= link_to 'Edit', edit_project_path(project) %>
-        </td>
-      </tr>
-    <% end %>
+  </thead>
+  <tbody>
+    <% @projects.each do |project| -%>
+    <tr>
+      <td><%= project.name %></td>
+      <td class="btn-group">
+        <% if project.proposals.any? -%>
+          <%= link_to(t('.results'), results_project_path(project),
+                      class: 'btn btn-small btn-info') %>
+        <% else -%>
+          <%= content_tag(:span, t('.results'),
+                          class: 'btn btn-small btn-info disabled mod-tooltip',
+                          data: { placement: 'top',
+                                  original_title: t('.results_tip')}) %>
+        <% end -%>
+        <%= link_to(t('.manage_proposals'), project_proposals_path(project),
+                    class: 'btn btn-small btn-secondary') %>
+        <%= link_to(t('.edit'), edit_project_path(project),
+                    class: 'btn btn-small btn-secondary') %>
+      </td>
+    </tr>
+    <% end -%>
+  </tbody>
+  <tfoot>
     <tr>
       <td colspan="2"><%= will_paginate @projects %></td>
     </tr>
-  </table>
-<% end %>
-<br />
-<%= link_to 'New Project', new_project_path, class: 'button' %>
+  </tfoot>
+</table>
+
+<%= link_to(t('.new'), new_project_path, class: 'btn btn-primary') %>

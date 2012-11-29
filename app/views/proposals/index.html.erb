@@ -1,29 +1,25 @@
-<div id="menu">
-  <span>Project Specifications</span>
-  &nbsp;&nbsp;&gt;&gt;&nbsp;&nbsp;
-  <span id="current">Design Proposals</span>
-  &nbsp;&nbsp;&gt;&gt;&nbsp;&nbsp;
-  <span>Design Proposals Presentation</span>
-</div>
+<%= content_for_breadcrumb %>
+<h1><%= t('.title') %></h1>
 
-<h1>Proposals</h1>
-
-<% unless @proposals.empty? %>
-  <table>
+<table class="table table-hover">
+  <thead>
     <tr>
-      <th>Name</th>
-      <th></th>
+      <th><%= t('.name') %></th>
+      <th><%= t('.actions') %></th>
     </tr>
+  </thead>
+  <tbody>
     <% @proposals.each do |proposal| %>
-      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-        <td class="list_description"><%= proposal.name %></td>
-        <td class="list_actions">
-          <%= link_to 'Edit', edit_project_proposal_path(@project, proposal) %>
-        </td>
-      </tr>
+    <tr>
+      <td><%= proposal.name %></td>
+      <td class="btn-group">
+        <%= link_to(t('.edit'), edit_project_proposal_path(@project, proposal),
+                    class: 'btn btn-small') %>
+      </td>
+    </tr>
     <% end %>
-  </table>
-<% end %>
-<br />
-<%= link_to '&laquo; Back'.html_safe, :back %>
-<%= link_to 'New Proposal', new_project_proposal_path, class: 'button'  %>
+  </tbody>
+</table>
+
+<%= link_to(t('.back'), edit_project_path(@project), class: 'btn btn-secondary') %>
+<%= link_to(t('.new'), new_project_proposal_path, class: 'btn btn-primary') %>

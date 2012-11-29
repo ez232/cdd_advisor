@@ -1,1 +1,43 @@
-<%= link_to 'Go', projects_path %>
+<div class="hero-unit">
+  <h1>
+    <%= t('.header') %>
+  </h1>
+  <p>
+    <%= t('.greetings') %>
+  </p>
+  <p>
+    <%#
+    <a class="btn btn-large btn-success" href="#sign-in-modal"
+       data-toggle="modal">
+       Start »
+    </a>
+    %>
+    <%= link_to(t('.start'), projects_path, class: 'btn btn-large btn-success',
+                data: {toggle: 'modal'}) %>
+  </p>
+  <div id="sign-in-modal" class="modal hide fade modal-sign-in"
+       aria-hidden="true" aria-labelledby="modal-label" role="dialog"
+       tabindex="-1">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal"
+              aria-hidden="true">
+        ×
+      </button>
+      <h3 id="modal-label form-signin-heading">
+        Please sign in
+      </h3>
+    </div>
+    <div class="modal-body">
+      <form class="form-signin">
+        <input type="text" class="input-block-level" placeholder="Username" />
+        <input type="password" class="input-block-level"
+               placeholder="Password" />
+      </form>
+    </div>
+    <div class="modal-footer">
+      <a href="projects.html" class="btn btn-primary">
+        Sign in
+      </a>
+    </div>
+  </div>
+</div>

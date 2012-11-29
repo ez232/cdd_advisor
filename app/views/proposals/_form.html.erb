@@ -1,71 +1,38 @@
-<%= form_for([@project, @proposal]) do |f| %>
-  <% if @proposal.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@proposal.errors.count, "error") %> prohibited this
-        proposal from being saved:</h2>
-
-      <ul>
-      <% @proposal.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for([@project, @proposal], html: { class: 'form-horizontal' }) do |f| %>
+  <%= field_set_tag t('.legend') do %>
+    <%= tb_form_wrapper(@proposal, :name) do %>
+      <%= f.text_field :name, placeholder: t('.name_placeholder') %>
+    <% end %>
+  <% end %>
+  <%= tb_form_wrapper(@proposal, :product_weight) do %>
+    <div class="input-append">
+      <%= f.text_field :product_weight, class: 'input-small',
+                       placeholder: t('.product_weight_placeholder') %>
+      <span class="add-on"><%= t('.product_weight_unit') %></span>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label 'product_weight(Kg)' %><br />
-    <%= f.text_field :product_weight %>
-  </div>
-
-  <h2>Images</h2>
-  <%= f.fields_for :images do |build| %>
-    <%= render 'image_fields', f: build %>
+  <%= tb_form_wrapper(@proposal, :images) do %>
+    <h6>TODO</h6>
   <% end %>
-  <p><%= link_to_add_fields "Add image", f, :images, true, false %></p>
-
-  <h2>Other attributes</h2>
-  <div class="field">
-    <%= f.label :manufacturing %>
-    <%= f.select :manufacturing, Proposal::MANUFACTURING_VALUES, prompt: true %>
-  </div>
-  <div class="field">
-    <%= f.label :key_components_mechanics %><br />
-    <%= f.text_area :key_components_mechanics, size: '40x10' %>
-  </div>
-  <div class="field">
-    <%= f.label :key_components_electronics %><br />
-    <%= f.text_area :key_components_electronics, size: '40x10' %>
-  </div>
-  <div class="field">
-    <%= f.label :key_components_fixing %><br />
-    <%= f.text_area :key_components_fixing, size: '40x10' %>
-  </div>
-  <div class="field">
-    <%= f.label :material %>
-    <%= f.select :material,
-      grouped_options_for_select(Proposal::MATERIAL_VALUES), prompt: true %>
-  </div>
-  <div class="field">
-    <%= f.label :finishing %>
-    <%= f.select :finishing, Proposal::FINISHING_VALUES, prompt: true %>
-  </div>
-  <div class="field">
-    <%= f.label :maintenance %>
-    <%= f.select :maintenance, Proposal::MAINTENANCE_VALUES, prompt: true %>
-  </div>
-
-  <div class="actions">
-    <%= link_to '&laquo; Back'.html_safe, :back %>
-    <%= f.submit 'Save', name: :action_save %>
-    <%= f.submit 'Add labels', name: :action_labels %>
-    <%= f.submit 'Add handles', name: :action_handles %>
-    <%= f.submit 'Add switches', name: :action_switches %>
-    <%= f.submit 'Add knobs', name: :action_knobs %>
-    <%= f.submit 'Add buttons', name: :action_buttons %>
+  <%= tb_form_wrapper(@proposal, :attributes) do %>
+    <div class="btn-group">
+      <%= f.submit t('.labels'), name: :action_labels,
+                   class: 'btn btn-small' %>
+      <%= f.submit t('.handles'), name: :action_handles,
+                   class: 'btn btn-small' %>
+      <%= f.submit t('.switches'), name: :action_switches,
+                   class: 'btn btn-small' %>
+      <%= f.submit t('.knobs'), name: :action_knobs,
+                   class: 'btn btn-small' %>
+      <%= f.submit t('.buttons'), name: :action_buttons,
+                   class: 'btn btn-small' %>
+      <%= f.submit t('.other_attributes'), name: :action_other_attributes,
+                   class: 'btn btn-small' %>
+    </div>
+  <% end %>
+  <div class="form-actions">
+    <%= link_to t('.back'), project_proposals_path(@project),
+                class: 'btn' %>
+    <%= f.submit t('.save'), name: :action_save, class: 'btn btn-primary' %>
   </div>
 <% end %>
