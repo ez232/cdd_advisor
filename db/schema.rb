@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121130041848) do
+ActiveRecord::Schema.define(:version => 20121130163914) do
 
   create_table "buttons", :force => true do |t|
     t.integer  "proposal_id"
@@ -174,8 +174,6 @@ ActiveRecord::Schema.define(:version => 20121130041848) do
     t.string   "name"
     t.integer  "project_id"
     t.float    "product_weight"
-    t.string   "image1"
-    t.string   "image2"
     t.string   "key_components_mechanics"
     t.string   "key_components_electronics"
     t.string   "key_components_fixing"
@@ -210,6 +208,16 @@ ActiveRecord::Schema.define(:version => 20121130041848) do
     t.boolean  "disc_grip_2"
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
+  end
+
+  create_table "uploads", :force => true do |t|
+    t.integer  "proposal_id"
+    t.string   "upload_file_name"
+    t.string   "upload_content_type"
+    t.integer  "upload_file_size"
+    t.datetime "upload_updated_at"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
 end

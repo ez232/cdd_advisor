@@ -12,7 +12,17 @@
     </div>
   <% end %>
   <%= tb_form_wrapper(@proposal, :images) do %>
-    <h6>TODO</h6>
+    <div class="row-fluid">
+      <button type="submit" class="btn btn-small" name="action_images">
+        <i class="icon-picture"></i>
+        <span><%= t('.upload_images') %></span>
+      </button>
+    </div>
+    <div class="row-fluid">
+      <ul class="thumbnails">
+        <%= render(partial: 'image', collection: @proposal.images) %>
+      </ul>
+    </div>
   <% end %>
   <%= tb_form_wrapper(@proposal, :attributes) do %>
     <div class="btn-group">

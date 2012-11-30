@@ -82,6 +82,8 @@ class ProposalsController < ApplicationController
         edit_other_attributes_project_proposal_url(@project, @proposal)
       when 'action_edit_other_attributes'
         edit_project_proposal_path(@project, @proposal)
+      when 'action_images'
+        project_proposal_uploads_path(@project, @proposal)
       else
         project_proposals_url(@project)
       end

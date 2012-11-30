@@ -18,6 +18,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'jquery-fileupload-rails'
+gem 'paperclip'
 
 gem 'will_paginate', '~> 3.0'
 

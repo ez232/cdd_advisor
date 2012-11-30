@@ -9,5 +9,6 @@
  * formtastic_ie7
  * require formtastic-bootstrap
  *= require_self
+ *= require jquery.fileupload-ui
  *= require bootstrap_and_overrides
  */

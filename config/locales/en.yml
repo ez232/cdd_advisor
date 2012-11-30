@@ -1,7 +1,3 @@
-# Sample localization file for English. Add more files in this directory for
-# other locales. See https://github.com/svenfuchs/rails-
-# i18n/tree/master/rails%2Flocale for starting points.
-
 en:
   app_name: "Client-Design Designer Advisor"
 
@@ -86,6 +82,7 @@ en:
       knobs: "Knobs"
       buttons: "Buttons"
       other_attributes: "Other attributes"
+      upload_images: "Upload images"
     # /project/1/proposals/1/edit_other_attributes
     edit_other_attributes:
       title: "'%{name}' details"
@@ -300,6 +297,22 @@ en:
       fake_grips: " "
       back: "« Back"
       save: "Save"
+
+  uploads:
+    index:
+      title: "Upload images"
+      legend: "Use the toolbar below to upload images into your proposal"
+      add: "Add…"
+      start: "Start"
+      cancel: "Cancel"
+      finish: "Finish"
+      maxfilesize: "File is too big"
+      minfilesize: "File is too small"
+      acceptfiletypes: "File type not allowed"
+      maxnumberoffiles: "Max number of files exceeded"
+      uploadedbytes: "Uploaded bytes exceed file size"
+      emptyresult: "Empty file upload result"
+      remove: "Remove"
 
   shared:
     grip_image:

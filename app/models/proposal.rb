@@ -1,15 +1,16 @@
 class Proposal < ActiveRecord::Base
 
   attr_accessible :name, :product_weight, :key_components_mechanics,
-    :key_components_electronics, :key_components_fixing, :image1, :image2,
-    :manufacturing_value_ids, :finishing_value_ids, :maintenance_value_ids,
-    :material_value_ids
+    :key_components_electronics, :key_components_fixing, :material_value_ids,
+    :manufacturing_value_ids, :finishing_value_ids, :maintenance_value_ids
 
   has_many :handles, dependent: :destroy, inverse_of: :proposal
   has_many :switches, dependent: :destroy, inverse_of: :proposal
   has_many :knobs, dependent: :destroy, inverse_of: :proposal
   has_many :buttons, dependent: :destroy, inverse_of: :proposal
   has_many :labels, dependent: :destroy, inverse_of: :proposal
+  has_many :images, class_name: 'Upload', dependent: :destroy,
+    inverse_of: :proposal
   has_and_belongs_to_many :manufacturing_values
   has_and_belongs_to_many :finishing_values
   has_and_belongs_to_many :maintenance_values

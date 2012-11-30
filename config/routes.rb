@@ -11,6 +11,7 @@ CddAdvisor::Application.routes.draw do
     get :results, as: :results, on: :member
     resources :proposals, except: [:show, :destroy] do
       get :edit_other_attributes, on: :member
+      resources :uploads
       resources :labels, except: :show
       resources :buttons, except: :show
       resources :knobs, except: :show
