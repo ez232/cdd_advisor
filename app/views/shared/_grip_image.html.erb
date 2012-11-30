@@ -1,0 +1,10 @@
+<li class="span2">
+  <div class="thumbnail">
+      <%= image_tag field.to_s + '.jpg' %> <br />
+    <img src="" alt="">
+    <p style="text-align: center;">
+      <%= f.check_box field %>
+      <%= t(".#{field}") %>
+    </p>
+  </div>
+</li>

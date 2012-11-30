@@ -9,7 +9,9 @@ module ApplicationHelper
         buffer << if item.to_i.zero?
           content_from(items, item, i, item.titlecase)
         else
-          model = instance_variable_get("@#{items[i - 1].singularize}")
+          model_name = items[i - 1].singularize
+          model = instance_variable_get("@#{model_name}")
+
           content_from(items, item, i, "#{model_name.titlecase}: #{model.name}")
         end
       end

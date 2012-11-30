@@ -1,0 +1,47 @@
+<%= content_for_breadcrumb %>
+<h1><%= t('.title', name: @proposal.name) %></h1>
+
+<%= form_for([@project, @proposal], html: { class: 'form-horizontal' }) do |f| %>
+  <%= field_set_tag t('.legend') do %>
+    <%= tb_form_wrapper(@proposal, :manufacturing) do %>
+      <%= f.select :manufacturing_value_ids,
+            options_from_collection_for_select(ManufacturingValue.all,
+              :id, :name, @proposal.manufacturing_value_ids),
+            { }, { multiple: true, size: 5 } %>
+    <% end %>
+    <%= tb_form_wrapper(@proposal, :key_components_mechanics) do %>
+      <%= f.text_area :key_components_mechanics, rows: '4' %>
+    <% end %>
+    <%= tb_form_wrapper(@proposal, :key_components_electronics) do %>
+      <%= f.text_area :key_components_electronics, rows: '4' %>
+    <% end %>
+    <%= tb_form_wrapper(@proposal, :key_components_fixing) do %>
+      <%= f.text_area :key_components_fixing, rows: '4' %>
+    <% end %>
+    <%= tb_form_wrapper(@proposal, :material) do %>
+      <%= f.select :material_value_ids,
+            option_groups_from_collection_for_select(MaterialValue.categories,
+              :materials, :category, :id, :name, @proposal.material_value_ids),
+              { }, { multiple: true, size: 5 } %>
+    <% end %>
+    <%= tb_form_wrapper(@proposal, :finishing) do %>
+      <%= f.select :finishing_value_ids,
+            options_from_collection_for_select(FinishingValue.all,
+              :id, :name, @proposal.finishing_value_ids),
+            { }, { multiple: true, size: 5 } %>
+    <% end %>
+    <%= tb_form_wrapper(@proposal, :maintenance) do %>
+      <%= f.select :maintenance_value_ids,
+            options_from_collection_for_select(MaintenanceValue.all,
+              :id, :name, @proposal.maintenance_value_ids),
+            { }, { multiple: true, size: 5 } %>
+    <% end %>
+
+    <div class="form-actions">
+      <%= link_to t('.back'), project_proposal_path(@project, @proposal),
+                  class: 'btn' %>
+      <%= f.submit t('.save'), name: :action_edit_other_attributes,
+                   class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+<% end %>
