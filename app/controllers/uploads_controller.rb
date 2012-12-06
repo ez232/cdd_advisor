@@ -6,6 +6,7 @@ class UploadsController < ApplicationController
     @proposal = @project.proposals.find(params[:proposal_id])
     @uploads = @proposal.images
 
+    flash[:info] = t('uploads.index.help').html_safe
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @uploads.map{|upload| upload.to_jq_upload } }

@@ -305,7 +305,7 @@ en:
       add: "Add…"
       start: "Start"
       cancel: "Cancel"
-      finish: "Finish"
+      finish: "« Back"
       maxfilesize: "'File is too big'"
       minfilesize: "'File is too small'"
       acceptfiletypes: "'File type not allowed'"
@@ -313,6 +313,7 @@ en:
       uploadedbytes: "'Uploaded bytes exceed file size'"
       emptyresult: "'Empty file upload result'"
       remove: "Remove"
+      help: "1. Click on 'Add...' to add one or more images.<br/>2. Press 'Start' to upload the images.<br/>3. Wait until all images are uploaded.<br/>4. Press 'Finish' to return to the proposal page."
 
   shared:
     grip_image:
