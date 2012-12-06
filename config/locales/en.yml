@@ -306,12 +306,12 @@ en:
       start: "Start"
       cancel: "Cancel"
       finish: "Finish"
-      maxfilesize: "File is too big"
-      minfilesize: "File is too small"
-      acceptfiletypes: "File type not allowed"
-      maxnumberoffiles: "Max number of files exceeded"
-      uploadedbytes: "Uploaded bytes exceed file size"
-      emptyresult: "Empty file upload result"
+      maxfilesize: "'File is too big'"
+      minfilesize: "'File is too small'"
+      acceptfiletypes: "'File type not allowed'"
+      maxnumberoffiles: "'Max number of files exceeded'"
+      uploadedbytes: "'Uploaded bytes exceed file size'"
+      emptyresult: "'Empty file upload result'"
       remove: "Remove"
 
   shared:

@@ -4,11 +4,9 @@
  * application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style
  * scope.
- * formtastic
- * formtastic_ie6
- * formtastic_ie7
- * require formtastic-bootstrap
  *= require_self
  *= require jquery.fileupload-ui
- *= require bootstrap_and_overrides
+ *= require bootstrap.min.css
+ *= require cdd_advisor.css
+ *= require bootstrap-responsive.min.css
  */

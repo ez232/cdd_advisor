@@ -24,7 +24,7 @@ module ApplicationHelper
   end
 
   def content_from(items, item, index, content)
-    if item == items[-1]
+    if index == (items.size - 1)
       content_tag(:li, content, class: 'active')
     else
       content_tag(:li) do

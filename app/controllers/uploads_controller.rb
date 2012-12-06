@@ -53,7 +53,8 @@ class UploadsController < ApplicationController
           :content_type => 'text/html',
           :layout => false
         }
-        format.json { render json: [@upload.to_jq_upload].to_json, status: :created, location: @upload }
+        format.json { render json: [@upload.to_jq_upload].to_json,
+            status: :created, location: [@project, @proposal, @upload] }
       else
         format.html { render action: "new" }
         format.json { render json: @upload.errors, status: :unprocessable_entity }

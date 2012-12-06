@@ -1,0 +1,45 @@
+body {
+  padding-top: 80px;
+}
+
+body .modal-sign-in {
+  width: 300px;
+  /* must be half of the width, minus scrollbar on the left (30px) */
+  margin: -120px 0 0 -150px;
+}
+
+body .results {
+  text-align: center;
+}
+
+body .fileupload-fix {
+  white-space: normal;
+}
+
+body .mod-tooltip {
+  position: absolute;
+  z-index: 1030;
+  visibility: visible;
+  font-size: 11px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+body .thumb-size {
+  width: 210px;
+  height: 150px;
+}
+
+body .fileupload-loading {
+  position: absolute;
+  left: 50%;
+  width: 128px;
+  height: 128px;
+  background: url(loading.gif) center no-repeat;
+  display: none;
+}
+
+body .progress-animated .bar {
+  background: url(progressbar.gif) !important;
+  filter: none;
+}

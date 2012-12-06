@@ -38,7 +38,7 @@
     <% end %>
 
     <div class="form-actions">
-      <%= link_to t('.back'), project_proposal_path(@project, @proposal),
+      <%= link_to t('.back'), edit_project_proposal_path(@project, @proposal),
                   class: 'btn' %>
       <%= f.submit t('.save'), name: :action_edit_other_attributes,
                    class: 'btn btn-primary' %>

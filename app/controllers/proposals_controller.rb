@@ -40,9 +40,6 @@ class ProposalsController < ApplicationController
     @project = Project.find(params[:project_id])
     @proposal = @project.proposals.find(params[:id])
 
-    logger.warn('**********')
-    logger.warn(params[:proposal])
-    logger.warn('**********')
     if @proposal.update_attributes(params[:proposal])
       redirect_to correct_url(params)
     else
