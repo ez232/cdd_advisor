@@ -330,3 +330,21 @@ en:
       one_finger_press: "One finger press"
       two_fingers_press: "Two fingers press"
       thumb_press: "Thumb press"
+
+  messages:
+    handle:
+      msg01: "This is the minimum exclusion for this type of handle"
+      msg02: "Change the handle dimensions (length or diameter) to lesser than 30 mm to enhance inclusivity"
+      msg03: "Change the handle dimensions (length or diameter) to lesser than 70 mm or 30 mm to enhance inclusivity"
+      msg04: "Change the product weight to 400 gr or less"
+      msg05: "Change the product weight to lesser than 2Kg or lesser than 400gr to enhance inclusivity"
+      msg06: "Change the product weight to lesser than 1Kg or lesser than 400gr to enhance inclusivity"
+      msg07: "Change your handle to allow other type of grip rather than pinch grip."
+      msg08: "Change the product weight for less than 100gr."
+      msg09: "Change the product weight for less than 500gr."
+    label:
+      msg01: "Increase background-foreground colour contrast (product colour-text colour)"
+      msg02: "100% black in 100% white is the best foreground-background contrast."
+      msg03: "Avoid red in green or green in red colour contrast (to not excluded red-green colour blind people)."
+      msg04: "Increase text size"
+      msg05: "Reduce reading distance"
