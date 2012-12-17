@@ -101,7 +101,7 @@ en:
       volume_of_sale: "Volume of sale"
       volume_of_sale_header: |
         This design proposal excludes a number of users that may represent a
-        volume of sale of %{volume} units. How do you think the recommendations
+        volume of sale of %{var} units. How do you think the recommendations
         could affect the volume of sale in this proposal? Please elaborate upon
         your reasons.
       final_price: "Final price"
@@ -190,7 +190,7 @@ en:
       saving: "Saving…"
 
   proposals:
-    # /proposals
+    # /projects/1/proposals
     index:
       title: "Proposals"
       name: "Name"
@@ -198,23 +198,35 @@ en:
       edit: "Edit"
       back: "« Back"
       new: "New proposal"
-    # /proposal/new
+    # /projects/1/proposals/new
     new:
       title: "New proposal"
-    # /proposal/1/edit
+      legend: "Please add the design attributes of the proposal you are attaching:"
+      back: "« Back"
+      save: "Save"
+    # /projects/1/proposals/1/edit
     edit:
       title: "Editing proposal '%{name}'"
-    # /proposals/new or /proposals/1/edit
-    form:
       legend: "Please add the design attributes of the proposal you are attaching:"
+      back: "« Back"
+      save: "Save"
+    # /projects/1/proposals/1/recommendations
+    recommendations:
+      title: "Recommendations for proposal '%{name}'"
+      legend: "Please review the highlighted fields:"
+      back: "« Back"
+      save: "Save"
+    # /projects/1/proposals/new or /projects/1/proposals/1/edit or
+    # /projects/1/proposals/1/recommendations
+    form:
       name: "Name"
       name_placeholder: "Design proposal's name"
       product_weight: "Product weight"
       product_weight_placeholder: "Overall product weight"
       product_weight_unit: "Kg"
       images: "Images"
-      back: "« Back"
-      save: "Save"
+      upload_images: "Upload images"
+    form_attributes:
       attributes: "Attributes"
       labels: "Labels"
       handles: "Handles"
@@ -222,8 +234,7 @@ en:
       knobs: "Knobs"
       buttons: "Buttons"
       other_attributes: "Other attributes"
-      upload_images: "Upload images"
-    # /project/1/proposals/1/edit_other_attributes
+    # /projects/1/proposals/1/edit_other_attributes
     edit_other_attributes:
       title: "'%{name}' details"
       legend: "Editing other attributes"
@@ -251,12 +262,24 @@ en:
     # /projects/1/proposals/1/labels/new
     new:
       title: "New label"
+      legend: "Please select the label characteristics:"
+      back: "« Back"
+      save: "Save"
     # /projects/1/proposals/1/labels/1/edit
     edit:
       title: "Editing label '%{name}'"
-    # /projects/1/proposals/1/labels/new or /projects/1/proposals/1/labels/1/edit
-    form:
       legend: "Please select the label characteristics:"
+      back: "« Back"
+      save: "Save"
+    # /projects/1/proposals/1/labels/1/recommendations
+    recommendations:
+      title: "Recommendations for '%{name}'"
+      legend: "Please review the highlighted fields:"
+      back: "« Back"
+      save: "Save"
+    # /projects/1/proposals/1/labels/new or /projects/1/proposals/1/labels/1/edit
+    # or /projects/1/proposals/1/labels/1/recommendations
+    form:
       name: "Name"
       media: "Media"
       font_type: "Font type"
@@ -266,8 +289,7 @@ en:
       reading_distance_unit: "mm"
       text_colour: "Text colour"
       background_colour: "Background colour"
-      back: "« Back"
-      save: "Save"
+
   handles:
     # /projects/1/proposals/1/handles
     index:
@@ -282,12 +304,24 @@ en:
     # /projects/1/proposals/1/handles/new
     new:
       title: "New handle"
+      legend: "Please select the handle characteristics:"
+      back: "« Back"
+      save: "Save"
     # /projects/1/proposals/1/handles/1/edit
     edit:
       title: "Editing handle '%{name}'"
-    # /projects/1/proposals/1/handles/new or /projects/1/proposals/1/handles/1/edit
-    form:
       legend: "Please select the handle characteristics:"
+      back: "« Back"
+      save: "Save"
+    # /projects/1/proposals/1/handles/1/recommendations
+    recommendations:
+      title: "Recommendations for '%{name}'"
+      legend: "Please review the highlighted fields:"
+      back: "« Back"
+      save: "Save"
+    # /projects/1/proposals/1/handles/new or /projects/1/proposals/1/handles/1/edit
+    # or /projects/1/proposals/1/handles/1/recommendations
+    form:
       name: "Name"
       tasks: "Tasks"
       holding: "Holding"
@@ -303,8 +337,6 @@ en:
       height_unit: "mm"
       grips: "Grips"
       fake_grips: " "
-      back: "« Back"
-      save: "Save"
 
   switches:
     # /projects/1/proposals/1/switches
@@ -320,12 +352,24 @@ en:
     # /projects/1/proposals/1/switches/new
     new:
       title: "New switch"
+      legend: "Please select the switch characteristics:"
+      back: "« Back"
+      save: "Save"
     # /projects/1/proposals/1/switches/1/edit
     edit:
       title: "Editing switch '%{name}'"
-    # /projects/1/proposals/1/switches/new or /projects/1/proposals/1/switches/1/edit
-    form:
       legend: "Please select the switch characteristics:"
+      back: "« Back"
+      save: "Save"
+    # /projects/1/proposals/1/switches/1/recommendations
+    recommendations:
+      title: "Recommendations for '%{name}'"
+      legend: "Please review the highlighted fields:"
+      back: "« Back"
+      save: "Save"
+    # /projects/1/proposals/1/switches/new or /projects/1/proposals/1/switches/1/edit
+    # or /projects/1/proposals/1/switches/1/recommendations
+    form:
       name: "Name"
       tasks: "Tasks"
       pressing: "Pressing"
@@ -347,8 +391,6 @@ en:
       colour: "Colour"
       grips: "Grips"
       fake_grips: " "
-      back: "« Back"
-      save: "Save"
 
   knobs:
     # /projects/1/proposals/1/knobs
@@ -364,12 +406,24 @@ en:
     # /projects/1/proposals/1/knobs/new
     new:
       title: "New knob"
+      legend: "Please select the knob characteristics:"
+      back: "« Back"
+      save: "Save"
     # /projects/1/proposals/1/knobs/1/edit
     edit:
       title: "Editing knob '%{name}'"
-    # /projects/1/proposals/1/knobs/new or /projects/1/proposals/1/knobs/1/edit
-    form:
       legend: "Please select the knob characteristics:"
+      back: "« Back"
+      save: "Save"
+    # /projects/1/proposals/1/knobs/1/recommendations
+    recommendations:
+      title: "Recommendations for '%{name}'"
+      legend: "Please review the highlighted fields:"
+      back: "« Back"
+      save: "Save"
+    # /projects/1/proposals/1/knobs/new or /projects/1/proposals/1/knobs/1/edit
+    # or /projects/1/proposals/1/knobs/1/recommendations
+    form:
       name: "Name"
       tasks: "Tasks"
       pressing: "Pressing"
@@ -391,8 +445,6 @@ en:
       colour: "Colour"
       grips: "Grips"
       fake_grips: " "
-      back: "« Back"
-      save: "Save"
 
   buttons:
     # /projects/1/proposals/1/buttons
@@ -408,12 +460,24 @@ en:
     # /projects/1/proposals/1/buttons/new
     new:
       title: "New button"
+      legend: "Please select the button characteristics:"
+      back: "« Back"
+      save: "Save"
     # /projects/1/proposals/1/buttons/1/edit
     edit:
       title: "Editing button '%{name}'"
-    # /projects/1/proposals/1/buttons/new or /projects/1/proposals/1/buttons/1/edit
-    form:
       legend: "Please select the button characteristics:"
+      back: "« Back"
+      save: "Save"
+    # /projects/1/proposals/1/buttons/1/recommendations
+    recommendations:
+      title: "Recommendations for '%{name}'"
+      legend: "Please review the highlighted fields:"
+      back: "« Back"
+      save: "Save"
+    # /projects/1/proposals/1/buttons/new or /projects/1/proposals/1/buttons/1/edit
+    # or /projects/1/proposals/1/buttons/1/recommendations
+    form:
       name: "Name"
       tasks: "Tasks"
       pressing: "Pressing"
@@ -435,8 +499,6 @@ en:
       colour: "Colour"
       grips: "Grips"
       fake_grips: " "
-      back: "« Back"
-      save: "Save"
 
   uploads:
     index:
@@ -473,18 +535,29 @@ en:
 
   messages:
     handle:
-      msg01: "This is the minimum exclusion for this type of handle"
-      msg02: "Change the handle dimensions (length or diameter) to lesser than 30 mm to enhance inclusivity"
-      msg03: "Change the handle dimensions (length or diameter) to lesser than 70 mm or 30 mm to enhance inclusivity"
-      msg04: "Change the product weight to 400 gr or less"
-      msg05: "Change the product weight to lesser than 2Kg or lesser than 400gr to enhance inclusivity"
-      msg06: "Change the product weight to lesser than 1Kg or lesser than 400gr to enhance inclusivity"
+      msg01: "This is the minimum exclusion for this type of handle."
+      msg02: "Change the handle dimensions (length or diameter) to lesser than 30 mm to enhance inclusivity."
+      msg03: "Change the handle dimensions (length or diameter) to lesser than 70 mm or 30 mm to enhance inclusivity."
+      msg04: "Change the product weight to 400 gr or less."
+      msg05: "Change the product weight to lesser than 2Kg or lesser than 400gr to enhance inclusivity."
+      msg06: "Change the product weight to lesser than 1Kg or lesser than 400gr to enhance inclusivity."
       msg07: "Change your handle to allow other type of grip rather than pinch grip."
       msg08: "Change the product weight for less than 100gr."
       msg09: "Change the product weight for less than 500gr."
     label:
-      msg01: "Increase background-foreground colour contrast (product colour-text colour)"
+      msg01: "Increase background-foreground colour contrast (product colour-text colour)."
       msg02: "100% black in 100% white is the best foreground-background contrast."
       msg03: "Avoid red in green or green in red colour contrast (to not excluded red-green colour blind people)."
-      msg04: "Increase text size"
-      msg05: "Reduce reading distance"
+      msg04: "Increase text size."
+      msg05: "Reduce reading distance."
+    button:
+      msg01: "Increase background-foreground colour contrast (background colour - button colour)."
+      msg02: "100% black in 100% white is the best foreground-background contrast."
+      msg03: "Avoid red in green or green in red colour contrast (to not excluded red-green colour blind people)."
+      msg04: "Increase button size."
+      msg05: "Reduce Force Required to less than 30N for two fingers press."
+      msg06: "Increase button size for comfortable use."
+      msg07: "Reduce Force Required to less than 15N for one finger press."
+      msg08: "This is the minimum exclusion for one finger press you can try other type of buttons that allow thumb press or two fingers press for example."
+      msg09: "Reduce Force Required to less than 27N for thumb press."
+      msg10: "This is the minimum exclusion for thumb press you can try other type of buttons that allow two fingers press for example."

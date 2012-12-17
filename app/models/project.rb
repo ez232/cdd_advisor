@@ -9,4 +9,8 @@ class Project < ActiveRecord::Base
     allow_blank: true
 
   has_many :proposals, dependent: :destroy
+
+  def recommendations
+    Hash.new({})
+  end
 end

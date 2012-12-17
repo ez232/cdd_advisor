@@ -13,11 +13,21 @@ CddAdvisor::Application.routes.draw do
       get :recommendations, as: :recommendations, on: :member
       get :edit_other_attributes, on: :member
       resources :uploads
-      resources :labels, except: :show
-      resources :buttons, except: :show
-      resources :knobs, except: :show
-      resources :switches, except: :show
-      resources :handles, except: :show
+      resources :labels, except: :show do
+        get :recommendations, as: :recommendations, on: :member
+      end
+      resources :buttons, except: :show do
+        get :recommendations, as: :recommendations, on: :member
+      end
+      resources :knobs, except: :show do
+        get :recommendations, as: :recommendations, on: :member
+      end
+      resources :switches, except: :show do
+        get :recommendations, as: :recommendations, on: :member
+      end
+      resources :handles, except: :show do
+        get :recommendations, as: :recommendations, on: :member
+      end
     end
   end
 

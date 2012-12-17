@@ -1,93 +1,83 @@
-<%= form_for([@project, @proposal, @switch],
-      html: { class: 'form-horizontal' }) do |f| %>
-  <%= field_set_tag t('.legend') do %>
-    <%= tb_form_wrapper(@switch, :name) do %>
-      <%= f.text_field :name %>
-    <% end %>
-    <%= tb_form_wrapper(@switch, :tasks) do %>
-      <a rel="tooltip" data-placement="right"
-        data-original-title="<%= t('.task_tooltip') %>">
-        <label class="checkbox inline">
-          <%= f.check_box :pressing %>
-          <%= t('.pressing') %>
-        </label>
-        <label class="checkbox inline">
-          <%= f.check_box :pushing %>
-          <%= t('.pushing') %>
-        </label>
-        <label class="checkbox inline">
-          <%= f.check_box :pulling %>
-          <%= t('.pulling') %>
-        </label>
-        <label class="checkbox inline">
-          <%= f.check_box :turning %>
-          <%= t('.turning') %>
-        </label>
-        <label class="checkbox inline">
-          <%= f.check_box :sliding %>
-          <%= t('.sliding') %>
-        </label>
-      </a>
-    <% end %>
-    <%= tb_form_wrapper(@switch, :shape) do %>
-      <%= f.select :shape, Handle::SHAPE_VALUES, prompt: true %>
-    <% end %>
-    <%= tb_form_wrapper(@switch, :length_or_external_diameter) do %>
-      <div class="input-append">
-        <%= f.text_field :length_or_external_diameter, class: 'input-small' %>
-        <span class="add-on"><%= t('.length_or_external_diameter_unit') %></span>
-      </div>
-    <% end %>
-    <%= tb_form_wrapper(@switch, :width) do %>
-      <div class="input-append">
-        <%= f.text_field :width, class: 'input-small' %>
-        <span class="add-on"><%= t('.width_unit') %></span>
-      </div>
-    <% end %>
-    <%= tb_form_wrapper(@switch, :height) do %>
-      <div class="input-append">
-        <%= f.text_field :height, class: 'input-small' %>
-        <span class="add-on"><%= t('.height_unit') %></span>
-      </div>
-    <% end %>
-    <%= tb_form_wrapper(@switch, :force_required) do %>
-      <div class="input-append">
-        <%= f.text_field :force_required, class: 'input-small' %>
-        <span class="add-on"><%= t('.force_required_unit') %></span>
-      </div>
-    <% end %>
-    <%= tb_form_wrapper(@switch, :colour) do %>
-      <%= f.text_field :colour, class: 'input-small' %>
-    <% end %>
-    <%= tb_form_wrapper(@switch, :background_colour) do %>
-      <%= f.text_field :background_colour, class: 'input-small' %>
-    <% end %>
-    <%= tb_form_wrapper(@switch, :grips) do %>
-      <ul class="thumbnails">
-        <%= render 'shared/grip_image', f: f, field: :pinch_grip %>
-        <%= render 'shared/grip_image', f: f, field: :pinch_grip_2 %>
-        <%= render 'shared/grip_image', f: f, field: :span_grip %>
-        <%= render 'shared/grip_image', f: f, field: :spherical_grip %>
-      </ul>
-    <% end %>
-    <%= tb_form_wrapper(@switch, :fake_grips) do %>
-      <ul class="thumbnails">
-        <%= render 'shared/grip_image', f: f, field: :disc_grip %>
-        <%= render 'shared/grip_image', f: f, field: :disc_grip_2 %>
-        <%= render 'shared/grip_image', f: f, field: :flat_hand_push %>
-        <%= render 'shared/grip_image', f: f, field: :one_finger_press %>
-      </ul>
-    <% end %>
-    <%= tb_form_wrapper(@switch, :fake_grips) do %>
-      <ul class="thumbnails">
-        <%= render 'shared/grip_image', f: f, field: :two_fingers_press %>
-        <%= render 'shared/grip_image', f: f, field: :thumb_press %>
-      </ul>
-    <% end %>
-  <% end %>
-  <div class="form-actions">
-    <%= link_to t('.back'), project_proposal_switches_path(@project, @proposal),
-          class: 'btn' %>
-    <%= f.submit t('.save'), name: :action_save, class: 'btn btn-primary' %>
+<%= tb_form_wrapper(@switch, :name) do %>
+  <%= f.text_field :name %>
+<% end %>
+<%= tb_form_wrapper(@switch, :tasks) do %>
+  <a rel="tooltip" data-placement="right"
+    data-original-title="<%= t('.task_tooltip') %>">
+    <label class="checkbox inline">
+      <%= f.check_box :pressing %>
+      <%= t('.pressing') %>
+    </label>
+    <label class="checkbox inline">
+      <%= f.check_box :pushing %>
+      <%= t('.pushing') %>
+    </label>
+    <label class="checkbox inline">
+      <%= f.check_box :pulling %>
+      <%= t('.pulling') %>
+    </label>
+    <label class="checkbox inline">
+      <%= f.check_box :turning %>
+      <%= t('.turning') %>
+    </label>
+    <label class="checkbox inline">
+      <%= f.check_box :sliding %>
+      <%= t('.sliding') %>
+    </label>
+  </a>
+<% end %>
+<%= tb_form_wrapper(@switch, :shape) do %>
+  <%= f.select :shape, Handle::SHAPE_VALUES, prompt: true %>
+<% end %>
+<%= tb_form_wrapper(@switch, :length_or_external_diameter) do %>
+  <div class="input-append">
+    <%= f.text_field :length_or_external_diameter, class: 'input-small' %>
+    <span class="add-on"><%= t('.length_or_external_diameter_unit') %></span>
   </div>
+<% end %>
+<%= tb_form_wrapper(@switch, :width) do %>
+  <div class="input-append">
+    <%= f.text_field :width, class: 'input-small' %>
+    <span class="add-on"><%= t('.width_unit') %></span>
+  </div>
+<% end %>
+<%= tb_form_wrapper(@switch, :height) do %>
+  <div class="input-append">
+    <%= f.text_field :height, class: 'input-small' %>
+    <span class="add-on"><%= t('.height_unit') %></span>
+  </div>
+<% end %>
+<%= tb_form_wrapper(@switch, :force_required) do %>
+  <div class="input-append">
+    <%= f.text_field :force_required, class: 'input-small' %>
+    <span class="add-on"><%= t('.force_required_unit') %></span>
+  </div>
+<% end %>
+<%= tb_form_wrapper(@switch, :colour) do %>
+  <%= f.text_field :colour, class: 'input-small' %>
+<% end %>
+<%= tb_form_wrapper(@switch, :background_colour) do %>
+  <%= f.text_field :background_colour, class: 'input-small' %>
+<% end %>
+<%= tb_form_wrapper(@switch, :grips) do %>
+  <ul class="thumbnails">
+    <%= render 'shared/grip_image', f: f, field: :pinch_grip %>
+    <%= render 'shared/grip_image', f: f, field: :pinch_grip_2 %>
+    <%= render 'shared/grip_image', f: f, field: :span_grip %>
+    <%= render 'shared/grip_image', f: f, field: :spherical_grip %>
+  </ul>
+<% end %>
+<%= tb_form_wrapper(@switch, :fake_grips) do %>
+  <ul class="thumbnails">
+    <%= render 'shared/grip_image', f: f, field: :disc_grip %>
+    <%= render 'shared/grip_image', f: f, field: :disc_grip_2 %>
+    <%= render 'shared/grip_image', f: f, field: :flat_hand_push %>
+    <%= render 'shared/grip_image', f: f, field: :one_finger_press %>
+  </ul>
+<% end %>
+<%= tb_form_wrapper(@switch, :fake_grips) do %>
+  <ul class="thumbnails">
+    <%= render 'shared/grip_image', f: f, field: :two_fingers_press %>
+    <%= render 'shared/grip_image', f: f, field: :thumb_press %>
+  </ul>
 <% end %>

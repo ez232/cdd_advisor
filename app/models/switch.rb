@@ -13,4 +13,8 @@ class Switch < ActiveRecord::Base
 
   SHAPE_VALUES = [ "Organic", "Rectangle", "Square", "Trapezium", "Trapezoid",
     "Cylindrical", "Oval", "Spherical", "Conical", "Triangle"]
+
+  def recommendations
+    proposal.recommendations_for(self) if proposal
+  end
 end

@@ -29,7 +29,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1/results
   def results
     @project = Project.find(params[:id])
-    @tab = params[:tab] ? params[:tab] : 0
+    @tab = params[:tab] ? params[:tab] : '0'
   end
 
 

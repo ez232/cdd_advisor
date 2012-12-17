@@ -1,17 +1,17 @@
 class ProposalsController < ApplicationController
-  # GET project/1/proposals
+  # GET projects/1/proposals
   def index
     @project = Project.find(params[:project_id])
     @proposals = @project.proposals
   end
 
-  # GET project/1/proposals/new
+  # GET projects/1/proposals/new
   def new
     @project = Project.find(params[:project_id])
     @proposal = @project.proposals.build
   end
 
-  # POST project/1/proposals
+  # POST projects/1/proposals
   def create
     @project = Project.find(params[:project_id])
     @proposal = @project.proposals.build(params[:proposal])
@@ -23,19 +23,19 @@ class ProposalsController < ApplicationController
     end
   end
 
-  # GET project/1/proposals/1/edit
+  # GET projects/1/proposals/1/edit
   def edit
     @project = Project.find(params[:project_id])
     @proposal = @project.proposals.find(params[:id])
   end
 
-  # GET project/1/proposals/1/edit_other_attributes
+  # GET projects/1/proposals/1/edit_other_attributes
   def edit_other_attributes
     @project = Project.find(params[:project_id])
     @proposal = @project.proposals.find(params[:id])
   end
 
-  # PUT project/1/proposals/1
+  # PUT projects/1/proposals/1
   def update
     @project = Project.find(params[:project_id])
     @proposal = @project.proposals.find(params[:id])
@@ -47,6 +47,19 @@ class ProposalsController < ApplicationController
       else
         format.html { render action: 'edit' }
       end
+    end
+  end
+
+  # GET projects/1/proposals/1/recommendations
+  def recommendations
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:id])
+    @instance = @proposal.get_model(params[:i])
+
+    unless @proposal == @instance
+      redirect_to "/projects/#{@project.id}/proposals/#{@proposal.id}" \
+                  "/#{@instance.class.model_name.downcase.pluralize}" \
+                  "/#{@instance.id}/recommendations"
     end
   end
 
@@ -81,9 +94,12 @@ class ProposalsController < ApplicationController
       when 'action_other_attributes'
         edit_other_attributes_project_proposal_url(@project, @proposal)
       when 'action_edit_other_attributes'
-        edit_project_proposal_path(@project, @proposal)
+        edit_project_proposal_url(@project, @proposal)
       when 'action_images'
-        project_proposal_uploads_path(@project, @proposal)
+        project_proposal_uploads_url(@project, @proposal)
+      when 'action_save_recommendations'
+        results_project_url(@project,
+                            tab: @project.proposals.index(@proposal))
       else
         project_proposals_url(@project)
       end

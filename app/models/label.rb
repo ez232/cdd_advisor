@@ -11,4 +11,8 @@ class Label < ActiveRecord::Base
     numericality: { :greater_than => 0 }
   validates :reading_distance, presence: true,
     numericality: { :greater_than => 0 }
+
+  def recommendations
+    proposal.recommendations_for(self) if proposal
+  end
 end

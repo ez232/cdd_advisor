@@ -1,20 +1,35 @@
 module Results
   module Helper
     def get_key(model)
-      "#{model.class.model_name}_#{model.id}"
+      "#{model.class.model_name.downcase}_#{model.id}"
     end
 
     def get_model(key)
       model, id = key.split('_')
-      model.constantize.find(id)
+      model.camelize.constantize.find(id)
     end
 
     def recommendations_for?(model)
       !recommendations_for(model).empty?
     end
+
+    def recommendations_for(model)
+      r = Hash.new
+      values.each do |item|
+        item.recommendations_for(model).each_pair do |key, value|
+          r[key] ||= Array.new
+          r[key] += value
+          r[key].uniq!
+        end
+      end
+      r.default = []
+      r
+    end
   end
 
   module CategoriesMethods
+    include(Helper)
+
     C = 0.5
 
     def percentual
@@ -31,12 +46,6 @@ module Results
       str
     end
 
-    def recommendations_for(model)
-      values.inject([]) do |memo, item|
-        memo + item.recommendations_for(model)
-      end
-    end
-
     def any?
       values.inject(false) { |r, category| r || category.any? }
     end
@@ -46,11 +55,7 @@ module Results
     include(Helper)
 
     def percentual
-      values.max_by { |item| item.percentual }.percentual
-    end
-
-    def recommendations_for(model)
-      values.inject([]) { |memo, item| memo + item.recommendations_for(model) }
+      any? ? values.max_by { |item| item.percentual }.percentual : 0
     end
 
     def to_s
@@ -65,6 +70,7 @@ module Results
 
   module ItemMethods
     include(Helper)
+    include(ActionView::Helpers::NumberHelper)
 
     def messages
       self[percentual]
@@ -75,7 +81,14 @@ module Results
     end
 
     def recommendations_for(model)
-      messages.find_all { |message| message[:instance] == get_key(model) }
+      r = Hash.new
+      messages.find_all { |m| m[:instance] == get_key(model) }.each do |m|
+        m[:attributes].each do |a|
+          r[a] ||= Array.new
+          r[a] << "#{m[:message]} (+#{number_to_percentage percentual, precision: 2})"
+        end
+      end
+      r
     end
 
     def to_s
@@ -106,6 +119,7 @@ module Results
       @current_item = @current_category["#{item.name}"] ||= Hash.new
       @current_item.extend(ItemMethods)
       yield(item)
+      @current_category.delete("#{item.name}") if @current_item.empty?
     end
   end
 
@@ -126,5 +140,13 @@ module Results
 
   def of(instance)
     @current_value.last[:instance] = "#{get_key(instance)}"
+  end
+
+  def recommendations_for(model)
+    results.recommendations_for(model)
+  end
+
+  def recommendations
+    recommendations_for(self)
   end
 end

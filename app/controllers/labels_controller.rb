@@ -20,8 +20,7 @@ class LabelsController < ApplicationController
     @label = @proposal.labels.build(params[:label])
 
     if @label.save
-      redirect_to project_proposal_labels_url(@project, @proposal),
-        notice: 'Label was successfully created.'
+      redirect_to project_proposal_labels_url(@project, @proposal)
     else
       render action: 'new'
     end
@@ -42,11 +41,17 @@ class LabelsController < ApplicationController
     @label = @proposal.labels.find(params[:id])
 
     if @label.update_attributes(params[:label])
-      redirect_to project_proposal_labels_url(@project, @proposal),
-        notice: 'Label was successfully updated.'
+      redirect_to correct_url(params)
     else
       render action: 'edit'
     end
+  end
+
+  # GET projects/1/proposals/1/labels/1/recommendations
+  def recommendations
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @label = @proposal.labels.find(params[:id])
   end
 
   # DELETE projects/1/proposals/1/labels/1
@@ -63,4 +68,15 @@ class LabelsController < ApplicationController
   # def show
   #   @label = Label.find(params[:id])
   # end
+
+  private
+    def correct_url(params)
+      case params.select{ |key| key =~ /action_/ }.first[0]
+      when 'action_save_recommendations'
+        results_project_url(@project,
+                            tab: @project.proposals.index(@proposal))
+      else
+        project_proposal_labels_url(@project, @proposal)
+      end
+    end
 end

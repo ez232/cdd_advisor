@@ -1,6 +1,3 @@
-<%= form_for([@project, @proposal, @knob],
-      html: { class: 'form-horizontal' }) do |f| %>
-  <%= field_set_tag t('.legend') do %>
     <%= tb_form_wrapper(@knob, :name) do %>
       <%= f.text_field :name %>
     <% end %>
@@ -84,10 +81,3 @@
         <%= render 'shared/grip_image', f: f, field: :thumb_press %>
       </ul>
     <% end %>
-  <% end %>
-  <div class="form-actions">
-    <%= link_to t('.back'), project_proposal_knobs_path(@project, @proposal),
-          class: 'btn' %>
-    <%= f.submit t('.save'), name: :action_save, class: 'btn btn-primary' %>
-  </div>
-<% end %>

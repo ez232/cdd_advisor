@@ -21,5 +21,6 @@
   </tbody>
 </table>
 
-<%= link_to(t('.back'), :back, class: 'btn btn-secondary') %>
+<%= link_to(t('.back'), edit_project_path(@project),
+      class: 'btn btn-secondary') %>
 <%= link_to(t('.new'), new_project_proposal_path, class: 'btn btn-primary') %>

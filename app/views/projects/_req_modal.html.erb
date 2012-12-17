@@ -13,7 +13,10 @@
   </div>
 
   <div class="modal-body">
-    <p><%= t(".#{req_modal}_header") %></p>
+    <p>
+      <%= t(".#{req_modal}_header",
+            var: number_with_precision(var, precision: 2)) %>
+    </p>
     <%= f.text_area req_modal, rows: 10,
             class: 'input-block-level' %>
   </div>

@@ -1,44 +1,34 @@
-<%= form_for([@project, @proposal, @label],
-      html: { class: 'form-horizontal' }) do |f| %>
-  <%= field_set_tag t('.legend') do %>
-    <%= tb_form_wrapper(@label, :name) do %>
-      <%= f.text_field :name %>
-    <% end %>
-    <%= tb_form_wrapper(@label, :media) do %>
-      <label class="checkbox inline">
-        <%= f.check_box :printed %>
-        <%= t('.printed') %>
-      </label>
-      <label class="checkbox inline">
-        <%= f.check_box :digital %>
-        <%= t('.digital') %>
-      </label>
-    <% end %>
-    <%= tb_form_wrapper(@label, :font_type) do %>
-      <%= f.text_field :font_type %>
-    <% end %>
-    <%= tb_form_wrapper(@label, :text_size) do %>
-      <div class="input-append">
-        <%= f.text_field :text_size, class: 'input-small' %>
-        <span class="add-on"><%= t('.text_size_unit') %></span>
-      </div>
-    <% end %>
-    <%= tb_form_wrapper(@label, :text_colour) do %>
-      <%= f.text_field :text_colour, class: 'input-small' %>
-    <% end %>
-    <%= tb_form_wrapper(@label, :background_colour) do %>
-      <%= f.text_field :background_colour, class: 'input-small' %>
-    <% end %>
-    <%= tb_form_wrapper(@label, :reading_distance) do %>
-      <div class="input-append">
-        <%= f.text_field :reading_distance, class: 'input-small' %>
-        <span class="add-on"><%= t('.reading_distance_unit') %></span>
-      </div>
-    <% end %>
-  <% end %>
-  <div class="form-actions">
-    <%= link_to t('.back'), project_proposal_labels_path(@project, @proposal),
-          class: 'btn' %>
-    <%= f.submit t('.save'), name: :action_save, class: 'btn btn-primary' %>
+<%= tb_form_wrapper(@label, :name) do %>
+  <%= f.text_field :name %>
+<% end %>
+<%= tb_form_wrapper(@label, :media) do %>
+  <label class="checkbox inline">
+    <%= f.check_box :printed %>
+    <%= t('.printed') %>
+  </label>
+  <label class="checkbox inline">
+    <%= f.check_box :digital %>
+    <%= t('.digital') %>
+  </label>
+<% end %>
+<%= tb_form_wrapper(@label, :font_type) do %>
+  <%= f.text_field :font_type %>
+<% end %>
+<%= tb_form_wrapper(@label, :text_size) do %>
+  <div class="input-append">
+    <%= f.text_field :text_size, class: 'input-small' %>
+    <span class="add-on"><%= t('.text_size_unit') %></span>
+  </div>
+<% end %>
+<%= tb_form_wrapper(@label, :text_colour) do %>
+  <%= f.text_field :text_colour, class: 'input-small' %>
+<% end %>
+<%= tb_form_wrapper(@label, :background_colour) do %>
+  <%= f.text_field :background_colour, class: 'input-small' %>
+<% end %>
+<%= tb_form_wrapper(@label, :reading_distance) do %>
+  <div class="input-append">
+    <%= f.text_field :reading_distance, class: 'input-small' %>
+    <span class="add-on"><%= t('.reading_distance_unit') %></span>
   </div>
 <% end %>

@@ -281,8 +281,6 @@ class Proposal < ActiveRecord::Base
                   recommend_handle_msg02 handle
                 end
               elsif handle.holding
-
-
                 with_percentual(3.60) do
                   recommend_handle_msg06
                   recommend_handle_msg02 handle
@@ -332,12 +330,60 @@ class Proposal < ActiveRecord::Base
           end
         end
       end
+
+      for_each_item_in :buttons do |button|
+        if button.two_fingers_press
+          if button.length_or_external_diameter < 20
+            with_percentual(6.00) do
+              recommend_button_msg04 button
+            end
+          elsif button.force_required >= 30
+            with_percentual(4.80) do
+              recommend_button_msg05 button
+            end
+          elsif button.force_required < 30
+            with_percentual(1.50) do
+              recommend_button_msg06 button
+            end
+          end
+        elsif button.one_finger_press
+          if button.length_or_external_diameter < 10
+            with_percentual(6.00) do
+              recommend_button_msg04 button
+            end
+          elsif button.length_or_external_diameter >= 10
+            if button.force_required >= 15
+              with_percentual(4.80) do
+                recommend_button_msg07 button
+              end
+            else
+              with_percentual(1.60) do
+                recommend_button_msg08 button
+              end
+            end
+          end
+        elsif button.thumb_press
+          if button.length_or_external_diameter < 15
+            with_percentual(6.00) do
+              recommend_button_msg04 button
+            end
+          elsif button.length_or_external_diameter >= 15
+            if button.force_required >= 27
+              with_percentual(4.80) do
+                recommend_button_msg09 button
+              end
+            else
+              with_percentual(1.60) do
+                recommend_button_msg10 button
+              end
+            end
+          end
+        end
+      end
     end
 
     generate_results_for :visibility do
       for_each_item_in :labels do |label|
-        # FIXME
-        # if product_colour == label.text_colour
         if label.background_colour == label.text_colour
           with_percentual(5.35) do
             recommend_label_msg01 label
@@ -388,6 +434,35 @@ class Proposal < ActiveRecord::Base
               recommend_label_msg01 label
               recommend_label_msg05 label
             end
+          end
+        end
+      end
+
+      for_each_item_in :buttons do |button|
+        if button.colour == button.background_colour
+          with_percentual(5.35) do
+            recommend_button_msg01 button
+            recommend_button_msg02 button
+            recommend_button_msg03 button
+          end
+        elsif button.length_or_external_diameter <= 3
+          with_percentual(4.35) do
+            recommend_button_msg04 button
+            recommend_button_msg01 button
+          end
+        elsif button.length_or_external_diameter <= 5
+          with_percentual(2.30) do
+            recommend_button_msg04 button
+            recommend_button_msg01 button
+          end
+        elsif button.length_or_external_diameter > 5
+          with_percentual(1.30) do
+            recommend_button_msg01 button
+          end
+        else
+          with_percentual(4.35) do
+            recommend_button_msg04 button
+            recommend_button_msg01 button
           end
         end
       end
@@ -472,8 +547,68 @@ class Proposal < ActiveRecord::Base
     end
 
     def recommend_label_msg05(instance)
-      recommend I18n.t('messages.labels.msg05')
+      recommend I18n.t('messages.label.msg05')
       for_attributes :reading_distance
+      of instance
+    end
+
+    def recommend_button_msg01(instance)
+      recommend I18n.t('messages.button.msg01')
+      for_attributes :colour, :background_colour
+      of instance
+    end
+
+    def recommend_button_msg02(instance)
+      recommend I18n.t('messages.button.msg02')
+      for_attributes :colour, :background_colour
+      of instance
+    end
+
+    def recommend_button_msg03(instance)
+      recommend I18n.t('messages.button.msg03')
+      for_attributes :colour, :background_colour
+      of instance
+    end
+
+    def recommend_button_msg04(instance)
+      recommend I18n.t('messages.button.msg04')
+      for_attributes :length_or_external_diameter
+      of instance
+    end
+
+    def recommend_button_msg05(instance)
+      recommend I18n.t('messages.button.msg05')
+      for_attributes :force_required
+      of instance
+    end
+
+    def recommend_button_msg06(instance)
+      recommend I18n.t('messages.button.msg06')
+      for_attributes :length_or_external_diameter
+      of instance
+    end
+
+    def recommend_button_msg07(instance)
+      recommend I18n.t('messages.button.msg07')
+      for_attributes :force_required
+      of instance
+    end
+
+    def recommend_button_msg08(instance)
+      recommend I18n.t('messages.button.msg08')
+      for_attributes :one_finger_press
+      of instance
+    end
+
+    def recommend_button_msg09(instance)
+      recommend I18n.t('messages.button.msg09')
+      for_attributes :force_required
+      of instance
+    end
+
+    def recommend_button_msg10(instance)
+      recommend I18n.t('messages.button.msg10')
+      for_attributes :thumb_press
       of instance
     end
 end

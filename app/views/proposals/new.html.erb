@@ -1,3 +1,12 @@
 <%= content_for_breadcrumb %>
 <h1><%= t('.title') %></h1>
-<%= render 'form' %>
+<%= form_for([@project, @proposal], html: { class: 'form-horizontal' }) do |f| %>
+  <%= field_set_tag t('.legend') do %>
+    <%= render partial: 'form', locals: { f: f } %>
+    <%= render partial: 'form_attributes', locals: { f: f } %>
+  <% end %>
+  <div class="form-actions">
+    <%= link_to t('.back'), project_proposals_path(@project), class: 'btn' %>
+    <%= f.submit t('.save'), name: :action_save, class: 'btn btn-primary' %>
+  </div>
+<% end %>

@@ -1,0 +1,16 @@
+<%= tb_form_wrapper(@proposal, :attributes) do %>
+  <div class="btn-group">
+    <%= f.submit t('.labels'), name: :action_labels,
+                 class: 'btn btn-small' %>
+    <%= f.submit t('.handles'), name: :action_handles,
+                 class: 'btn btn-small' %>
+    <%= f.submit t('.switches'), name: :action_switches,
+                 class: 'btn btn-small' %>
+    <%= f.submit t('.knobs'), name: :action_knobs,
+                 class: 'btn btn-small' %>
+    <%= f.submit t('.buttons'), name: :action_buttons,
+                 class: 'btn btn-small' %>
+    <%= f.submit t('.other_attributes'), name: :action_other_attributes,
+                 class: 'btn btn-small' %>
+  </div>
+<% end %>

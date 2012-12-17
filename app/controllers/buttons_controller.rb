@@ -20,8 +20,7 @@ class ButtonsController < ApplicationController
     @button = @proposal.buttons.build(params[:button])
 
     if @button.save
-      redirect_to project_proposal_buttons_url(@project, @proposal),
-        notice: 'Button was successfully created.'
+      redirect_to project_proposal_buttons_url(@project, @proposal)
     else
       render action: 'new'
     end
@@ -42,11 +41,17 @@ class ButtonsController < ApplicationController
     @button = @proposal.buttons.find(params[:id])
 
     if @button.update_attributes(params[:button])
-      redirect_to project_proposal_buttons_url(@project, @proposal),
-        notice: 'Button was successfully updated.'
+      redirect_to correct_url(params)
     else
       render action: 'edit'
     end
+  end
+
+  # GET projects/1/proposals/1/buttons/1/recommendations
+  def recommendations
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.find(params[:proposal_id])
+    @button = @proposal.buttons.find(params[:id])
   end
 
   # DELETE projects/1/proposals/1/buttons/1
@@ -63,4 +68,15 @@ class ButtonsController < ApplicationController
   # def show
   #   @button = Button.find(params[:id])
   # end
+
+  private
+    def correct_url(params)
+      case params.select{ |key| key =~ /action_/ }.first[0]
+      when 'action_save_recommendations'
+        results_project_url(@project,
+                            tab: @project.proposals.index(@proposal))
+      else
+        project_proposal_buttons_url(@project, @proposal)
+      end
+    end
 end

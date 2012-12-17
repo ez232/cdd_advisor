@@ -35,17 +35,13 @@ module ApplicationHelper
   end
 
   def tb_form_wrapper(model, field)
-    if model.errors[field].any?
-      error_class = 'error'
-      error_message = model.errors[field].first
-    end
-
+    highlight_class, highlight_messages = highlight(model, field)
     label_for = "#{model.class.name.downcase}_#{field}"
 
-    content_tag(:div, class: "control-group #{error_class}") do
+    content_tag(:div, class: "control-group #{highlight_class}") do
       label_tag(label_for, t(".#{field}"), class: 'control-label') <<
       content_tag(:div, class: 'controls') do
-        yield << tb_span(error_message, 'help-inline')
+        yield << tb_highlight(highlight_messages, 'help-inline')
       end
     end
   end
@@ -74,7 +70,40 @@ module ApplicationHelper
   end
 
   private
-  def tb_span(value, html_class)
-    value ? content_tag(:span, value, class: html_class) : ''
-  end
+    def tb_highlight(values, html_class)
+      content_tag(:small) do
+        content_tag(:ul, class: html_class) do
+          values.collect do |value|
+            content_tag(:li, value)
+          end.join.html_safe
+        end
+      end if values
+    end
+
+    def highlight(model, field)
+      if model.errors[field].any?
+        highlight_class = 'error'
+        highlight_messages = model.errors[field]
+      elsif url_for =~ /recommendations$/
+        if model.recommendations[field].any?
+          highlight_class = 'warning'
+          highlight_messages = model.recommendations[field]
+        elsif [:grips, :fake_grips].include? field
+          if recommendations_for_grips(model).any?
+            highlight_class = 'warning'
+            highlight_messages = recommendations_for_grips(model)
+          end
+        end
+      end
+
+      [ highlight_class, highlight_messages ]
+    end
+
+    def recommendations_for_grips(model)
+      [
+        :cylindrical_grip, :disc_grip, :disc_grip_2, :flat_hand_push,
+        :hook_grip, :one_finger_press, :pinch_grip, :pinch_grip_2, :power_grip,
+        :span_grip, :spherical_grip, :thumb_press, :two_fingers_press
+      ].collect { |grip| model.recommendations[grip] }.flatten.uniq
+    end
 end
