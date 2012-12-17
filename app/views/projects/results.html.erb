@@ -1,31 +1,32 @@
 <%= content_for_breadcrumb %>
-<div id="menu">
-  <span>Project Specifications</span>
-  &nbsp;&nbsp;&gt;&gt;&nbsp;&nbsp;
-  <span>Design Proposals</span>
-  &nbsp;&nbsp;&gt;&gt;&nbsp;&nbsp;
-  <span id="current">Design Proposals Presentation</span>
+
+<h1><%= "#{t('.project')} #{@project.name}" %></h1>
+
+<div class="row">
+  <div class="offset3 span9">
+    <!-- Tabs -->
+    <ul id="proposals-tabs" class="nav nav-tabs">
+      <%= render partial: 'tab', collection: @project.proposals %>
+    </ul>
+  </div>
 </div>
-
-<h1>Project: <%= @project.name %></h1>
-<% unless @project.proposals.empty? %>
-  <% @project.proposals.each do |proposal| %>
-    <h2><%= "#{proposal.name}" %></h2>
-    <%= render 'images', images: proposal.images %>
-
-    <h3>Dexterity</h3>
-    <%= render 'result', values: proposal.results[:dexterity] %>
-
-    <h3>Visibility</h3>
-    <%= render 'result', values: proposal.results[:visibility] %>
-
-    <br /><br />
-    <%= link_to "Edit #{proposal.name}", edit_proposal_path(proposal),
-      class: 'button' %>
-    <br /><br />
-  <% end %>
-<% else %>
-  <p>Please create at least one proposal to view the results.</p>
-<% end %>
-
-<%= link_to '&laquo; Back'.html_safe, :back %>
+<div class="row">
+  <div class="span3">
+    <h4>Company's requirements</h4>
+    <a class="btn btn-block" href="#details" data-toggle="modal">Target market</a>
+    <a class="btn btn-block" href="#details" data-toggle="modal">Market share</a>
+    <a class="btn btn-block" href="#details" data-toggle="modal">Market response</a>
+    <a class="btn btn-block" href="#details" data-toggle="modal">Volume of sale</a>
+    <a class="btn btn-block" href="#details" data-toggle="modal">Final price</a>
+    <a class="btn btn-block" href="#details" data-toggle="modal">Project timescale</a>
+    <a class="btn btn-block" href="#details" data-toggle="modal">Sustainability</a>
+    <a class="btn btn-block" href="#details" data-toggle="modal">Social responsibility</a>
+    <a class="btn btn-block" href="#details" data-toggle="modal">Impact on brand</a>
+  </div>
+  <div class="span9">
+    <!-- Tab content -->
+    <div id="proposals-tabs-content" class="tab-content">
+      <%= render partial: 'tab_content', collection: @project.proposals %>
+    </div>
+  </div>
+</div>

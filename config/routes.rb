@@ -10,6 +10,7 @@ CddAdvisor::Application.routes.draw do
   resources :projects, except: [:show, :destroy] do
     get :results, as: :results, on: :member
     resources :proposals, except: [:show, :destroy] do
+      get :recommendations, as: :recommendations, on: :member
       get :edit_other_attributes, on: :member
       resources :uploads
       resources :labels, except: :show

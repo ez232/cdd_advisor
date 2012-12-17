@@ -1,0 +1,3 @@
+<li class="<%= 'active' if @tab == tab_counter %>">
+  <%= link_to tab.name, "\#proposal_#{tab.id}", data: { toggle: 'tab' } %>
+</li>

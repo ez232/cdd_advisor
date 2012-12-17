@@ -48,6 +48,18 @@ en:
       back: "« Back"
       save: "Save"
       proposals: "Manage proposals »"
+    # /projects/1/results
+    results:
+      project: "Project:"
+      inclusivity: "Inclusivity:"
+      inclusivity_message: "of the UK adult population excluded from using this proposal."
+      success: "Yeah!"
+      success_message: ":D :D :D"
+      dexterity: "Dexterity:"
+      visibility: "Visibility:"
+      ok: "✔"
+      recommendations: "Recommendations"
+      close: "Close"
 
   proposals:
     # /proposals

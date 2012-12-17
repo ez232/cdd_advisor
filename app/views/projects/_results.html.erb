@@ -1,0 +1,84 @@
+<div class="row results">
+  <% if r.any? -%>
+    <!-- Overall result -->
+    <h4><%= t('.inclusivity') %></h4>
+    <p>
+      <strong class="text-error">
+        <%= number_to_percentage r.percentual, precision: 2 %>
+      </strong>
+      <%= t('.inclusivity_message') %>
+    </p>
+
+    <!-- For each category -->
+    <% r.each_pair do |category, items| -%>
+      <% id = "#{category}_#{proposal_id}" %>
+      <h5>
+        <%= t(".#{category}") %>
+        <% if items.any? -%>
+            <strong class="text-error">
+              <%= number_to_percentage items.percentual, precision: 2 %>
+            </strong>
+          </h5>
+          <a class="btn btn-success" href="#<%= id %>" data-toggle="modal">
+            <%= t('.recommendations') %>
+          </a>
+          <div
+            id="<%= id %>"
+            class="modal hide fade"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="myModalLabel"
+            aria-hidden="true"
+            style="text-align:left">
+
+            <div class="modal-header">
+              <h3 id="myModalLabel"><%= t('.recommendations') %></h3>
+            </div>
+
+            <div class="modal-body">
+              <h4>
+                <%= t(".#{category}") %>
+                <strong class="text-error">
+                  <%= number_to_percentage items.percentual, precision: 2 %>
+                </strong>
+              </h4>
+              <dl>
+                <% items.each_pair do |key, item| -%>
+                  <dt><h5>
+                    <%= key %>:
+                    <strong class="text-error">
+                      <%= number_to_percentage item.percentual, precision: 2 %>
+                    </strong>
+                  </h5></dt>
+                  <dd>
+                    <ul>
+                    <% item.messages.each do |m| -%>
+                      <li>
+                        <%= link_to(m[:message],
+                              recommendations_project_proposal_path(@project,
+                                proposal_id, i: m[:instance])) %>
+                      </li>
+                    <% end -%>
+                    </ul>
+                  </dd>
+                <% end -%>
+              </dl>
+            </div>
+
+            <div class="modal-footer">
+              <button class="btn" data-dismiss="modal" aria-hidden="true">
+                <%= t('.close') %>
+              </button>
+            </div>
+          </div>
+        <% else -%>
+            <strong class="text-success"><%= t('.ok') %></strong>
+          </h5>
+          <span class="btn disabled"><%= t('.recommendations') %></span>
+        <% end -%>
+    <% end -%>
+  <% else -%>
+    <h4><%= t('.success') %></h4>
+    <p><%= t('.success_message') %></p>
+  <% end -%>
+</div>

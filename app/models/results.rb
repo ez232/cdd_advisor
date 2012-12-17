@@ -1,10 +1,10 @@
 module Results
   module Helper
-    def to_key(model)
+    def get_key(model)
       "#{model.class.model_name}_#{model.id}"
     end
 
-    def to_model(key)
+    def get_model(key)
       model, id = key.split('_')
       model.constantize.find(id)
     end
@@ -32,7 +32,13 @@ module Results
     end
 
     def recommendations_for(model)
-      values.inject([]) { |memo, item| memo + item.recommendations_for(model) }
+      values.inject([]) do |memo, item|
+        memo + item.recommendations_for(model)
+      end
+    end
+
+    def any?
+      values.inject(false) { |r, category| r || category.any? }
     end
   end
 
@@ -50,7 +56,7 @@ module Results
     def to_s
       str = String.new
       each_pair do |key, value|
-        str += "    #{to_model(key).name}: #{value.percentual}\n"
+        str += "    #{key}: #{value.percentual}\n"
         str += value.to_s
       end
       str
@@ -69,7 +75,7 @@ module Results
     end
 
     def recommendations_for(model)
-      messages.find_all { |message| message[:instance] == to_key(model) }
+      messages.find_all { |message| message[:instance] == get_key(model) }
     end
 
     def to_s
@@ -77,7 +83,7 @@ module Results
       messages.each do |message|
         str += "      * #{message[:message]}\n"
         str += "        Highlight #{message[:attributes]} "
-        str += "of #{to_model(message[:instance]).name}\n"
+        str += "of #{get_model(message[:instance]).name}\n"
       end
       str
     end
@@ -97,7 +103,7 @@ module Results
 
   def for_each_item_in(collection, &block)
     self.send(collection).each do |item|
-      @current_item = @current_category["#{to_key(item)}"] ||= Hash.new
+      @current_item = @current_category["#{item.name}"] ||= Hash.new
       @current_item.extend(ItemMethods)
       yield(item)
     end
@@ -109,7 +115,9 @@ module Results
   end
 
   def recommend(message)
-    @current_value << { message: message, attributes: nil, instance: nil }
+    @current_value << {
+      message: message, attributes: nil, instance: nil
+    }
   end
 
   def for_attributes(*attributes)
@@ -117,6 +125,6 @@ module Results
   end
 
   def of(instance)
-    @current_value.last[:instance] = "#{to_key(instance)}"
+    @current_value.last[:instance] = "#{get_key(instance)}"
   end
 end

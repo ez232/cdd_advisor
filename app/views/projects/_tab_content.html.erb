@@ -1,0 +1,28 @@
+<div class="tab-pane fade <%= 'active in' if @tab == tab_content_counter %>"
+     id="<%= "proposal_#{tab_content.id}" %>">
+  <div class="row">
+    <div class="span6">
+      <div class="row-fluid">
+        <ul class="thumbnails">
+          <%= render partial: 'shared/image', collection: tab_content.images,
+                locals: { span: 'span6' } %>
+        </ul>
+      </div>
+      <%= render partial: 'results',
+            locals: { r: tab_content.results, proposal_id: tab_content.id } %>
+    </div>
+
+    <div class="span3">
+      <h4>Design requirements</h4>
+      <a class="btn btn-block" href="#details" data-toggle="modal">Functionality</a>
+      <a class="btn btn-block" href="#details" data-toggle="modal">Aesthetics</a>
+      <a class="btn btn-block" href="#details" data-toggle="modal">Manufacturing</a>
+      <a class="btn btn-block" href="#details" data-toggle="modal">Components</a>
+      <a class="btn btn-block" href="#details" data-toggle="modal">Usability</a>
+      <a class="btn btn-block" href="#details" data-toggle="modal">Materials</a>
+      <a class="btn btn-block" href="#details" data-toggle="modal">Finishing</a>
+      <a class="btn btn-block" href="#details" data-toggle="modal">Accessibility</a>
+      <a class="btn btn-block" href="#details" data-toggle="modal">Disposal</a>
+    </div>
+  </div>
+</div>
