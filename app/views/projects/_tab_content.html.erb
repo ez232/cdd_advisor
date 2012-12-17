@@ -1,6 +1,15 @@
 <div class="tab-pane fade <%= 'active in' if @tab == tab_content_counter %>"
      id="<%= "proposal_#{tab_content.id}" %>">
   <div class="row">
+    <div class="span3">
+      <h4><%= t('.company_reqs') %></h4>
+      <%= render partial: 'req_button', locals: { id: tab_content.id },
+            collection: [ :target_market, :market_share, :market_response,
+                          :volume_of_sale, :final_price, :project_timescale,
+                          :sustainability, :social_responsibility,
+                          :impact_on_brand ] %>
+    </div>
+
     <div class="span6">
       <div class="row-fluid">
         <ul class="thumbnails">
@@ -13,16 +22,20 @@
     </div>
 
     <div class="span3">
-      <h4>Design requirements</h4>
-      <a class="btn btn-block" href="#details" data-toggle="modal">Functionality</a>
-      <a class="btn btn-block" href="#details" data-toggle="modal">Aesthetics</a>
-      <a class="btn btn-block" href="#details" data-toggle="modal">Manufacturing</a>
-      <a class="btn btn-block" href="#details" data-toggle="modal">Components</a>
-      <a class="btn btn-block" href="#details" data-toggle="modal">Usability</a>
-      <a class="btn btn-block" href="#details" data-toggle="modal">Materials</a>
-      <a class="btn btn-block" href="#details" data-toggle="modal">Finishing</a>
-      <a class="btn btn-block" href="#details" data-toggle="modal">Accessibility</a>
-      <a class="btn btn-block" href="#details" data-toggle="modal">Disposal</a>
+      <h4><%= t('.design_reqs') %></h4>
+      <%= render partial: 'req_button', locals: { id: tab_content.id },
+            collection: [ :functionality, :aesthetics, :manufacturing,
+                          :components, :usability_accessibility, :materials,
+                          :finishing, :maintenance, :disposal ] %>
     </div>
   </div>
 </div>
+<%= form_for [@project, tab_content], remote: true do |f| %>
+  <%= render partial: 'req_modal', locals: { id: tab_content.id, f: f },
+        collection: [:target_market, :market_share, :market_response,
+                     :volume_of_sale, :final_price, :project_timescale,
+                     :sustainability, :social_responsibility,
+                     :impact_on_brand, :functionality, :aesthetics,
+                     :manufacturing, :components, :usability_accessibility,
+                     :materials, :finishing, :maintenance, :disposal ] %>
+<% end -%>

@@ -40,10 +40,13 @@ class ProposalsController < ApplicationController
     @project = Project.find(params[:project_id])
     @proposal = @project.proposals.find(params[:id])
 
-    if @proposal.update_attributes(params[:proposal])
-      redirect_to correct_url(params)
-    else
-      render action: 'edit'
+    respond_to do |format|
+      if @proposal.update_attributes(params[:proposal])
+        format.html { redirect_to correct_url(params) }
+        format.js
+      else
+        format.html { render action: 'edit' }
+      end
     end
   end
 

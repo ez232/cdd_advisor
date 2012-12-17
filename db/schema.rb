@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121130163914) do
+ActiveRecord::Schema.define(:version => 20121217011730) do
 
   create_table "buttons", :force => true do |t|
     t.integer  "proposal_id"
@@ -179,6 +179,25 @@ ActiveRecord::Schema.define(:version => 20121130163914) do
     t.string   "key_components_fixing"
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
+    t.text     "social_responsability"
+    t.text     "target_market"
+    t.text     "market_share"
+    t.text     "market_response"
+    t.text     "volume_of_sale"
+    t.text     "final_price"
+    t.text     "project_timescale"
+    t.text     "sustainability"
+    t.text     "social_responsibility"
+    t.text     "impact_on_brand"
+    t.text     "functionality"
+    t.text     "aesthetics"
+    t.text     "manufacturing"
+    t.text     "components"
+    t.text     "usability_accessibility"
+    t.text     "materials"
+    t.text     "finishing"
+    t.text     "maintenance"
+    t.text     "disposal"
   end
 
   create_table "switches", :force => true do |t|

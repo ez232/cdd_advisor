@@ -60,6 +60,134 @@ en:
       ok: "✔"
       recommendations: "Recommendations"
       close: "Close"
+      back: "« Back"
+    tab_content:
+      company_reqs: "Company's requirements"
+      design_reqs: "Design requirements"
+    req_button:
+      target_market: "Target market"
+      market_share: "Market share"
+      market_response: "Market response"
+      volume_of_sale: "Volume of sale"
+      final_price: "Final price"
+      project_timescale: "Project timescale"
+      sustainability: "Sustainability"
+      social_responsibility: "Social responsibility"
+      impact_on_brand: "Impact on brand"
+      functionality: "Functionality"
+      aesthetics: "Aesthetics"
+      manufacturing: "Manufacturing"
+      components: "Components"
+      usability_accessibility: "Usability-accessibility"
+      materials: "Materials"
+      finishing: "Finishing"
+      maintenance: "Maintenance"
+      disposal: "Disposal"
+    req_modal:
+      target_market: "Target market"
+      target_market_header: "How do you think the recommendations could affect the target market?"
+      market_share: "Market share"
+      market_share_header: |
+        Design proposals that take into account inclusivity issues can help a
+        product to stand out, particularly in a saturated market. Do you think
+        the recommendations could support the design proposal to differentiate
+        from the competitors? Please elaborate upon your reasons.
+      market_response: "Market response"
+      market_response_header: |
+        Inclusive designs are more likely to result in satisfied customers who
+        will return and buy another product from the company. Do you think the
+        statement above is applicable to this project? Please elaborate upon
+        your reasons.
+      volume_of_sale: "Volume of sale"
+      volume_of_sale_header: |
+        This design proposal excludes a number of users that may represent a
+        volume of sale of %{volume} units. How do you think the recommendations
+        could affect the volume of sale in this proposal? Please elaborate upon
+        your reasons.
+      final_price: "Final price"
+      final_price_header: |
+        Inclusive design can reduce future investments for architectural
+        redesign to make future versions of the product easier to use. In this
+        design proposal, if the recommendations suggested mean more investment,
+        do you think the overall cost reduction can be considered in the cost-
+        benefit calculation? Please elaborate upon your reasons.
+      project_timescale: "Project timescale"
+      project_timescale_header: |
+        Inclusive design often reduces the risk of project slippage and reduces
+        development timelines. This is because there is often less need for
+        rework, as rework is often required due to incorrect design and
+        miscommunication. Do you think the statement above is applicable to this
+        design proposal? Please elaborate upon your reasons.
+      sustainability: "Sustainability"
+      sustainability_header: |
+        Inclusive designs may last longer in the market by reducing long-term
+        development costs and increasing the revenue from each version of the
+        product. Do you think the statement above is applicable to this design
+        proposal? Please elaborate upon your reasons.
+      social_responsibility: "Social responsibility"
+      social_responsibility_header: |
+        Inclusive design can help to meet Corporate Social Responsibility (CSR)
+        goals and other aspects of the business objectives. Is this applicable
+        to this project?
+      impact_on_brand: "Impact on brand"
+      impact_on_brand_header: |
+        Products that exclude people unnecessarily, or cause frustration in the
+        use of it, lead to customer dissatisfaction and can impact negatively
+        (negative publicity) on brand. How do you think the recommendations
+        could impact on the brand image and market perceptions of a company?
+        Please elaborate upon your reasons.
+      functionality: "Functionality"
+      functionality_header: |
+        By improving the inclusivity of your design you avoid undesired and
+        unused features. How do you think the features in this proposal could
+        benefit from inclusive design?
+      aesthetics: "Aesthetics"
+      aesthetics_header: |
+        Accepting changes to a design proposal will enhance the inclusivity but
+        may incur in redesigning some features to preserve the intended
+        appearance. How do you think the recommendations would affect the
+        appearance of the design proposal?
+      manufacturing: "Manufacturing"
+      manufacturing_header: |
+        Accepting changes to a design proposal may incur retooling costs or
+        different BOM (bill of materials), which can increase or decrease the
+        final costs. How do you think the recommendations would affect the
+        manufacturing costs of the product?
+      components: "Components"
+      components_header: |
+        Do you see any change in the electronics, mechanical or other components
+        that could improve inclusivity?
+      usability_accessibility: "Usability-accessibility"
+      usability_accessibility_header: |
+        The development costs associated with user-trials, usability tests and
+        other type of user-centred research are normally outweighed by the
+        benefits it brings to the final product, two of which are the following:
+        (1) Reduction of the need for architectural redesign to make future
+        versions of the product easier to use. (2) Products easier to use that
+        promote users’ satisfaction mean reduction in investment on customer
+        service/ support. Do you think that user-centred research can be applied
+        in this project? Please, elaborate the ways it can be applied within the
+        time and budget of the project; or elaborate the reasons it could not be
+        applied.
+      materials: "Materials"
+      materials_header: |
+        Can you see any change in the materials selected for the design proposal
+        that could improve inclusivity?
+      finishing: "Finishing"
+      finishing_header: |
+        Can you see any change in the product’s finishing that could improve
+        inclusivity?
+      maintenance: "Maintenance"
+      maintenance_header: |
+        Can you see any improvements in the design that would facilitate the
+        maintenance?
+      disposal: "Disposal"
+      disposal_header: |
+        Can you see any attributes of the design proposal or the recommendations
+        suggested that could make the product last longer in the market?
+      save: "Save"
+      cancel: "Cancel"
+      saving: "Saving…"
 
   proposals:
     # /proposals

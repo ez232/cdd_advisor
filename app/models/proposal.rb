@@ -3,7 +3,11 @@ class Proposal < ActiveRecord::Base
 
   attr_accessible :name, :product_weight, :key_components_mechanics,
     :key_components_electronics, :key_components_fixing, :material_value_ids,
-    :manufacturing_value_ids, :finishing_value_ids, :maintenance_value_ids
+    :manufacturing_value_ids, :finishing_value_ids, :maintenance_value_ids,
+    :target_market, :market_share, :market_response, :volume_of_sale,
+    :final_price, :project_timescale, :sustainability, :social_responsibility,
+    :impact_on_brand, :functionality, :aesthetics, :manufacturing, :components,
+    :usability_accessibility, :materials, :finishing, :maintenance, :disposal
 
   has_many :handles, dependent: :destroy, inverse_of: :proposal
   has_many :switches, dependent: :destroy, inverse_of: :proposal

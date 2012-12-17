@@ -1,0 +1,26 @@
+<div id="<%= "#{req_modal}_#{id}" %>"
+     class="modal hide fade"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="<%= "#{req_modal}_#{id}" %>_label"
+     aria-hidden="true"
+     data-backdrop="static">
+
+  <div class="modal-header">
+    <h3 id="<%= "#{req_modal}_#{id}" %>_label">
+      <%= t(".#{req_modal}") %>
+    </h3>
+  </div>
+
+  <div class="modal-body">
+    <p><%= t(".#{req_modal}_header") %></p>
+    <%= f.text_area req_modal, rows: 10,
+            class: 'input-block-level' %>
+  </div>
+  <div class="modal-footer">
+    <%= f.submit t('.save'), class: 'btn btn-primary save-modal',
+            'data-loading-text' => t('.saving'), autocomplete: 'off' %>
+    <%= link_to t('.cancel'), '', class: 'btn',
+          data: { dismiss: 'modal' }, 'aria-hidden' => 'true' %>
+  </div>
+</div>
