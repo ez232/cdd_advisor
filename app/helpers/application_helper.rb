@@ -66,7 +66,20 @@ module ApplicationHelper
 
   def tb_file_upload(form)
     build.hidden_field :name
+  end
 
+  def tb_colorpicker(model, field, form)
+    color = !model.send(field) ? 'rgb(255, 255, 255)' : model.send(field)
+    text_field = form.text_field(field,
+                                 :class => 'input-medium cp',
+                                 'data-color-format' => 'rgb')
+    span = content_tag(:span, :class => 'add-on') do
+      content_tag(:i, nil, :style => "background-color: #{color};")
+    end
+
+    content_tag(:div, :class => 'input-append color', 'data-color' => color) do
+      text_field << span
+    end
   end
 
   private

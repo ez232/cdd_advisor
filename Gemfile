@@ -13,6 +13,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   # gem 'libv8', '~> 3.11.8'
   gem 'therubyracer', platforms: :ruby
+  gem 'bootstrap-colorpicker-rails'
 end
 
 gem 'jquery-rails'

@@ -54,10 +54,10 @@
   </div>
 <% end %>
 <%= tb_form_wrapper(@switch, :colour) do %>
-  <%= f.text_field :colour, class: 'input-small' %>
+  <%= tb_colorpicker(@switch, :colour, f) %>
 <% end %>
 <%= tb_form_wrapper(@switch, :background_colour) do %>
-  <%= f.text_field :background_colour, class: 'input-small' %>
+  <%= tb_colorpicker(@switch, :background_colour, f) %>
 <% end %>
 <%= tb_form_wrapper(@switch, :grips) do %>
   <ul class="thumbnails">

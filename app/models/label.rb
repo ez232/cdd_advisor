@@ -7,10 +7,10 @@ class Label < ActiveRecord::Base
   validates :proposal, presence: { message: "is not a valid proposal" }
   validates :text_colour, :background_colour, :name,
     presence: { message: "can't be blank" }
-  validates :text_size, presence: true,
-    numericality: { :greater_than => 0 }
-  validates :reading_distance, presence: true,
-    numericality: { :greater_than => 0 }
+  validates :text_size, :reading_distance, presence: true,
+    numericality: { greater_than: 0 }
+  validates :text_colour, :background_colour,
+    format: { with: ColorUtils::FORMAT }
 
   def recommendations
     proposal.recommendations_for(self) if proposal

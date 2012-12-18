@@ -21,10 +21,10 @@
   </div>
 <% end %>
 <%= tb_form_wrapper(@label, :text_colour) do %>
-  <%= f.text_field :text_colour, class: 'input-small' %>
+  <%= tb_colorpicker(@label, :text_colour, f) %>
 <% end %>
 <%= tb_form_wrapper(@label, :background_colour) do %>
-  <%= f.text_field :background_colour, class: 'input-small' %>
+  <%= tb_colorpicker(@label, :background_colour, f) %>
 <% end %>
 <%= tb_form_wrapper(@label, :reading_distance) do %>
   <div class="input-append">

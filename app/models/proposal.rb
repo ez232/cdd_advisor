@@ -1,5 +1,6 @@
 class Proposal < ActiveRecord::Base
-  include(Results)
+  include Results
+  include ColorUtils
 
   attr_accessible :name, :product_weight, :key_components_mechanics,
     :key_components_electronics, :key_components_fixing, :material_value_ids,

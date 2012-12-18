@@ -15,4 +15,5 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require jquery-fileupload
+//= require bootstrap-colorpicker
 //= require_tree .

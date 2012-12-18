@@ -8,8 +8,10 @@ class Knob < ActiveRecord::Base
   belongs_to :proposal, inverse_of: :knobs
 
   validates :proposal, presence: { message: "is not a valid proposal" }
-
-  validates :name, presence: { message: "can't be blank" }
+  validates :colour, :background_colour, :name,
+    presence: { message: "can't be blank" }
+  validates :colour, :background_colour,
+    format: { with: ColorUtils::FORMAT }
 
   SHAPE_VALUES = [ "Organic", "Rectangle", "Square", "Trapezium", "Trapezoid",
     "Cylindrical", "Oval", "Spherical", "Conical", "Triangle" ]

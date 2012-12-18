@@ -54,3 +54,10 @@ body .ratio {
   background-position: center center;
   background-size: cover;
 }
+
+body .input-append.color .add-on i {
+  display: block;
+  cursor: default;
+  width: 24px;
+  height: 20px;
+}
