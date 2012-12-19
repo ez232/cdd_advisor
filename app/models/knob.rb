@@ -1,9 +1,10 @@
 class Knob < ActiveRecord::Base
-  attr_accessible :background_colour, :colour, :cylindrical_grip, :disc_grip,
-    :force_required, :height, :length_or_external_diameter, :one_finger_press, :pinch_grip,
-    :pressing, :proposal_id, :pulling, :pushing, :shape, :sliding, :span_grip,
-    :spherical_grip, :thumb_press, :turning, :two_fingers_press, :width,
-    :pinch_grip_2, :disc_grip_2, :name
+  attr_accessible :disc_grip_2, :force_required, :height,
+    :length_or_external_diameter, :name, :one_finger_press, :pinch_grip,
+    :pinch_grip_2, :pressing, :proposal_id, :pulling, :pushing, :shape,
+    :sliding, :span_grip, :spherical_grip, :thumb_press, :turning,
+    :two_fingers_press, :width, :background_colour, :colour, :cylindrical_grip,
+    :disc_grip
 
   belongs_to :proposal, inverse_of: :knobs
 
@@ -13,8 +14,8 @@ class Knob < ActiveRecord::Base
   validates :colour, :background_colour,
     format: { with: ColorUtils::FORMAT }
 
-  SHAPE_VALUES = [ "Organic", "Rectangle", "Square", "Trapezium", "Trapezoid",
-    "Cylindrical", "Oval", "Spherical", "Conical", "Triangle" ]
+  SHAPE_VALUES = [ "Organic", "Cylindrical", "Oval", "Spherical", "Conical",
+    "Rectangle", "Square", "Trapezium", "Trapezoid", "Triangle"]
 
   def recommendations
     proposal.recommendations_for(self) if proposal

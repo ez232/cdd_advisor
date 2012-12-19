@@ -41,7 +41,7 @@ module ApplicationHelper
     content_tag(:div, class: "control-group #{highlight_class}") do
       label_tag(label_for, t(".#{field}"), class: 'control-label') <<
       content_tag(:div, class: 'controls') do
-        yield << tb_highlight(highlight_messages, 'help-inline')
+        yield << tb_highlight(highlight_messages)
       end
     end
   end
@@ -83,9 +83,9 @@ module ApplicationHelper
   end
 
   private
-    def tb_highlight(values, html_class)
+    def tb_highlight(values)
       content_tag(:small) do
-        content_tag(:ul, class: html_class) do
+        content_tag(:ul, class: 'help-inline recommendations') do
           values.collect do |value|
             content_tag(:li, value)
           end.join.html_safe
@@ -106,6 +106,11 @@ module ApplicationHelper
             highlight_class = 'warning'
             highlight_messages = recommendations_for_grips(model)
           end
+        elsif field == :tasks
+          if recommendations_for_tasks(model).any?
+            highlight_class = 'warning'
+            highlight_messages = recommendations_for_tasks(model)
+          end
         end
       end
 
@@ -119,4 +124,10 @@ module ApplicationHelper
         :span_grip, :spherical_grip, :thumb_press, :two_fingers_press
       ].collect { |grip| model.recommendations[grip] }.flatten.uniq
     end
+
+    def recommendations_for_tasks(model)
+      [
+        :carrying, :holding, :moving, :pressing, :pulling, :pushing, :sliding,
+        :turning
+      ].collect { |grip| model.recommendations[grip] }.flatten.uniq end
 end

@@ -50,11 +50,3 @@ module ColorUtils
       end
     end
 end
-
-
-class Test
-  include(ColorUtils)
-end
-
-r = Test.new.contrast_ratio("rgb(0,255,0)", "rgb(114,51,51)")
-puts r, r.aa_compliant?, r.aa_large_text_compliant?, r.aaa_compliant?, r.aaa_large_text_compliant?

@@ -1,5 +1,4 @@
 class Switch < ActiveRecord::Base
-
   attr_accessible :background_colour, :colour, :disc_grip, :disc_grip_2,
     :flat_hand_push, :force_required, :height, :length_or_external_diameter,
     :name, :one_finger_press, :pinch_grip, :pinch_grip_2, :pressing,
@@ -14,8 +13,8 @@ class Switch < ActiveRecord::Base
   validates :colour, :background_colour,
     format: { with: ColorUtils::FORMAT }
 
-  SHAPE_VALUES = [ "Organic", "Rectangle", "Square", "Trapezium", "Trapezoid",
-    "Cylindrical", "Oval", "Spherical", "Conical", "Triangle"]
+  SHAPE_VALUES = [ "Organic", "Cylindrical", "Oval", "Spherical", "Conical",
+    "Rectangle", "Square", "Trapezium", "Trapezoid", "Triangle"]
 
   def recommendations
     proposal.recommendations_for(self) if proposal

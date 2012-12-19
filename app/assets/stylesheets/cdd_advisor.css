@@ -61,3 +61,7 @@ body .input-append.color .add-on i {
   width: 24px;
   height: 20px;
 }
+
+body .recommendations {
+  width: 50%;
+}

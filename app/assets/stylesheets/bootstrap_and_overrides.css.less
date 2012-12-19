@@ -1,0 +1,223 @@
+                                                                     
+                                                                     
+                                                                     
+                                             
+Switch
+
+Visibility:
+
+if switch.colour == switch.background_colour
+          
+          update_recommendations values, 5.35,
+              [
+                'Increase background-foreground colour contrast (background colour- switch colour)',
+                '100% black in 100% white is the best foreground-background contrast',
+                'Avoid red in green or green in red colour contrast (to not excluded red-green colour blind people)'
+              ]
+          else
+            if switch.external_diameter <= 3
+              update_recommendations values, 4.35,
+              [
+               'Increase switch size',
+               'Increase background-foreground colour contrast (background colour- switch colour)',
+              ]
+            elsif switch.external_diameter <= 5
+              update_recommendations values, 2.30,
+              [
+               'Increase switch size',
+               'Increase background-foreground colour contrast (background colour- switch colour)',
+              ]
+            elsif switch.external_diameter > 5
+              update_recommendations values, 1.30,
+              [
+                'Increase background-foreground colour contrast (background colour- switch colour)'
+              ]
+            else
+            update_recommendations values, 4.35,
+            [
+              'Increase switch size',
+              'Increase background-foreground colour contrast (background colour- switch colour)',
+            ]
+            end
+
+
+Dexterity:
+
+unless switch.nil?
+      if switch.pressing or switch.pulling or switch.pushing
+	if switch.grips.two_fingers_press or switch.grips.pinch or switch.grips.pinch_2 or switch.grips.disc or switch.grips.disc 2
+           if switch.external_diameter <= 20
+              update_recommendations values, 6.00,
+              [
+                'Increase switch size'
+              ]
+           elsif switch.external_diameter > 20
+              if switch.Force_required >= 23
+              update_recommendations values, 4.80,
+              [
+                'Reduce Force Required to less than 23N for the grip type in use'
+              ]
+              elsif switch.Force_required < 23
+              update_recommendations values, 1.50,
+              [
+                'Increase switch size for comfortable use'
+              ]
+              end
+        elsif if switch.grips.one_finger_press
+           if switch.external_diameter < 13
+              update_recommendations values, 6.00,
+	      [
+                'Increase switch size'
+              ]
+           elsif switch.external_diameter >= 13
+              if switch.Force_required >= 15
+                update_recommendations values, 4.80,
+              [
+                'Reduce Force Required to less than 15N for one finger press'
+              ]
+              elsif switch.Force_required < 15
+                update_recommendations values, 3.40,
+              [
+                'Reduce Force Required to less than 11.2 N for one finger press'
+              ]
+              elsif switch.Force_required < 11.2
+                update_recommendations values, 2.60,
+              [
+                'This is the minimum exclusion for one finger press you can try other type of switches that allow thumb press or two fingers press for example'
+              ]
+              elsif switch.Force_required < 0.5
+                update_recommendations values, 2.80,
+              [
+                'Increase the Force Required to the range from 0.5 N to 0.9 N for one finger press to avoid accidental activation'
+              ]
+              else
+                update_recommendations values, 2.60,
+              [
+                'This is the minimum exclusion for one finger press you can try other type of switches that allow thumb press or two fingers press for example'
+              ]
+              end
+        elsif if switch.grips.thumb_finger_press
+           if switch.external_diameter < 15
+              update_recommendations values, 6.00,
+	      [
+                'Increase switch size'
+              ]
+           elsif switch.external_diameter >= 15
+              if switch.Force_required >= 25
+                update_recommendations values, 4.80,
+              [
+                'Reduce Force Required to less than 25N for thumb press'
+               ]
+              else
+                update_recommendations values, 1.60,
+              [
+                'This is the minimum exclusion for thumb press you can try other type of switches that allow two fingers press for example'
+              ]
+              end
+      elsif switch.turning
+        if switch.shape.organic or switch.shape.cylindrical or switch.shape.oval or switch.shape.spherical or switch.shape.conical
+          if switch.grips.pinch or switch.grips.pinch_2 or switch.grips.disc or switch.grips.disc 2
+            if switch.external_diameter > 80 
+                update_recommendations values, 6.00,
+              [
+                'Reduce the size  of the switch (reduce external diameter to less than 28)'
+              ]            
+            elsif switch.external_diameter > 28
+              if switch.Force_required >= 0.56
+                update_recommendations values, 4.80,
+              [
+                'Reduce the twisting force to less than 0.56 Nm'
+              ]
+              else
+                update_recommendations values, 2.30,
+              [
+                'This is the minimum exclusion for turning switches you can try other type of switches that allow other type of grips, for example two fingers press'
+              ]
+	    elsif switch.external_diameter <= 28
+	      if switch.Force_required >= 0.56	
+                update_recommendations values, 6.00,
+	        [
+                  'Reduce the twisting force to less than 0.56 Nm'
+		  'Increase the size (external diameter) of the switch'
+                ]
+	      else 
+                update_recommendations values, 4.80,
+	        [
+                  'Increase the size of the switch'
+                ]
+		end
+              end
+	    end
+	  end
+        if switch.shape.rectangle or switch.shape.square or switch.shape.trapezium or switch.shape.trapezoid or switch.shape.triangle
+          if switch.grips.pinch or switch.grips.pinch_2 or switch.grips.disc or switch.grips.disc 2
+            if switch.external_diameter > 65 
+                update_recommendations values, 6.00,
+              [
+                'Reduce the size  of the switch (reduce external diameter to less than 31)'
+              ]            
+            elsif switch.external_diameter > 31
+              if switch.Force_required >= 0.69
+                update_recommendations values, 4.80,
+                [
+                  'Reduce the twisting force to less than 0.69 Nm'
+                ]
+                else
+                update_recommendations values, 2.30,
+                [
+                  'This is the minimum exclusion for turning switches you can try other type of switches that allow other type of grips, for example two fingers press'
+                ]
+	        end
+	    elsif switch.external_diameter <= 31
+	      if switch.Force_required >= 0.69	
+                update_recommendations values, 6.00,
+	        [
+                  'Reduce the twisting force to less than 0.69 Nm'
+		  'Increase the size (external diameter) of the switch'
+                ]
+	      else 
+                update_recommendations values, 4.80,
+	        [
+                  'Increase the size of the switch'
+                ]
+		end
+              end
+          elsif switch.grips.thumb_finger_press or switch.grips.one_finger_press or switch.grips.two_finger_press
+              update_recommendations values, 6.00,
+	      [
+                'For more inclusive design, the user should not be required to make two manipulations at the same time (i.e., pushing and turning a switch); you can try other type of switches, for example rocker switches or push switches'
+              ]
+	      end
+	    end
+	  end
+	end
+      elsif switch.sliding
+	if switch.grips.two_fingers_press or switch.grips.pinch or switch.grips.pinch_2 or switch.grips.disc or switch.grips.disc 2 or switch.grips.one_finger_press or switch.grips.thumb_finger_press
+           if switch.external_diameter <= 13
+              update_recommendations values, 6.00,
+              [
+                'Increase switch size'
+		'Slide switches require precision in placement of the finger and precision in movement; you can try other type of switches, for example rocker switches or push switches'
+              ]
+           else #if switch.external_diameter > 13
+              if switch.Force_required >= 4.5
+              update_recommendations values, 4.80,
+              [
+                'Reduce Force Required to less than 4.5N for the grip type in use'
+              ]
+              else #if switch.Force_required < 4.5
+              update_recommendations values, 2.60,
+              [
+		'This is the minimum exclusion for slide switches. Slide switches require precision in placement of the finger and precision in movement; you can try other type of switches, for example rocker switches or push switches'
+              ]
+              end
+	    end
+	  end
+	end
+      end  
+
+
+
+
+#Force lower than 1,96N is undesirable due to poor feedback and; it is generally poor operated by those people with hand tremor.
+        
